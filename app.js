@@ -11,7 +11,12 @@ const ANIMALS = [
  {id:'lion',name:'Lion',hi:'शेर',letter:'L',sentence:'The lion can roar.'},
 ];
 const GROUPS = [['cow','dog','fish'],['cat','duck','rabbit'],['elephant','lion','cow']];
-const MODES = {names:{title:'Find a friend',icon:'◎',description:'Listen & pick an animal'},sentences:{title:'Little sentences',icon:'“ ”',description:'Listen to what animals do'},letters:{title:'Letter play',icon:'Aa',description:'Match a starting letter'}};
+const MODES = {actions:{title:'Animal stories',description:'Choose an action and talk together'},names:{title:'Find a friend',icon:'◎',description:'Listen & pick an animal'},sentences:{title:'Little sentences',icon:'“ ”',description:'Listen to what animals do'},letters:{title:'Letter play',icon:'Aa',description:'Match a starting letter'}};
+const STORY_ANIMALS=['cow','dog','rabbit'];
+const STORY_ACTIONS={walk:{column:0,label:'Walk',verb:'walking',hi:'चल'},eat:{column:1,label:'Eat',verb:'eating',hi:'खा'},sleep:{column:2,label:'Sleep',verb:'sleeping',hi:'सो'}};
+const STORY_PAIRS=[['walk','eat'],['sleep','walk'],['eat','sleep'],['eat','sleep'],['walk','eat'],['sleep','walk']];
+let storyFlow=0;
+const storyAnimations=new Set();
 const STORE='animal-buddies-v1';
 let storageWorks=true;
 function read(){try{return JSON.parse(localStorage.getItem(STORE)||'{}')}catch{return {}}}
@@ -19,14 +24,14 @@ let saved=read();
 let settings={minutes:5,group:0,...saved.settings};
 if(![3,5,7].includes(settings.minutes))settings.minutes=5;
 if(![0,1,2].includes(settings.group))settings.group=0;
-let mode=['names','sentences','letters'].includes(saved.mode)?saved.mode:'names';
+let mode=saved.curriculumVersion===3 && MODES[saved.mode]?saved.mode:'actions';
 let session=saved.session;
 if(session && (!Number.isFinite(session.deadline)||!Number.isInteger(session.round)||session.round<0||session.round>6||!Array.isArray(session.targets)||session.targets.length!==6||!session.targets.every(id=>ANIMALS.some(a=>a.id===id))||!['active','ended'].includes(session.status)))session=null;
 let screen='home', phase='learn', hint=false, choiceOrder=[], wrong='', correct=false, offlineReady=false;
 let audioContext, audioSource, audioGeneration=0, audioBusy=false;
 const decoded=new Map();
 let registration, installPrompt;
-function persist(){try{localStorage.setItem(STORE,JSON.stringify({settings,mode,session}));}catch{storageWorks=false;}}
+function persist(){try{localStorage.setItem(STORE,JSON.stringify({settings,mode,session,curriculumVersion:3}));}catch{storageWorks=false;}}
 function animal(id){return ANIMALS.find(a=>a.id===id);}
 function target(){return animal(session.targets[session.round]);}
 function picture(a,klass=''){return '<img class="animal '+klass+'" src="./animals/'+a.id+'.svg" alt="'+a.name+'" draggable="false">';}
@@ -52,7 +57,8 @@ function modeAudio(a,help=false){
  return [a.id+(mode==='letters'?'-letter':mode==='sentences'?'-sentence':'-find')];
 }
 function listen(){
- if(screen==='done')return play(['goodbye-en','goodbye-hi']);
+ if(screen==='done')return play(mode==='actions'?['story-goodbye-en','story-goodbye-hi']:['goodbye-en','goodbye-hi']);
+ if(screen==='game'&&mode==='actions')return storyNarrate();
  if(screen!=='game')return play(['welcome-en','welcome-hi']);
  const a=target();
  if(phase==='learn')play(mode==='letters'?[a.id+'-letter',a.id+'-hi','arrow-en','arrow-hi']:[a.id+'-name',a.id+'-hi',a.id+'-name',...(mode==='sentences'?[a.id+'-sentence']:[]),'arrow-en','arrow-hi']);
@@ -61,8 +67,8 @@ function listen(){
 }
 function shuffle(xs){const x=[...xs];for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]];}return x;}
 function home(){
- stopAudio();screen='home';
- $('main').innerHTML='<section class="welcome"><p class="eyebrow">A SMALL ADVENTURE TOGETHER</p><h1>Hello, little explorer!</h1><p class="hindi" lang="hi">चलो, जानवरों से दोस्ती करें!</p><div class="friends">'+GROUPS[settings.group].map(id=>'<div class="friend">'+picture(animal(id))+'<span>'+animal(id).name+'</span></div>').join('')+'</div><button class="primary" id="start"><span class="play-symbol" aria-hidden="true">▶</span><span class="play-label">Let’s play</span></button><p class="session-note">'+settings.minutes+' minutes at most · 6 little turns · Hindi help</p><p id="audio-note" class="audio-note" role="status"></p></section>';
+ stopStory();stopAudio();screen='home';
+ $('main').innerHTML='<section class="welcome '+(mode==='actions'?'story-home':'')+'"><p class="eyebrow">A SMALL ADVENTURE TOGETHER</p><h1>Hello, little explorer!</h1><p class="hindi" lang="hi">चलो, जानवरों से दोस्ती करें!</p><div class="friends">'+visibleFriends().map(id=>'<div class="friend">'+(mode==='actions'?storySprite(id,'walk'):picture(animal(id)))+'<span>'+animal(id).name+'</span></div>').join('')+'</div><button class="primary" id="start"><span class="play-symbol" aria-hidden="true">▶</span><span class="play-label">Let’s play</span></button><p class="session-note">'+settings.minutes+' minutes at most · 6 little turns · Hindi help</p><p id="audio-note" class="audio-note" role="status"></p></section>';
  document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{mode=b.dataset.mode;persist();home();});
  $('start').onclick=start;
 }
@@ -70,7 +76,7 @@ async function start(){
  await unlockAudio();
  // An unfinished session keeps its original deadline across reloads.
  if(session?.status==='ended')return finish(false);
- if(!session){const ids=GROUPS[settings.group];session={status:'active',round:0,targets:[...ids,...ids],deadline:Date.now()+settings.minutes*60000,mode};persist();}
+ if(!session){const ids=visibleFriends();session={storyPairs:STORY_PAIRS.map(shuffle),status:'active',round:0,targets:[...ids,...ids],deadline:Date.now()+settings.minutes*60000,mode};persist();}
  mode=MODES[session.mode]?session.mode:mode;
  if(expired())return finish();
  screen='game';phase='learn';hint=false;correct=false;renderGame();listen();
@@ -90,6 +96,7 @@ function choose(value){
  else{wrong=value;hint=true;renderGame();play(['try-en',...modeAudio(a,true)]);}
 }
 function next(){
+ if(mode==='actions')return nextStory();
  if(expired())return finish();
  if(!correct)return;
  stopAudio();session.round++;persist();
@@ -97,6 +104,7 @@ function next(){
  phase='learn';hint=false;wrong='';correct=false;renderGame();listen();
 }
 function renderGame(){
+ if(mode==='actions')return renderStory();
  screen='game';const a=target();
  const prompt=mode==='letters'?'Find '+a.letter:mode==='sentences'?a.sentence:'Where is the '+a.name.toLowerCase()+'?';
  const dots=Array.from({length:6},(_,i)=>'<span class="step '+(i<session.round?'complete':i===session.round?'current':'')+'"></span>').join('');
@@ -117,19 +125,19 @@ function updateTime(){
  if($('time-note')&&session)$('time-note').textContent=Math.ceil(Math.max(0,session.deadline-Date.now())/60000)+' min left';
 }
 function finish(speak=true){
- stopAudio();if(session){session.status='ended';persist();}
+ stopStory();stopAudio();if(session){session.status='ended';persist();}
  screen='done';
- $('main').innerHTML='<section class="welcome goodbye"><p class="eyebrow">ALL DONE FOR TODAY</p><h1>See you, animal friends.</h1><div class="friends">'+GROUPS[settings.group].map(id=>'<div class="friend">'+picture(animal(id))+'</div>').join('')+'</div><p class="hindi" lang="hi">अब फोन रखकर साथ खेलें।</p><p class="offline-activity">Can you walk like an elephant<br>or swim like a little fish?</p><button class="sound" id="listen"><span aria-hidden="true">🔊</span> Listen</button><p id="audio-note" class="audio-note" role="status"></p><p class="session-note">A grown-up can start another visit from the top button.</p></section>';
+ $('main').innerHTML='<section class="welcome goodbye"><p class="eyebrow">ALL DONE FOR TODAY</p><h1>See you, animal friends.</h1><div class="friends">'+visibleFriends().map(id=>'<div class="friend">'+(mode==='actions'?storySprite(id,'walk'):picture(animal(id)))+'</div>').join('')+'</div><p class="hindi" lang="hi">अब फोन रखकर साथ खेलें।</p><p class="offline-activity">Can you pretend to walk,<br>eat, or sleep?</p><button class="sound" id="listen"><span aria-hidden="true">🔊</span> Listen</button><p id="audio-note" class="audio-note" role="status"></p><p class="session-note">A grown-up can start another visit from the top button.</p></section>';
  $('listen').onclick=listen;if(speak)listen();
 }
 function tick(){if(expired())finish();else updateTime();}
 setInterval(tick,500);
-document.addEventListener('visibilitychange',()=>{if(document.hidden)stopAudio();else tick();});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){stopStory();stopAudio();}else tick();});
 window.addEventListener('pageshow',tick);
 $('parent').onclick=parentGate;
 document.querySelector('.brand').onclick=e=>{e.preventDefault();if(session?.status==='active')return;session?.status==='ended'?finish(false):home();};
 function parentGate(){
- stopAudio();
+ stopStory();stopAudio();
  const existing=$('grownup-dialog');if(existing)existing.remove();
  const dialog=document.createElement('dialog');dialog.id='grownup-dialog';
  const x=8+Math.floor(Math.random()*5),y=6+Math.floor(Math.random()*5);
@@ -139,9 +147,9 @@ function parentGate(){
 }
 function parentSettings(dialog){
  const active=session?.status==='active';
- dialog.innerHTML='<div class="dialog-top"><h2>A little guide</h2><button class="quiet" id="close-parent">Close</button></div><p>Start with <b>Find a friend</b>. Let him point, listen, or speak—there is no need to repeat on demand.</p><div class="setting-row"><label for="activity">Activity</label><select id="activity" '+(active?'disabled':'')+'>'+Object.entries(MODES).map(([key,m])=>'<option value="'+key+'" '+(mode===key?'selected':'')+'>'+m.title+'</option>').join('')+'</select></div><div class="setting-row"><label for="minutes">Session limit</label><select id="minutes" '+(active?'disabled':'')+'>'+[3,5,7].map(n=>'<option value="'+n+'" '+(settings.minutes===n?'selected':'')+'>'+n+' minutes</option>').join('')+'</select></div><div class="setting-row"><label for="group">Animal friends</label><select id="group" '+(active?'disabled':'')+'>'+GROUPS.map((g,i)=>'<option value="'+i+'" '+(settings.group===i?'selected':'')+'>'+g.map(id=>animal(id).name).join(', ')+'</option>').join('')+'</select></div><p class="small">Each visit ends after 6 turns or the time limit. The timer includes time away from the app. '+(active?'Finish this visit to change its settings.':'')+'</p><button class="primary compact" id="new-visit">'+(active?'End this visit':'Prepare a new visit')+'</button><hr><h3>Save to your phone</h3><p><b>iPhone:</b> Open in Safari → Share → Add to Home Screen → Add.</p><p><b>Android:</b> Open in Chrome → menu → Install app or Add to Home screen.</p><button class="sound" id="install-app" '+(!installPrompt?'hidden':'')+'>Install Animal Buddies</button><p><b>Open from the new home-screen icon while online.</b> Wait for “Ready for offline play”, then try airplane mode. No computer or running server is needed.</p><button class="sound" id="save-offline">Check offline download</button><p id="download-detail" role="status">'+(offlineReady?'Ready for offline play.':'Preparing offline files…')+'</p><p class="small">If you clear website data, remove the app, or the phone clears its storage, reconnect once to download again. No sign-in is needed. Browser storage keeps settings on this phone only.</p><hr><h3>Why this game?</h3><p>At 3–4, familiar words, simple sentences, playful listening, and noticing a few letters are useful goals. Whole-word spelling is not required here. Keep speaking Hindi together; it supports language learning.</p><p class="small">The five-minute limit is our design choice, not a developmental prescription. Play together when possible. No ads, scores, streaks, background music, or microphone recording.</p><p class="small">Sources: <a href="https://headstart.gov/school-readiness/article/literacy-preschool" target="_blank" rel="noopener">Head Start literacy guidance</a> · <a href="https://www.healthychildren.org/English/ages-stages/gradeschool/school/Pages/7-Myths-Facts-Bilingual-Children-Learning-Language.aspx" target="_blank" rel="noopener">AAP multilingual guidance</a> · <a href="https://www.cdc.gov/act-early/milestones/3-years.html" target="_blank" rel="noopener">CDC age-three milestones</a></p><p class="small">Animal illustrations: <a href="https://openmoji.org/" target="_blank" rel="noopener">OpenMoji</a>, CC BY-SA 4.0. Recorded synthetic voices. Hindi meanings use familiar everyday animal names.</p>'+(!storageWorks?'<p>Settings could not be saved by this browser. Session limits may reset when you close the app.</p>':'');
+ dialog.innerHTML='<div class="dialog-top"><h2>A little guide</h2><button class="quiet" id="close-parent">Close</button></div><p>Try <b>Animal stories</b>: he chooses between two action pictures, then hears a short sentence. Both choices work. Pause and talk together: if he says “eat”, you can model “The cow is eating.” Hindi is welcome; repeating is optional.</p><div class="setting-row"><label for="activity">Activity</label><select id="activity" '+(active?'disabled':'')+'>'+Object.entries(MODES).map(([key,m])=>'<option value="'+key+'" '+(mode===key?'selected':'')+'>'+m.title+'</option>').join('')+'</select></div><div class="setting-row"><label for="minutes">Session limit</label><select id="minutes" '+(active?'disabled':'')+'>'+[3,5,7].map(n=>'<option value="'+n+'" '+(settings.minutes===n?'selected':'')+'>'+n+' minutes</option>').join('')+'</select></div><div class="setting-row"><label for="group">Animal friends</label><select id="group" '+(active||mode==='actions'?'disabled':'')+'>'+(mode==='actions'?'<option selected>Cow, Dog, Rabbit</option>':'')+GROUPS.map((g,i)=>'<option value="'+i+'" '+(mode!=='actions'&&settings.group===i?'selected':'')+'>'+g.map(id=>animal(id).name).join(', ')+'</option>').join('')+'</select></div><p class="small">Each visit ends after 6 turns or the time limit. The timer includes time away from the app. '+(active?'Finish this visit to change its settings.':'')+'</p><button class="primary compact" id="new-visit">'+(active?'End this visit':'Prepare a new visit')+'</button><hr><h3>Save to your phone</h3><p><b>iPhone:</b> Open in Safari → Share → Add to Home Screen → Add.</p><p><b>Android:</b> Open in Chrome → menu → Install app or Add to Home screen.</p><button class="sound" id="install-app" '+(!installPrompt?'hidden':'')+'>Install Animal Buddies</button><p><b>Open from the new home-screen icon while online.</b> Wait for “Ready for offline play”, then try airplane mode. No computer or running server is needed.</p><button class="sound" id="save-offline">Check offline download</button><p id="download-detail" role="status">'+(offlineReady?'Ready for offline play.':'Preparing offline files…')+'</p><p class="small">If you clear website data, remove the app, or the phone clears its storage, reconnect once to download again. No sign-in is needed. Browser storage keeps settings on this phone only.</p><hr><h3>Why this game?</h3><p>At 3–4, familiar words, simple sentences, playful listening, and noticing a few letters are useful goals. Whole-word spelling is not required here. Keep speaking Hindi together; it supports language learning.</p><p class="small">The five-minute limit is our design choice, not a developmental prescription. Play together when possible. No ads, scores, streaks, background music, or microphone recording.</p><p class="small">Sources: <a href="https://headstart.gov/school-readiness/article/literacy-preschool" target="_blank" rel="noopener">Head Start literacy guidance</a> · <a href="https://www.healthychildren.org/English/ages-stages/gradeschool/school/Pages/7-Myths-Facts-Bilingual-Children-Learning-Language.aspx" target="_blank" rel="noopener">AAP multilingual guidance</a> · <a href="https://www.cdc.gov/act-early/milestones/3-years.html" target="_blank" rel="noopener">CDC age-three milestones</a></p><p class="small">Action illustrations generated for this game. Other animal illustrations: <a href="https://openmoji.org/" target="_blank" rel="noopener">OpenMoji</a>, CC BY-SA 4.0. Recorded synthetic voices. Hindi meanings use familiar everyday animal names.</p>'+(!storageWorks?'<p>Settings could not be saved by this browser. Session limits may reset when you close the app.</p>':'');
  $('close-parent').onclick=()=>dialog.close();
- $('activity').onchange=e=>{mode=e.target.value;persist();};
+ $('activity').onchange=e=>{mode=e.target.value;persist();parentSettings(dialog);};
  $('minutes').onchange=e=>{settings.minutes=Number(e.target.value);persist();};
  $('group').onchange=e=>{settings.group=Number(e.target.value);persist();};
  $('new-visit').onclick=()=>{if(active){finish();dialog.close();}else{session=null;persist();dialog.close();home();}};
@@ -182,4 +190,85 @@ if(session?.status==='ended')finish(false);else if(session?.status==='active'){m
 prepareOffline();
 if(document.modelContext?.registerTool){
  try{Promise.resolve(document.modelContext.registerTool({name:'get_animal_game_status',description:'Read the current activity, session and offline readiness. Does not start play or change parental controls.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true},execute(input){if(!input||typeof input!=='object'||Object.keys(input).length)throw Error('No inputs expected');return {activity:mode,screen,sessionStatus:session?.status||'not-started',turn:session?Math.min(session.round+1,6):null,offlineReady};}})).catch(()=>{});}catch{}
+}
+
+// Action play is choice-led: both pictures are valid, with no speech assessment.
+function visibleFriends(){return mode==='actions'?STORY_ANIMALS:GROUPS[settings.group];}
+function storyChoices(){return session.storyPairs?.[session.round] || STORY_PAIRS[session.round];}
+function stopStory(){
+ storyFlow++;
+ for(const animation of storyAnimations)animation.cancel();
+ storyAnimations.clear();
+ document.querySelectorAll('.action-tile').forEach(el=>el.classList.remove('demonstrating'));
+}
+function storySprite(id,action,extra=''){
+ const spec=STORY_ACTIONS[action];
+ return '<span class="action-sprite '+extra+'" role="img" aria-label="'+animal(id).name+' '+spec.verb+'" data-action="'+action+'" style="--sheet:url(./stories/'+id+'.png);--column:'+spec.column+'"></span>';
+}
+function storySentence(id,action){return 'The '+id+' is '+STORY_ACTIONS[action].verb+'.';}
+function storyHindi(id,action){return animal(id).hi+' '+STORY_ACTIONS[action].hi+' '+(id==='cow'?'रही':'रहा')+' है।';}
+function animateStory(sprite){
+ if(!sprite || window.matchMedia('(prefers-reduced-motion: reduce)').matches)return Promise.resolve();
+ const x=STORY_ACTIONS[sprite.dataset.action].column*50;
+ const keyframes=[0,1,0,1,0].map((row,i)=>({backgroundPosition:x+'% '+row*100+'%',offset:i/4}));
+ const animation=sprite.animate(keyframes,{duration:2200,easing:'steps(1,end)',iterations:1});
+ storyAnimations.add(animation);
+ return animation.finished.catch(()=>{}).finally(()=>storyAnimations.delete(animation));
+}
+async function storyNarrate(hindi=false){
+ if(screen!=='game'||mode!=='actions'||session?.status!=='active')return;
+ stopStory();stopAudio();
+ const run=storyFlow,id=target().id,chosen=session.storyAction;
+ const valid=()=>run===storyFlow&&screen==='game'&&session?.status==='active'&&!document.hidden;
+ if(chosen){
+  const clips=hindi?['story-'+id+'-'+chosen+'-hi','story-'+id+'-'+chosen+'-en']:['story-'+id+'-'+chosen+'-en'];
+  await Promise.all([play(clips),animateStory(document.querySelector('.story-stage .action-sprite'))]);
+  if(!valid())return;
+  await play(['story-'+id+'-question-'+(hindi?'hi':'en')]);
+  if(!valid())return;
+  // Quiet time is an invitation to talk, never a listening/recording state.
+  const invite=$('talk-invitation');
+  if(invite)invite.dataset.ready='true';
+ }else{
+  await play(['story-'+id+'-choose-'+(hindi?'hi':'en')]);
+  if(!valid())return;
+  for(const action of storyChoices()){
+   const tile=document.querySelector('[data-story-choice="'+action+'"]');
+   tile?.classList.add('demonstrating');
+   const clips=hindi?['story-'+action+'-hi','story-'+action+'-en']:['story-'+action+'-en'];
+   await Promise.all([play(clips),animateStory(tile?.querySelector('.action-sprite'))]);
+   tile?.classList.remove('demonstrating');
+   if(!valid())return;
+  }
+  await play(['story-choose-'+(hindi?'hi':'en')]);
+ }
+}
+function chooseStory(action){
+ if(expired())return finish();
+ if(session?.status!=='active'||session.storyAction||!storyChoices().includes(action))return;
+ stopStory();stopAudio();
+ session.storyAction=action;persist();renderStory();storyNarrate();
+}
+function nextStory(){
+ if(expired())return finish();
+ if(!session?.storyAction)return;
+ stopStory();stopAudio();
+ session.round++;delete session.storyAction;persist();
+ if(session.round>=6)return finish();
+ hint=false;renderStory();storyNarrate();
+}
+function renderStory(){
+ screen='game';const a=target(),selected=session.storyAction;
+ const dots=Array.from({length:6},(_,i)=>'<span class="step '+(i<session.round?'complete':i===session.round?'current':'')+'"></span>').join('');
+ $('main').innerHTML='<section class="game story-game"><div class="game-top"><button class="quiet" id="stop">Finish for now</button><div class="steps" aria-label="Turn '+(session.round+1)+' of 6">'+dots+'</div><span class="time-note" id="time-note"></span></div><p class="eyebrow">'+(selected?'YOU CHOSE THE STORY':'CHOOSE WHAT HAPPENS')+'</p><h1 class="question">'+(selected?storySentence(a.id,selected):'What shall the '+a.id+' do?')+'</h1>'+
+ (selected?'<div class="story-stage">'+storySprite(a.id,selected)+'<span class="stage-line" aria-hidden="true"></span></div><div class="talk-invitation" id="talk-invitation"><span class="talk-symbol" aria-hidden="true">💬</span><span>What is the '+a.id+' doing?</span></div><p class="parent-prompt">Together: “'+STORY_ACTIONS[selected].verb[0].toUpperCase()+STORY_ACTIONS[selected].verb.slice(1)+'.” → “'+storySentence(a.id,selected)+'”</p>':
+ '<div class="story-choices">'+storyChoices().map(action=>'<button class="action-tile" data-story-choice="'+action+'" aria-label="Let the '+a.id+' '+action+'">'+storySprite(a.id,action)+'<span class="action-label">'+STORY_ACTIONS[action].label+'</span></button>').join('')+'</div><p class="choice-note">Two choices. Your little story.</p>')+
+ '<div class="sound-controls"><button class="sound" id="listen" aria-label="'+(selected?'Watch and hear the sentence again':'Hear and watch both choices')+'"><span class="speaker-icon" aria-hidden="true">🔊</span><span>'+(selected?'Again':'Listen')+'</span></button><button class="sound hindi-help" id="hint" lang="hi" aria-label="Hear Hindi help"><span aria-hidden="true">🗣️</span> हिन्दी</button></div><p class="audio-note" id="audio-note" role="status"></p>'+
+ (selected?'<button class="primary" id="next"><span class="big-arrow" aria-hidden="true">→</span><span class="play-label">'+(session.round===5?'Say goodbye':'Next friend')+'</span></button>':'')+'</section>';
+ $('stop').onclick=()=>finish();
+ $('listen').onclick=()=>storyNarrate();
+ $('hint').onclick=()=>storyNarrate(true);
+ document.querySelectorAll('[data-story-choice]').forEach(button=>button.onclick=()=>chooseStory(button.dataset.storyChoice));
+ if($('next'))$('next').onclick=nextStory;
+ updateTime();
 }
