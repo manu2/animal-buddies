@@ -32,6 +32,19 @@ let screen='home', phase='learn', hint=false, choiceOrder=[], wrong='', correct=
 let audioContext, audioSource, audioGeneration=0, audioBusy=false;
 const decoded=new Map();
 let registration, installPrompt;
+function localDay(time=Date.now()){
+ const d=new Date(time);
+ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+function resetForNewDay(){
+ if(!session)return false;
+ // Older versions saved only a deadline. Recover the visit's starting day.
+ const day=session.day || localDay(session.deadline-settings.minutes*60000);
+ if(localDay()<=day)return false;
+ stopStory();stopAudio();session=null;persist();
+ const dialog=$('grownup-dialog');if(dialog){dialog.close();dialog.remove();}
+ return true;
+}
 function persist(){try{localStorage.setItem(STORE,JSON.stringify({settings,mode,session,curriculumVersion:3}));}catch{storageWorks=false;}}
 function animal(id){return ANIMALS.find(a=>a.id===id);}
 function target(){return animal(session.targets[session.round]);}
@@ -87,9 +100,10 @@ function home(){
 }
 async function start(){
  await unlockAudio();
+ resetForNewDay();
  // An unfinished session keeps its original deadline across reloads.
  if(session?.status==='ended')return finish(false);
- if(!session){const ids=visibleFriends();session={storyPairs:STORY_PAIRS.map(shuffle),status:'active',round:0,targets:[...ids,...ids],deadline:Date.now()+settings.minutes*60000,mode};persist();}
+ if(!session){const ids=visibleFriends();session={day:localDay(),storyPairs:STORY_PAIRS.map(shuffle),status:'active',round:0,targets:[...ids,...ids],deadline:Date.now()+settings.minutes*60000,mode};persist();}
  mode=MODES[session.mode]?session.mode:mode;
  if(expired())return finish();
  screen='game';phase='learn';hint=false;correct=false;renderGame();listen();
@@ -140,10 +154,10 @@ function updateTime(){
 function finish(speak=true){
  stopStory();stopAudio();if(session){session.status='ended';persist();}
  screen='done';
- $('main').innerHTML='<section class="welcome goodbye"><p class="eyebrow">ALL DONE FOR TODAY</p><h1>See you, animal friends.</h1><div class="friends">'+visibleFriends().map(id=>'<div class="friend">'+(mode==='actions'?storySprite(id,'walk'):picture(animal(id)))+'</div>').join('')+'</div><p class="hindi" lang="hi">अब फोन रखकर साथ खेलें।</p><p class="offline-activity">Can you pretend to walk,<br>eat, or sleep?</p><button class="sound" id="listen"><span aria-hidden="true">🔊</span> Listen</button><p id="audio-note" class="audio-note" role="status"></p><p class="session-note">A grown-up can start another visit from the top button.</p></section>';
+ $('main').innerHTML='<section class="welcome goodbye"><p class="eyebrow">ALL DONE FOR TODAY</p><h1>See you, animal friends.</h1><div class="friends">'+visibleFriends().map(id=>'<div class="friend">'+(mode==='actions'?storySprite(id,'walk'):picture(animal(id)))+'</div>').join('')+'</div><p class="hindi" lang="hi">अब फोन रखकर साथ खेलें।</p><p class="offline-activity">Can you pretend to walk,<br>eat, or sleep?</p><button class="sound" id="listen"><span aria-hidden="true">🔊</span> Listen</button><p id="audio-note" class="audio-note" role="status"></p><p class="session-note">A fresh visit unlocks tomorrow. A grown-up can restart now.</p></section>';
  $('listen').onclick=listen;if(speak)listen();
 }
-function tick(){if(expired())finish();else updateTime();}
+function tick(){if(resetForNewDay()){home();return;}if(expired())finish();else updateTime();}
 setInterval(tick,500);
 document.addEventListener('visibilitychange',()=>{if(document.hidden){stopStory();stopAudio();}else tick();});
 window.addEventListener('pageshow',tick);
@@ -160,13 +174,18 @@ function parentGate(){
 }
 function parentSettings(dialog){
  const active=session?.status==='active';
- dialog.innerHTML='<div class="dialog-top"><h2>A little guide</h2><button class="quiet" id="close-parent">Close</button></div><p>Try <b>Animal stories</b>: he chooses between two action pictures, then hears a short sentence. Both choices work. Pause and talk together: if he says “eat”, you can model “The cow is eating.” Hindi is welcome; repeating is optional.</p><div class="setting-row"><label for="activity">Activity</label><select id="activity" '+(active?'disabled':'')+'>'+Object.entries(MODES).map(([key,m])=>'<option value="'+key+'" '+(mode===key?'selected':'')+'>'+m.title+'</option>').join('')+'</select></div><div class="setting-row"><label for="instruction-language">Spoken instructions</label><select id="instruction-language"><option value="en" '+(settings.instructionLanguage==='en'?'selected':'')+'>English</option><option value="hi" '+(settings.instructionLanguage==='hi'?'selected':'')+'>हिन्दी</option></select></div><p class="small">Instructions use one language only. Learning words and model sentences stay in English. Tap अर्थ for a Hindi meaning, without an English replay. Pauses give you time to listen.</p><div class="setting-row"><label for="minutes">Session limit</label><select id="minutes" '+(active?'disabled':'')+'>'+[3,5,7].map(n=>'<option value="'+n+'" '+(settings.minutes===n?'selected':'')+'>'+n+' minutes</option>').join('')+'</select></div><div class="setting-row"><label for="group">Animal friends</label><select id="group" '+(active||mode==='actions'?'disabled':'')+'>'+(mode==='actions'?'<option selected>Cow, Dog, Rabbit</option>':'')+GROUPS.map((g,i)=>'<option value="'+i+'" '+(mode!=='actions'&&settings.group===i?'selected':'')+'>'+g.map(id=>animal(id).name).join(', ')+'</option>').join('')+'</select></div><p class="small">Each visit ends after 6 turns or the time limit. The timer includes time away from the app. '+(active?'Finish this visit to change its settings.':'')+'</p><button class="primary compact" id="new-visit">'+(active?'End this visit':'Prepare a new visit')+'</button><hr><h3>Save to your phone</h3><p><b>iPhone:</b> Open in Safari → Share → Add to Home Screen → Add.</p><p><b>Android:</b> Open in Chrome → menu → Install app or Add to Home screen.</p><button class="sound" id="install-app" '+(!installPrompt?'hidden':'')+'>Install Animal Buddies</button><p><b>Open from the new home-screen icon while online.</b> Wait for “Ready for offline play”, then try airplane mode. No computer or running server is needed.</p><button class="sound" id="save-offline">Check offline download</button><p id="download-detail" role="status">'+(offlineReady?'Ready for offline play.':'Preparing offline files…')+'</p><p class="small">If you clear website data, remove the app, or the phone clears its storage, reconnect once to download again. No sign-in is needed. Browser storage keeps settings on this phone only.</p><hr><h3>Why this game?</h3><p>At 3–4, familiar words, simple sentences, playful listening, and noticing a few letters are useful goals. Whole-word spelling is not required here. Keep speaking Hindi together; it supports language learning.</p><p class="small">The five-minute limit is our design choice, not a developmental prescription. Play together when possible. No ads, scores, streaks, background music, or microphone recording.</p><p class="small">Sources: <a href="https://headstart.gov/school-readiness/article/literacy-preschool" target="_blank" rel="noopener">Head Start literacy guidance</a> · <a href="https://www.healthychildren.org/English/ages-stages/gradeschool/school/Pages/7-Myths-Facts-Bilingual-Children-Learning-Language.aspx" target="_blank" rel="noopener">AAP multilingual guidance</a> · <a href="https://www.cdc.gov/act-early/milestones/3-years.html" target="_blank" rel="noopener">CDC age-three milestones</a></p><p class="small">Action illustrations generated for this game. Other animal illustrations: <a href="https://openmoji.org/" target="_blank" rel="noopener">OpenMoji</a>, CC BY-SA 4.0. Recorded synthetic voices. Hindi meanings use familiar everyday animal names.</p>'+(!storageWorks?'<p>Settings could not be saved by this browser. Session limits may reset when you close the app.</p>':'');
+ dialog.innerHTML='<div class="dialog-top"><h2>A little guide</h2><button class="quiet" id="close-parent">Close</button></div><p>Try <b>Animal stories</b>: he chooses between two action pictures, then hears a short sentence. Both choices work. Pause and talk together: if he says “eat”, you can model “The cow is eating.” Hindi is welcome; repeating is optional.</p><div class="setting-row"><label for="activity">Activity</label><select id="activity" '+(active?'disabled':'')+'>'+Object.entries(MODES).map(([key,m])=>'<option value="'+key+'" '+(mode===key?'selected':'')+'>'+m.title+'</option>').join('')+'</select></div><div class="setting-row"><label for="instruction-language">Spoken instructions</label><select id="instruction-language"><option value="en" '+(settings.instructionLanguage==='en'?'selected':'')+'>English</option><option value="hi" '+(settings.instructionLanguage==='hi'?'selected':'')+'>हिन्दी</option></select></div><p class="small">Instructions use one language only. Learning words and model sentences stay in English. Tap अर्थ for a Hindi meaning, without an English replay. Pauses give you time to listen.</p><div class="setting-row"><label for="minutes">Session limit</label><select id="minutes" '+(active?'disabled':'')+'>'+[3,5,7].map(n=>'<option value="'+n+'" '+(settings.minutes===n?'selected':'')+'>'+n+' minutes</option>').join('')+'</select></div><div class="setting-row"><label for="group">Animal friends</label><select id="group" '+(active||mode==='actions'?'disabled':'')+'>'+(mode==='actions'?'<option selected>Cow, Dog, Rabbit</option>':'')+GROUPS.map((g,i)=>'<option value="'+i+'" '+(mode!=='actions'&&settings.group===i?'selected':'')+'>'+g.map(id=>animal(id).name).join(', ')+'</option>').join('')+'</select></div><p class="small">Each visit ends after 6 turns or the time limit. The timer includes time away from the app. A fresh visit unlocks each new day using this phone’s local date. '+(active?'Finish this visit to change its settings.':'')+'</p><button class="primary compact" id="new-visit">Restart visit now</button><p class="small">Testing? Restart immediately, or simulate a new day below. Neither changes your phone’s clock or language settings.</p><button class="sound" id="test-next-day" '+(!session?'disabled':'')+'>Test next-day reset</button><hr><h3>Save to your phone</h3><p><b>iPhone:</b> Open in Safari → Share → Add to Home Screen → Add.</p><p><b>Android:</b> Open in Chrome → menu → Install app or Add to Home screen.</p><button class="sound" id="install-app" '+(!installPrompt?'hidden':'')+'>Install Animal Buddies</button><p><b>Open from the new home-screen icon while online.</b> Wait for “Ready for offline play”, then try airplane mode. No computer or running server is needed.</p><button class="sound" id="save-offline">Check offline download</button><p id="download-detail" role="status">'+(offlineReady?'Ready for offline play.':'Preparing offline files…')+'</p><p class="small">If you clear website data, remove the app, or the phone clears its storage, reconnect once to download again. No sign-in is needed. Browser storage keeps settings on this phone only.</p><hr><h3>Why this game?</h3><p>At 3–4, familiar words, simple sentences, playful listening, and noticing a few letters are useful goals. Whole-word spelling is not required here. Keep speaking Hindi together; it supports language learning.</p><p class="small">The five-minute limit is our design choice, not a developmental prescription. Play together when possible. No ads, scores, streaks, background music, or microphone recording.</p><p class="small">Sources: <a href="https://headstart.gov/school-readiness/article/literacy-preschool" target="_blank" rel="noopener">Head Start literacy guidance</a> · <a href="https://www.healthychildren.org/English/ages-stages/gradeschool/school/Pages/7-Myths-Facts-Bilingual-Children-Learning-Language.aspx" target="_blank" rel="noopener">AAP multilingual guidance</a> · <a href="https://www.cdc.gov/act-early/milestones/3-years.html" target="_blank" rel="noopener">CDC age-three milestones</a></p><p class="small">Action illustrations generated for this game. Other animal illustrations: <a href="https://openmoji.org/" target="_blank" rel="noopener">OpenMoji</a>, CC BY-SA 4.0. Recorded synthetic voices. Hindi meanings use familiar everyday animal names.</p>'+(!storageWorks?'<p>Settings could not be saved by this browser. Session limits may reset when you close the app.</p>':'');
  $('close-parent').onclick=()=>dialog.close();
  $('activity').onchange=e=>{mode=e.target.value;persist();parentSettings(dialog);};
  $('instruction-language').onchange=e=>{stopStory();stopAudio();settings.instructionLanguage=e.target.value;persist();};
  $('minutes').onchange=e=>{settings.minutes=Number(e.target.value);persist();};
  $('group').onchange=e=>{settings.group=Number(e.target.value);persist();};
- $('new-visit').onclick=()=>{if(active){finish();dialog.close();}else{session=null;persist();dialog.close();home();}};
+ $('new-visit').onclick=()=>{stopStory();stopAudio();session=null;persist();dialog.close();home();};
+ $('test-next-day').onclick=()=>{
+  if(!session)return;
+  const yesterday=new Date();yesterday.setDate(yesterday.getDate()-1);
+  session.day=localDay(yesterday.getTime());persist();tick();
+ };
  $('save-offline').onclick=async()=>{await navigator.storage?.persist?.().catch(()=>false);await prepareOffline(true);};
  $('install-app').onclick=async()=>{if(installPrompt){await installPrompt.prompt();installPrompt=null;$('install-app').hidden=true;}};
  dialog.onclose=()=>{if(screen==='home')home();};
@@ -200,6 +219,7 @@ async function prepareOffline(retry=false){
 window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();installPrompt=event;});
 window.addEventListener('online',()=>{if(!offlineReady)prepareOffline();});
 navigator.serviceWorker?.addEventListener('message',e=>{if(e.data?.type==='OFFLINE_READY')checkOffline().then(ready=>{if(ready)offlineStatus('✓ Ready for offline play',true);});});
+resetForNewDay();
 if(session?.status==='ended')finish(false);else if(session?.status==='active'){mode=MODES[session.mode]?session.mode:mode;if(expired())finish(false);else{screen='game';phase='learn';renderGame();}}else home();
 prepareOffline();
 if(document.modelContext?.registerTool){
