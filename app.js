@@ -237,17 +237,36 @@ function stopStory(){
 }
 function storySprite(id,action,extra=''){
  const spec=STORY_ACTIONS[action];
- return '<span class="action-sprite '+extra+'" role="img" aria-label="'+animal(id).name+' '+spec.verb+'" data-action="'+action+'" style="--sheet:url(./stories/'+id+'.png);--column:'+spec.column+'"></span>';
+ return '<span class="action-scene scene-'+action+'"><span class="action-sprite '+extra+'" role="img" aria-label="'+animal(id).name+' '+spec.verb+'" data-action="'+action+'" style="--sheet:url(./stories/'+id+'.png);--column:'+spec.column+'"></span></span>';
 }
 function storySentence(id,action){return 'The '+id+' is '+STORY_ACTIONS[action].verb+'.';}
 function storyHindi(id,action){return animal(id).hi+' '+STORY_ACTIONS[action].hi+' '+(id==='cow'?'रही':'रहा')+' है।';}
 function animateStory(sprite){
  if(!sprite || window.matchMedia('(prefers-reduced-motion: reduce)').matches)return Promise.resolve();
- const x=STORY_ACTIONS[sprite.dataset.action].column*50;
- const keyframes=[0,1,0,1,0].map((row,i)=>({backgroundPosition:x+'% '+row*100+'%',offset:i/4}));
- const animation=sprite.animate(keyframes,{duration:2200,easing:'steps(1,end)',iterations:1});
- storyAnimations.add(animation);
- return animation.finished.catch(()=>{}).finally(()=>storyAnimations.delete(animation));
+ const action=sprite.dataset.action,x=STORY_ACTIONS[action].column*50;
+ const duration=action==='sleep'?4200:3600;
+ // Alternate poses while moving the body. Every action ends at rest.
+ const poses=Array.from({length:13},(_,i)=>({backgroundPosition:x+'% '+(i%2)*100+'%',offset:i/12}));
+ let motion;
+ if(action==='walk'){
+  motion=Array.from({length:13},(_,i)=>({transform:'translate('+ (12-i*2)+'%, '+(i%2?-1.8:0)+'%) scale(.78)',offset:i/12}));
+ }else if(action==='eat'){
+  sprite.style.transformOrigin='78% 72%';
+  motion=[0,1,0,1,0,1,0].map((dip,i)=>({transform:'rotate('+(-dip*4)+'deg) translateY('+(dip*1.5)+'%) scale(.9)',offset:i/6}));
+ }else{
+  sprite.style.transformOrigin='50% 78%';
+  motion=[0,1,0,1,0].map((breath,i)=>({transform:'scale('+(.92+breath*.035)+', '+(.92+breath*.055)+')',offset:i/4}));
+ }
+ function track(frames,easing){
+  const animation=sprite.animate(frames,{duration,easing,fill:'forwards'});
+  storyAnimations.add(animation);
+  return animation.finished.then(()=>{
+   // Retain the resting pose without leaving a running animation.
+   if(sprite.isConnected)animation.commitStyles();
+   animation.cancel();
+  }).catch(()=>{}).finally(()=>storyAnimations.delete(animation));
+ }
+ return Promise.all([track(poses,'steps(1,end)'),track(motion,'ease-in-out')]);
 }
 async function storyNarrate(){
  if(screen!=='game'||mode!=='actions'||session?.status!=='active')return;

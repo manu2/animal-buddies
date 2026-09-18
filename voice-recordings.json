@@ -1,0 +1,807 @@
+{
+  "welcome-en": {
+    "text": "Hello, little explorer. Let's meet some animal friends.",
+    "voice": "af_heart",
+    "seconds": 4.15
+  },
+  "welcome-hi": {
+    "text": "चलो, जानवरों से दोस्ती करें।",
+    "voice": "hf_alpha",
+    "seconds": 3.4
+  },
+  "find-hi": {
+    "text": "सही जानवर को छुओ।",
+    "voice": "hf_alpha",
+    "seconds": 2.75
+  },
+  "try-en": {
+    "text": "Let's look again. Listen, and try another friend.",
+    "voice": "af_heart",
+    "seconds": 3.75
+  },
+  "try-hi": {
+    "text": "एक बार फिर सुनो। फिर से चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 3.375
+  },
+  "yes-en": {
+    "text": "Yes! You found our friend.",
+    "voice": "af_heart",
+    "seconds": 2.225
+  },
+  "goodbye-en": {
+    "text": "Our animal friends are resting now. Let's put the phone away. Can you pretend to be your favourite animal?",
+    "voice": "af_heart",
+    "seconds": 6.625
+  },
+  "goodbye-hi": {
+    "text": "अब हमारे दोस्त आराम करेंगे। फोन रख दो। अपने मनपसंद जानवर की नकल करो।",
+    "voice": "hf_alpha",
+    "seconds": 7.4
+  },
+  "choose-en": {
+    "text": "Now, find our friend.",
+    "voice": "af_heart",
+    "seconds": 2.025
+  },
+  "letter-hi": {
+    "text": "ऊपर जैसा अक्षर चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 3.15
+  },
+  "cow-name": {
+    "text": "Cow.",
+    "voice": "af_heart",
+    "seconds": 1.425
+  },
+  "cow-hi": {
+    "text": "गाय।",
+    "voice": "hf_alpha",
+    "seconds": 1.5
+  },
+  "cow-find": {
+    "text": "Where is the cow?",
+    "voice": "af_heart",
+    "seconds": 1.875
+  },
+  "cow-hint": {
+    "text": "गाय कहाँ है?",
+    "voice": "hf_alpha",
+    "seconds": 2.15
+  },
+  "cow-sentence": {
+    "text": "The cow eats grass. Find the cow.",
+    "voice": "af_heart",
+    "seconds": 2.975
+  },
+  "cow-sentence-hi": {
+    "text": "गाय घास खाती है। गाय को ढूँढो।",
+    "voice": "hf_alpha",
+    "seconds": 3.8
+  },
+  "cow-reward": {
+    "text": "Yes! This is a cow. The cow eats grass.",
+    "voice": "af_heart",
+    "seconds": 3.35
+  },
+  "cow-letter": {
+    "text": "C. Cow begins with the letter C. Find C.",
+    "voice": "af_heart",
+    "seconds": 3.225
+  },
+  "dog-name": {
+    "text": "Dog.",
+    "voice": "af_heart",
+    "seconds": 1.475
+  },
+  "dog-hi": {
+    "text": "कुत्ता।",
+    "voice": "hf_alpha",
+    "seconds": 1.75
+  },
+  "dog-find": {
+    "text": "Where is the dog?",
+    "voice": "af_heart",
+    "seconds": 1.85
+  },
+  "dog-hint": {
+    "text": "कुत्ता कहाँ है?",
+    "voice": "hf_alpha",
+    "seconds": 2.25
+  },
+  "dog-sentence": {
+    "text": "The dog can run. Find the dog.",
+    "voice": "af_heart",
+    "seconds": 2.725
+  },
+  "dog-sentence-hi": {
+    "text": "कुत्ता दौड़ सकता है। कुत्ते को ढूँढो।",
+    "voice": "hf_alpha",
+    "seconds": 3.9
+  },
+  "dog-reward": {
+    "text": "Yes! This is a dog. The dog can run.",
+    "voice": "af_heart",
+    "seconds": 3.25
+  },
+  "dog-letter": {
+    "text": "D. Dog begins with the letter D. Find D.",
+    "voice": "af_heart",
+    "seconds": 3.35
+  },
+  "fish-name": {
+    "text": "Fish.",
+    "voice": "af_heart",
+    "seconds": 1.525
+  },
+  "fish-hi": {
+    "text": "मछली।",
+    "voice": "hf_alpha",
+    "seconds": 1.8
+  },
+  "fish-find": {
+    "text": "Where is the fish?",
+    "voice": "af_heart",
+    "seconds": 1.85
+  },
+  "fish-hint": {
+    "text": "मछली कहाँ है?",
+    "voice": "hf_alpha",
+    "seconds": 2.35
+  },
+  "fish-sentence": {
+    "text": "The fish can swim. Find the fish.",
+    "voice": "af_heart",
+    "seconds": 2.875
+  },
+  "fish-sentence-hi": {
+    "text": "मछली तैर सकती है। मछली को ढूँढो।",
+    "voice": "hf_alpha",
+    "seconds": 4.2
+  },
+  "fish-reward": {
+    "text": "Yes! This is a fish. The fish can swim.",
+    "voice": "af_heart",
+    "seconds": 3.35
+  },
+  "fish-letter": {
+    "text": "F. Fish begins with the letter F. Find F.",
+    "voice": "af_heart",
+    "seconds": 3.125
+  },
+  "cat-name": {
+    "text": "Cat.",
+    "voice": "af_heart",
+    "seconds": 1.425
+  },
+  "cat-hi": {
+    "text": "बिल्ली।",
+    "voice": "hf_alpha",
+    "seconds": 1.75
+  },
+  "cat-find": {
+    "text": "Where is the cat?",
+    "voice": "af_heart",
+    "seconds": 1.85
+  },
+  "cat-hint": {
+    "text": "बिल्ली कहाँ है?",
+    "voice": "hf_alpha",
+    "seconds": 2.225
+  },
+  "cat-sentence": {
+    "text": "The cat says meow. Find the cat.",
+    "voice": "af_heart",
+    "seconds": 2.825
+  },
+  "cat-sentence-hi": {
+    "text": "बिल्ली म्याऊँ करती है। बिल्ली को ढूँढो।",
+    "voice": "hf_alpha",
+    "seconds": 3.925
+  },
+  "cat-reward": {
+    "text": "Yes! This is a cat. The cat says meow.",
+    "voice": "af_heart",
+    "seconds": 3.35
+  },
+  "cat-letter": {
+    "text": "C. Cat begins with the letter C. Find C.",
+    "voice": "af_heart",
+    "seconds": 3.3
+  },
+  "duck-name": {
+    "text": "Duck.",
+    "voice": "af_heart",
+    "seconds": 1.425
+  },
+  "duck-hi": {
+    "text": "बत्तख।",
+    "voice": "hf_alpha",
+    "seconds": 1.7
+  },
+  "duck-find": {
+    "text": "Where is the duck?",
+    "voice": "af_heart",
+    "seconds": 1.8
+  },
+  "duck-hint": {
+    "text": "बत्तख कहाँ है?",
+    "voice": "hf_alpha",
+    "seconds": 2.225
+  },
+  "duck-sentence": {
+    "text": "The duck says quack. Find the duck.",
+    "voice": "af_heart",
+    "seconds": 2.775
+  },
+  "duck-sentence-hi": {
+    "text": "बत्तख क्वैक क्वैक करती है। बत्तख को ढूँढो।",
+    "voice": "hf_alpha",
+    "seconds": 4.35
+  },
+  "duck-reward": {
+    "text": "Yes! This is a duck. The duck says quack.",
+    "voice": "af_heart",
+    "seconds": 3.275
+  },
+  "duck-letter": {
+    "text": "D. Duck begins with the letter D. Find D.",
+    "voice": "af_heart",
+    "seconds": 3.325
+  },
+  "rabbit-name": {
+    "text": "Rabbit.",
+    "voice": "af_heart",
+    "seconds": 1.55
+  },
+  "rabbit-hi": {
+    "text": "खरगोश।",
+    "voice": "hf_alpha",
+    "seconds": 1.825
+  },
+  "rabbit-find": {
+    "text": "Where is the rabbit?",
+    "voice": "af_heart",
+    "seconds": 1.875
+  },
+  "rabbit-hint": {
+    "text": "खरगोश कहाँ है?",
+    "voice": "hf_alpha",
+    "seconds": 2.3
+  },
+  "rabbit-sentence": {
+    "text": "The rabbit can hop. Find the rabbit.",
+    "voice": "af_heart",
+    "seconds": 2.875
+  },
+  "rabbit-sentence-hi": {
+    "text": "खरगोश कूद सकता है। खरगोश को ढूँढो।",
+    "voice": "hf_alpha",
+    "seconds": 4.275
+  },
+  "rabbit-reward": {
+    "text": "Yes! This is a rabbit. The rabbit can hop.",
+    "voice": "af_heart",
+    "seconds": 3.275
+  },
+  "rabbit-letter": {
+    "text": "R. Rabbit begins with the letter R. Find R.",
+    "voice": "af_heart",
+    "seconds": 3.325
+  },
+  "elephant-name": {
+    "text": "Elephant.",
+    "voice": "af_heart",
+    "seconds": 1.625
+  },
+  "elephant-hi": {
+    "text": "हाथी।",
+    "voice": "hf_alpha",
+    "seconds": 1.8
+  },
+  "elephant-find": {
+    "text": "Where is the elephant?",
+    "voice": "af_heart",
+    "seconds": 2.0
+  },
+  "elephant-hint": {
+    "text": "हाथी कहाँ है?",
+    "voice": "hf_alpha",
+    "seconds": 2.25
+  },
+  "elephant-sentence": {
+    "text": "The elephant has a trunk. Find the elephant.",
+    "voice": "af_heart",
+    "seconds": 3.275
+  },
+  "elephant-sentence-hi": {
+    "text": "हाथी की सूँड होती है। हाथी को ढूँढो।",
+    "voice": "hf_alpha",
+    "seconds": 4.125
+  },
+  "elephant-reward": {
+    "text": "Yes! This is an elephant. The elephant has a trunk.",
+    "voice": "af_heart",
+    "seconds": 3.825
+  },
+  "elephant-letter": {
+    "text": "E. Elephant begins with the letter E. Find E.",
+    "voice": "af_heart",
+    "seconds": 3.375
+  },
+  "lion-name": {
+    "text": "Lion.",
+    "voice": "af_heart",
+    "seconds": 1.575
+  },
+  "lion-hi": {
+    "text": "शेर।",
+    "voice": "hf_alpha",
+    "seconds": 1.6
+  },
+  "lion-find": {
+    "text": "Where is the lion?",
+    "voice": "af_heart",
+    "seconds": 1.875
+  },
+  "lion-hint": {
+    "text": "शेर कहाँ है?",
+    "voice": "hf_alpha",
+    "seconds": 2.075
+  },
+  "lion-sentence": {
+    "text": "The lion can roar. Find the lion.",
+    "voice": "af_heart",
+    "seconds": 2.95
+  },
+  "lion-sentence-hi": {
+    "text": "शेर दहाड़ सकता है। शेर को ढूँढो।",
+    "voice": "hf_alpha",
+    "seconds": 3.6
+  },
+  "lion-reward": {
+    "text": "Yes! This is a lion. The lion can roar.",
+    "voice": "af_heart",
+    "seconds": 3.45
+  },
+  "lion-letter": {
+    "text": "L. Lion begins with the letter L. Find L.",
+    "voice": "af_heart",
+    "seconds": 2.875
+  },
+  "arrow-en": {
+    "text": "Tap the big arrow.",
+    "voice": "af_heart",
+    "seconds": 1.875
+  },
+  "arrow-hi": {
+    "text": "बड़े तीर वाले बटन को छुओ।",
+    "voice": "hf_alpha",
+    "seconds": 3.525
+  },
+  "next-en": {
+    "text": "Tap the arrow to meet another friend.",
+    "voice": "af_heart",
+    "seconds": 2.725
+  },
+  "story-choose-en": {
+    "text": "Tap a picture to choose.",
+    "voice": "af_heart",
+    "seconds": 2.175
+  },
+  "story-choose-hi": {
+    "text": "अपनी पसंद की तस्वीर छुओ।",
+    "voice": "hf_alpha",
+    "seconds": 3.15
+  },
+  "story-walk-en": {
+    "text": "Walk.",
+    "voice": "af_heart",
+    "seconds": 1.425
+  },
+  "story-eat-en": {
+    "text": "Eat.",
+    "voice": "af_heart",
+    "seconds": 1.375
+  },
+  "story-sleep-en": {
+    "text": "Sleep.",
+    "voice": "af_heart",
+    "seconds": 1.475
+  },
+  "story-walk-hi": {
+    "text": "चलना।",
+    "voice": "hf_alpha",
+    "seconds": 1.8
+  },
+  "story-eat-hi": {
+    "text": "खाना।",
+    "voice": "hf_alpha",
+    "seconds": 1.65
+  },
+  "story-sleep-hi": {
+    "text": "सोना।",
+    "voice": "hf_alpha",
+    "seconds": 1.625
+  },
+  "story-next-en": {
+    "text": "Tap the arrow when you are ready.",
+    "voice": "af_heart",
+    "seconds": 2.4
+  },
+  "story-goodbye-en": {
+    "text": "Our animal friends are resting now. Put the phone away. Can you pretend to walk, eat, or sleep?",
+    "voice": "af_heart",
+    "seconds": 6.4
+  },
+  "story-goodbye-hi": {
+    "text": "अब हमारे दोस्त आराम करेंगे। फोन रख दो। क्या तुम चलने, खाने, या सोने की नकल कर सकते हो?",
+    "voice": "hf_alpha",
+    "seconds": 8.125
+  },
+  "story-cow-choose-en": {
+    "text": "What shall the cow do?",
+    "voice": "af_heart",
+    "seconds": 1.85
+  },
+  "story-cow-choose-hi": {
+    "text": "गाय क्या करे?",
+    "voice": "hf_alpha",
+    "seconds": 2.175
+  },
+  "story-cow-question-en": {
+    "text": "What is the cow doing?",
+    "voice": "af_heart",
+    "seconds": 2.0
+  },
+  "story-cow-question-hi": {
+    "text": "गाय क्या कर रही है?",
+    "voice": "hf_alpha",
+    "seconds": 2.475
+  },
+  "story-cow-walk-en": {
+    "text": "The cow is walking.",
+    "voice": "af_heart",
+    "seconds": 1.95
+  },
+  "story-cow-walk-hi": {
+    "text": "गाय चल रही है।",
+    "voice": "hf_alpha",
+    "seconds": 2.35
+  },
+  "story-cow-eat-en": {
+    "text": "The cow is eating.",
+    "voice": "af_heart",
+    "seconds": 1.825
+  },
+  "story-cow-eat-hi": {
+    "text": "गाय खा रही है।",
+    "voice": "hf_alpha",
+    "seconds": 2.325
+  },
+  "story-cow-sleep-en": {
+    "text": "The cow is sleeping.",
+    "voice": "af_heart",
+    "seconds": 1.95
+  },
+  "story-cow-sleep-hi": {
+    "text": "गाय सो रही है।",
+    "voice": "hf_alpha",
+    "seconds": 2.375
+  },
+  "story-dog-choose-en": {
+    "text": "What shall the dog do?",
+    "voice": "af_heart",
+    "seconds": 1.925
+  },
+  "story-dog-choose-hi": {
+    "text": "कुत्ता क्या करे?",
+    "voice": "hf_alpha",
+    "seconds": 2.2
+  },
+  "story-dog-question-en": {
+    "text": "What is the dog doing?",
+    "voice": "af_heart",
+    "seconds": 2.0
+  },
+  "story-dog-question-hi": {
+    "text": "कुत्ता क्या कर रहा है?",
+    "voice": "hf_alpha",
+    "seconds": 2.6
+  },
+  "story-dog-walk-en": {
+    "text": "The dog is walking.",
+    "voice": "af_heart",
+    "seconds": 2.025
+  },
+  "story-dog-walk-hi": {
+    "text": "कुत्ता चल रहा है।",
+    "voice": "hf_alpha",
+    "seconds": 2.575
+  },
+  "story-dog-eat-en": {
+    "text": "The dog is eating.",
+    "voice": "af_heart",
+    "seconds": 1.925
+  },
+  "story-dog-eat-hi": {
+    "text": "कुत्ता खा रहा है।",
+    "voice": "hf_alpha",
+    "seconds": 2.45
+  },
+  "story-dog-sleep-en": {
+    "text": "The dog is sleeping.",
+    "voice": "af_heart",
+    "seconds": 2.025
+  },
+  "story-dog-sleep-hi": {
+    "text": "कुत्ता सो रहा है।",
+    "voice": "hf_alpha",
+    "seconds": 2.475
+  },
+  "story-rabbit-choose-en": {
+    "text": "What shall the rabbit do?",
+    "voice": "af_heart",
+    "seconds": 1.95
+  },
+  "story-rabbit-choose-hi": {
+    "text": "खरगोश क्या करे?",
+    "voice": "hf_alpha",
+    "seconds": 2.3
+  },
+  "story-rabbit-question-en": {
+    "text": "What is the rabbit doing?",
+    "voice": "af_heart",
+    "seconds": 2.075
+  },
+  "story-rabbit-question-hi": {
+    "text": "खरगोश क्या कर रहा है?",
+    "voice": "hf_alpha",
+    "seconds": 2.7
+  },
+  "story-rabbit-walk-en": {
+    "text": "The rabbit is walking.",
+    "voice": "af_heart",
+    "seconds": 2.05
+  },
+  "story-rabbit-walk-hi": {
+    "text": "खरगोश चल रहा है।",
+    "voice": "hf_alpha",
+    "seconds": 2.625
+  },
+  "story-rabbit-eat-en": {
+    "text": "The rabbit is eating.",
+    "voice": "af_heart",
+    "seconds": 1.95
+  },
+  "story-rabbit-eat-hi": {
+    "text": "खरगोश खा रहा है।",
+    "voice": "hf_alpha",
+    "seconds": 2.5
+  },
+  "story-rabbit-sleep-en": {
+    "text": "The rabbit is sleeping.",
+    "voice": "af_heart",
+    "seconds": 2.05
+  },
+  "story-rabbit-sleep-hi": {
+    "text": "खरगोश सो रहा है।",
+    "voice": "hf_alpha",
+    "seconds": 2.5
+  },
+  "forward-en": {
+    "text": "Tap the yellow button when you are ready.",
+    "voice": "af_heart",
+    "seconds": 2.8
+  },
+  "forward-hi": {
+    "text": "आगे बढ़ने के लिए पीला बटन दबाओ।",
+    "voice": "hf_alpha",
+    "seconds": 3.95
+  },
+  "yes-hi": {
+    "text": "हाँ! हमारा दोस्त मिल गया।",
+    "voice": "hf_alpha",
+    "seconds": 2.975
+  },
+  "cow-model": {
+    "text": "The cow eats grass.",
+    "voice": "af_heart",
+    "seconds": 2.0
+  },
+  "cow-model-hi": {
+    "text": "गाय घास खाती है।",
+    "voice": "hf_alpha",
+    "seconds": 2.65
+  },
+  "cow-letter-model": {
+    "text": "C. Cow.",
+    "voice": "af_heart",
+    "seconds": 1.6
+  },
+  "cow-letter-pick-en": {
+    "text": "Find C.",
+    "voice": "af_heart",
+    "seconds": 1.675
+  },
+  "cow-letter-pick-hi": {
+    "text": "सी वाला अक्षर चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 2.8
+  },
+  "dog-model": {
+    "text": "The dog can run.",
+    "voice": "af_heart",
+    "seconds": 1.95
+  },
+  "dog-model-hi": {
+    "text": "कुत्ता दौड़ सकता है।",
+    "voice": "hf_alpha",
+    "seconds": 2.65
+  },
+  "dog-letter-model": {
+    "text": "D. Dog.",
+    "voice": "af_heart",
+    "seconds": 1.7
+  },
+  "dog-letter-pick-en": {
+    "text": "Find D.",
+    "voice": "af_heart",
+    "seconds": 1.7
+  },
+  "dog-letter-pick-hi": {
+    "text": "डी वाला अक्षर चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 2.8
+  },
+  "fish-model": {
+    "text": "The fish can swim.",
+    "voice": "af_heart",
+    "seconds": 1.975
+  },
+  "fish-model-hi": {
+    "text": "मछली तैर सकती है।",
+    "voice": "hf_alpha",
+    "seconds": 2.675
+  },
+  "fish-letter-model": {
+    "text": "F. Fish.",
+    "voice": "af_heart",
+    "seconds": 1.675
+  },
+  "fish-letter-pick-en": {
+    "text": "Find F.",
+    "voice": "af_heart",
+    "seconds": 1.625
+  },
+  "fish-letter-pick-hi": {
+    "text": "एफ वाला अक्षर चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 2.925
+  },
+  "cat-model": {
+    "text": "The cat says meow.",
+    "voice": "af_heart",
+    "seconds": 1.975
+  },
+  "cat-model-hi": {
+    "text": "बिल्ली म्याऊँ करती है।",
+    "voice": "hf_alpha",
+    "seconds": 2.625
+  },
+  "cat-letter-model": {
+    "text": "C. Cat.",
+    "voice": "af_heart",
+    "seconds": 1.625
+  },
+  "cat-letter-pick-en": {
+    "text": "Find C.",
+    "voice": "af_heart",
+    "seconds": 1.675
+  },
+  "cat-letter-pick-hi": {
+    "text": "सी वाला अक्षर चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 2.8
+  },
+  "duck-model": {
+    "text": "The duck says quack.",
+    "voice": "af_heart",
+    "seconds": 1.925
+  },
+  "duck-model-hi": {
+    "text": "बत्तख क्वैक क्वैक करती है।",
+    "voice": "hf_alpha",
+    "seconds": 3.125
+  },
+  "duck-letter-model": {
+    "text": "D. Duck.",
+    "voice": "af_heart",
+    "seconds": 1.55
+  },
+  "duck-letter-pick-en": {
+    "text": "Find D.",
+    "voice": "af_heart",
+    "seconds": 1.7
+  },
+  "duck-letter-pick-hi": {
+    "text": "डी वाला अक्षर चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 2.8
+  },
+  "rabbit-model": {
+    "text": "The rabbit can hop.",
+    "voice": "af_heart",
+    "seconds": 1.925
+  },
+  "rabbit-model-hi": {
+    "text": "खरगोश कूद सकता है।",
+    "voice": "hf_alpha",
+    "seconds": 2.675
+  },
+  "rabbit-letter-model": {
+    "text": "R. Rabbit.",
+    "voice": "af_heart",
+    "seconds": 1.7
+  },
+  "rabbit-letter-pick-en": {
+    "text": "Find R.",
+    "voice": "af_heart",
+    "seconds": 1.6
+  },
+  "rabbit-letter-pick-hi": {
+    "text": "आर वाला अक्षर चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 2.85
+  },
+  "elephant-model": {
+    "text": "The elephant has a trunk.",
+    "voice": "af_heart",
+    "seconds": 2.15
+  },
+  "elephant-model-hi": {
+    "text": "हाथी की सूँड होती है।",
+    "voice": "hf_alpha",
+    "seconds": 2.825
+  },
+  "elephant-letter-model": {
+    "text": "E. Elephant.",
+    "voice": "af_heart",
+    "seconds": 1.775
+  },
+  "elephant-letter-pick-en": {
+    "text": "Find E.",
+    "voice": "af_heart",
+    "seconds": 1.675
+  },
+  "elephant-letter-pick-hi": {
+    "text": "ई वाला अक्षर चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 2.775
+  },
+  "lion-model": {
+    "text": "The lion can roar.",
+    "voice": "af_heart",
+    "seconds": 2.0
+  },
+  "lion-model-hi": {
+    "text": "शेर दहाड़ सकता है।",
+    "voice": "hf_alpha",
+    "seconds": 2.525
+  },
+  "lion-letter-model": {
+    "text": "L. Lion.",
+    "voice": "af_heart",
+    "seconds": 1.675
+  },
+  "lion-letter-pick-en": {
+    "text": "Find L.",
+    "voice": "af_heart",
+    "seconds": 1.425
+  },
+  "lion-letter-pick-hi": {
+    "text": "एल वाला अक्षर चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 2.85
+  }
+}

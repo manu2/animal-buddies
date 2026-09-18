@@ -142,3 +142,10 @@ select{max-width:65%;font-size:16px;padding:12px;background:#fff;border:1px soli
  .story-game .primary{padding:9px 22px}
 }
 @media(prefers-reduced-motion:reduce){.action-tile:active{transform:none}}
+
+/* A bounded little scene keeps motion inside each picture tile. */
+.action-scene{display:block;position:relative;width:100%;overflow:hidden;isolation:isolate}
+.action-scene .action-sprite{transform:scale(.9)}
+.scene-walk::after{content:"";position:absolute;left:13%;right:13%;bottom:16%;height:3px;border-radius:50%;background:#dbe1bd;z-index:-1}
+.story-home .friend .action-scene{margin:0}
+.action-sprite{will-change:auto}
