@@ -1,0 +1,1 @@
+PASS day: visible three levels; complete animal-led day; original actions; brush motion/cancel/reduced motion; independent hero checkpoints; same hero across home/school; exact shared budget; reload, restart, next day and timeout; offline artwork.
