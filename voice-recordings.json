@@ -803,5 +803,185 @@
     "text": "एल वाला अक्षर चुनो।",
     "voice": "hf_alpha",
     "seconds": 2.85
+  },
+  "school-library-en": {
+    "text": "Choose school, animal names, actions, sentences, or letters.",
+    "voice": "af_heart",
+    "seconds": 4.6
+  },
+  "school-library-hi": {
+    "text": "स्कूल, जानवरों के नाम, उनकी हरकतें, वाक्य, या अक्षर चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 5.85
+  },
+  "school-lobby-en": {
+    "text": "Choose your animal. Then choose a little school adventure.",
+    "voice": "af_heart",
+    "seconds": 3.75
+  },
+  "school-lobby-hi": {
+    "text": "अपना जानवर चुनो। फिर स्कूल की एक छोटी कहानी चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 5.25
+  },
+  "school-explore-en": {
+    "text": "Explore. I will show you a helpful example.",
+    "voice": "af_heart",
+    "seconds": 3.175
+  },
+  "school-explore-hi": {
+    "text": "पहले साथ में सीखें। मैं तुम्हें एक उदाहरण दिखाऊँगी।",
+    "voice": "hf_alpha",
+    "seconds": 5.15
+  },
+  "school-listen-en": {
+    "text": "Listen. Hear the instruction, then have a go.",
+    "voice": "af_heart",
+    "seconds": 3.375
+  },
+  "school-listen-hi": {
+    "text": "सुनो। पहले बात सुनो, फिर खुद कोशिश करो।",
+    "voice": "hf_alpha",
+    "seconds": 4.2
+  },
+  "school-hello-step0-en": {
+    "text": "Our teacher is here. Let us say hello.",
+    "voice": "af_heart",
+    "seconds": 3.05
+  },
+  "school-hello-step0-hi": {
+    "text": "हमारे टीचर आ गए। चलो, नमस्ते करें।",
+    "voice": "hf_alpha",
+    "seconds": 4.225
+  },
+  "school-hello-step1-en": {
+    "text": "Wave to our teacher.",
+    "voice": "af_heart",
+    "seconds": 1.975
+  },
+  "school-hello-step1-hi": {
+    "text": "हमारे टीचर को हाथ हिलाकर नमस्ते करो।",
+    "voice": "hf_alpha",
+    "seconds": 4.45
+  },
+  "school-hello-model-en": {
+    "text": "Hello!",
+    "voice": "af_heart",
+    "seconds": 1.5
+  },
+  "school-hello-model-hi": {
+    "text": "नमस्ते!",
+    "voice": "hf_alpha",
+    "seconds": 1.8
+  },
+  "school-hello-example-en": {
+    "text": "Tap the waving hand.",
+    "voice": "af_heart",
+    "seconds": 2.0
+  },
+  "school-hello-example-hi": {
+    "text": "हाथ हिलाने वाली तस्वीर छुओ।",
+    "voice": "hf_alpha",
+    "seconds": 3.45
+  },
+  "school-help-step0-en": {
+    "text": "The lunchbox is stuck. Ask our teacher for help.",
+    "voice": "af_heart",
+    "seconds": 3.7
+  },
+  "school-help-step0-hi": {
+    "text": "खाने का डिब्बा नहीं खुल रहा। अपने टीचर से मदद माँगो।",
+    "voice": "hf_alpha",
+    "seconds": 5.425
+  },
+  "school-help-step1-en": {
+    "text": "Our teacher can help. Tap the lunchbox to open it.",
+    "voice": "af_heart",
+    "seconds": 3.75
+  },
+  "school-help-step1-hi": {
+    "text": "हमारे टीचर मदद करेंगे। डिब्बा खोलने के लिए उसे छुओ।",
+    "voice": "hf_alpha",
+    "seconds": 5.675
+  },
+  "school-help-model-en": {
+    "text": "Help me, please.",
+    "voice": "af_heart",
+    "seconds": 1.85
+  },
+  "school-help-model-hi": {
+    "text": "मेरी मदद करो, प्लीज़।",
+    "voice": "hf_alpha",
+    "seconds": 3.05
+  },
+  "school-help-example-en": {
+    "text": "Tap our teacher. We can ask for help.",
+    "voice": "af_heart",
+    "seconds": 2.875
+  },
+  "school-help-example-hi": {
+    "text": "हमारे टीचर की तस्वीर छुओ। हम मदद माँग सकते हैं।",
+    "voice": "hf_alpha",
+    "seconds": 5.225
+  },
+  "school-help-retry-en": {
+    "text": "It is stuck. Our teacher can help us.",
+    "voice": "af_heart",
+    "seconds": 2.825
+  },
+  "school-help-retry-hi": {
+    "text": "डिब्बा नहीं खुल रहा। हमारे टीचर मदद कर सकते हैं।",
+    "voice": "hf_alpha",
+    "seconds": 5.1
+  },
+  "school-water-step0-en": {
+    "text": "Our friend is thirsty. Choose some water.",
+    "voice": "af_heart",
+    "seconds": 3.125
+  },
+  "school-water-step0-hi": {
+    "text": "हमारे दोस्त को प्यास लगी है। पानी चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 4.125
+  },
+  "school-water-step1-en": {
+    "text": "Here is your water. Tap the cup to drink.",
+    "voice": "af_heart",
+    "seconds": 3.1
+  },
+  "school-water-step1-hi": {
+    "text": "यह रहा तुम्हारा पानी। पीने के लिए कप छुओ।",
+    "voice": "hf_alpha",
+    "seconds": 4.375
+  },
+  "school-water-model-en": {
+    "text": "I want water.",
+    "voice": "af_heart",
+    "seconds": 1.7
+  },
+  "school-water-model-hi": {
+    "text": "मुझे पानी चाहिए।",
+    "voice": "hf_alpha",
+    "seconds": 2.6
+  },
+  "school-water-example-en": {
+    "text": "Tap the water bottle.",
+    "voice": "af_heart",
+    "seconds": 1.975
+  },
+  "school-water-example-hi": {
+    "text": "पानी की बोतल छुओ।",
+    "voice": "hf_alpha",
+    "seconds": 2.6
+  },
+  "school-water-retry-en": {
+    "text": "That is a ball. Our friend needs water.",
+    "voice": "af_heart",
+    "seconds": 2.95
+  },
+  "school-water-retry-hi": {
+    "text": "यह गेंद है। हमारे दोस्त को पानी चाहिए।",
+    "voice": "hf_alpha",
+    "seconds": 4.1
   }
 }

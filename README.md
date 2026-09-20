@@ -20,3 +20,6 @@ Spoken instructions default to English; parents can select Hindi even during a v
 Walking alternates poses with travel and a stepping bounce (3.6 seconds); eating alternates dipping poses (3.6 seconds); sleeping combines two resting poses with a breathing motion (4.2 seconds). Motion stops, is cancellable, can be replayed, and is skipped when reduced motion is requested.
 
 Narration is pre-rendered with Kokoro-82M (English af_heart, Hindi hf_alpha, speed 0.9), replacing the macOS voices. The phone downloads AAC recordings only; no model, API key or inference server is needed. Model and voice documentation: https://huggingface.co/hexgrad/Kokoro-82M and https://huggingface.co/hexgrad/Kokoro-82M/blob/main/VOICES.md. These are synthetic voices, not a human narrator.
+
+
+Lakeside School pilot: cow/rabbit heroes; greeting, help, water episodes; Explore/Listen support. All old activities are accessible through Activities. Progress stays local, with optional parent observations separate from mission completions. See docs/DECISIONS.md, docs/ISSUES.md, docs/VERIFICATION.md and docs/RELEASES.md for direction and release evidence. Run tests/release.cjs and tests/upgrade.cjs with Playwright/Chrome available.

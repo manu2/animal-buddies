@@ -1,0 +1,36 @@
+{
+  "date": "2026-09-20T12:21:41.342Z",
+  "target": "local",
+  "results": [
+    {
+      "test": "pilot",
+      "passed": true,
+      "stdout": "PASS pilot: 12 mission/hero/support combinations offline; gentle recovery; every checkpoint reload; completion deduplication; shared six turns/deadline; all prior activities visible; pending legacy reward; parent observation; day/timeout checkpoint; 360px layout.\n",
+      "stderr": ""
+    },
+    {
+      "test": "daily",
+      "passed": true,
+      "stdout": "PASS: same-day lock, local midnight unlock offline, immediate parent restart, simulate-next-day button, legacy migration, stale active visit, settings preserved\n",
+      "stderr": ""
+    },
+    {
+      "test": "language",
+      "passed": true,
+      "stdout": "{\"passed\":true,\"offlineClips\":197,\"pauseMs\":1214,\"checks\":[\"English default\",\"Hindi setting persists offline\",\"static modes choose one instruction language\",\"Hindi meaning only\",\"story model English and selected question language\",\"meaning interrupts pending question\"]}\n",
+      "stderr": ""
+    },
+    {
+      "test": "motion",
+      "passed": true,
+      "stdout": "{\"passed\":true,\"actions\":[\"walk\",\"eat\",\"sleep\"],\"audio\":197,\"offline\":true}\n",
+      "stderr": ""
+    },
+    {
+      "test": "upgrade",
+      "passed": true,
+      "stdout": "case ended\noffline ready\nrequested update\nnew UI\ncase active\noffline ready\nrequested update\nnew UI\nPASS: old cached completed visit automatically refreshes and unlocks, active visit/deadline preserved, no reload loop, settings preserved, offline restart\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+.activity-library,.school-lobby,.school-game{max-width:800px;margin:auto;text-align:center;padding-top:20px}
+.library-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:22px auto;max-width:610px}
+.library-card{border:2px solid #b9d1bf;border-bottom:5px solid #b9d1bf;border-radius:24px;background:#fffdf2;padding:13px;display:flex;align-items:center;gap:13px;min-height:113px;text-align:left}
+.library-card img,.library-card>svg{width:68px;height:68px;object-fit:contain;flex-shrink:0}
+.library-card strong{display:block;font-size:18px}.library-card small{display:block;color:#4a7063;margin-top:6px;font-size:13px}
+.library-card.school-card{grid-column:1/-1;background:#fff1be}
+.library-letter{font-size:42px;font-weight:800;min-width:68px}
+.library-intro{color:#477266;font-size:15px;line-height:1.5}
+.hero-picker{display:flex;gap:15px;justify-content:center;margin:18px auto}
+.hero-option{width:130px;padding:10px;border:2px solid #c5d7c6;background:#fffdf2;border-radius:25px;font-weight:800}
+.hero-option img{width:100%;height:86px;display:block}.hero-option[aria-pressed=true]{border:3px solid #1c7e68;background:#e7f0d3}
+.support-picker{display:flex;justify-content:center;gap:10px;margin:12px 0 20px}.support-picker button{display:flex;align-items:center;gap:8px;padding:8px 16px;border:2px solid #c5d7c6;border-radius:25px;background:#fffdf2;font-weight:700}
+.support-picker svg{width:35px;height:35px}.support-picker [aria-pressed=true]{border-color:#1c7e68;background:#e7f0d3}
+.mission-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0}
+.mission-card{border:2px solid #c5d7c6;border-bottom-width:5px;border-radius:25px;background:#fffdf2;padding:13px 8px;font-weight:800;font-size:16px}.mission-card svg{display:block;width:85px;height:85px;margin:0 auto 10px}.mission-card small{display:block;font-size:12px;color:#537367;margin-top:8px;font-weight:500}
+.school-scene{width:100%;aspect-ratio:600/310;border:2px solid #bcd4c1;border-radius:28px;overflow:hidden;position:relative;background:#e9f2ed;max-width:650px;margin:auto;isolation:isolate}
+.school-landscape{width:100%;height:100%;position:absolute;inset:0}
+.school-hero{position:absolute;left:12%;bottom:7%;width:29%;height:48%;object-fit:contain;transform-origin:50% 90%}
+.school-teacher{position:absolute;right:20%;bottom:12%;width:22%;height:40%;object-fit:contain;transform-origin:50% 90%}
+.school-prop{position:absolute;left:41%;bottom:7%;width:16%;height:29%}.school-prop svg{width:100%;height:100%}
+.school-bubble{position:absolute;left:31%;top:15%;border-radius:20px 20px 20px 2px;background:#fffdf4;padding:9px 14px;font-size:18px;font-weight:800;box-shadow:0 2px 0 #cad4b6}
+.school-actions{display:flex;justify-content:center;gap:16px;margin:17px auto;max-width:470px}
+.school-action{width:160px;min-height:105px;border:2px solid #bfd2b9;border-bottom-width:5px;background:#fffdf2;border-radius:22px;padding:8px;font-weight:800;font-size:16px}
+.school-action svg{width:64px;height:64px;display:block;margin:auto}.school-action.demonstrating{border-color:#0b6861}
+.school-game .question{font-size:30px;margin:12px 0 17px}.school-game .game-top{margin-bottom:10px}
+.mission-feedback{min-height:24px;color:#486d5f;font-size:15px;line-height:1.4;margin:10px}
+.school-game .primary{font-size:17px;min-height:57px;min-width:190px;padding:10px 20px}
+.school-game .primary .big-arrow{font-size:29px}
+.school-game .sound{min-height:48px;padding:8px 18px}
+.parent-observations{display:grid;gap:10px}.parent-observations label{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:14px}.parent-observations select{font-size:14px}
+#library{display:flex;align-items:center;gap:6px}#library span:first-child{font-size:22px}
+.header-buttons{display:flex;gap:7px}
+@media(max-width:600px){.library-card{padding:9px;gap:7px;min-height:108px}.library-card img,.library-card>svg{width:46px;height:58px}.library-card strong{font-size:15px}.library-card small{font-size:11px}.library-letter{min-width:46px;font-size:32px}.mission-list{gap:8px}.mission-card{font-size:13px;padding:10px 5px}.mission-card svg{width:65px;height:65px}.school-game .question{font-size:26px}.school-bubble{font-size:13px;padding:7px 10px}.school-action{min-height:100px}.header-buttons .quiet{font-size:12px;padding:9px}.brand{font-size:16px}.brandmark{width:38px;height:40px;font-size:36px;line-height:38px}#library .library-label{display:none}.school-lobby h1,.activity-library h1{font-size:32px}.school-scene{border-radius:22px}.school-game .game-top .quiet{font-size:11px}}
+@media(max-height:760px) and (max-width:600px){.school-game{padding-top:12px}.school-game .question{font-size:23px;margin-bottom:12px}.school-actions{margin:12px auto}.school-action svg{width:56px;height:56px}.school-action{min-height:87px}.school-game .sound-controls{margin:8px 0}.school-game .parent-prompt{font-size:12px;margin:7px auto}.school-game .primary{min-height:51px}}
+
+.school-home-link{margin:16px auto 0}.school-home-link svg{width:38px;height:38px}.school-home-link .sound{padding:8px 18px}.drinking-prop svg path:last-child{opacity:.25}
+
+.school-action .animal{display:block;width:64px;height:64px;object-fit:contain;margin:auto}
