@@ -1,0 +1,1 @@
+PASS pilot: 12 mission/hero/support combinations offline; gentle recovery; every checkpoint reload; completion deduplication; shared six turns/deadline; all prior activities visible; pending legacy reward; parent observation; day/timeout checkpoint; 360px layout.
