@@ -1,0 +1,1 @@
+PASS free play: default off, 32 old-activity turns, eight standalone missions and complete nine-beat day, offline reload beyond sixth turn/deadline/midnight, immediate restart, optional turn/time/day limits, mid-outcome toggle receipts, saved language/progress and old completed-save unlock.

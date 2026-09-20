@@ -1,0 +1,1 @@
+PASS: same-day lock, local midnight unlock offline, immediate parent restart, simulate-next-day button, legacy migration, stale active visit, settings preserved
