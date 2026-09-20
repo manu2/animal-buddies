@@ -11,6 +11,8 @@ const v12={};
 for(const f of execFileSync('git',['ls-tree','-r','--name-only','fc0df1f'],{cwd:root,encoding:'utf8'}).trim().split('\n').filter(f=>/\.(js|json|html|css)$/.test(f)&&!f.startsWith('tests/')&&!f.startsWith('docs/')))v12[f]=execFileSync('git',['show','fc0df1f:'+f],{cwd:root});
 const v13={};
 for(const f of Object.keys(v12))try{v13[f]=execFileSync('git',['show','7476872:'+f],{cwd:root,stdio:['pipe','pipe','ignore']});}catch{}
+const v14={};
+for(const f of Object.keys(v13))try{v14[f]=execFileSync('git',['show','64c0425:'+f],{cwd:root,stdio:['pipe','pipe','ignore']});}catch{}
 let modern=false,revision=0,baseline=old;
 const server=http.createServer((req,res)=>{
  const path=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\//,'')||'index.html';
@@ -78,6 +80,13 @@ await lockedPage.locator('[data-activity=day]').click();await lockedPage.locator
 modern=true;const unlocked=lockedPage.waitForEvent('framenavigated',{predicate:f=>f===lockedPage.mainFrame(),timeout:60000});await lockedPage.evaluate(()=>navigator.serviceWorker.getRegistration().then(r=>r.update()));await unlocked;await lockedPage.locator('.level-card').first().waitFor();
 const unlockedSave=await lockedPage.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1')));assert.equal(unlockedSave.settings.limitsEnabled,false);assert.equal(unlockedSave.session,null);assert.deepEqual(unlockedSave.journey,lockedBefore.journey);assert.deepEqual(unlockedSave.settings,{...lockedBefore.settings,limitsEnabled:false});assert.ok(await lockedPage.evaluate(()=>localStorage.getItem('animal-buddies-v1-backup-v3')));
 await locked.setOffline(true);await lockedPage.reload();await lockedPage.locator('[data-activity=actions]').click();await lockedPage.locator('[data-story-choice]').first().waitFor();await locked.close();console.log('PASS: actual v13 same-day lock upgrades to free play offline, retaining story progress/settings and schema-3 backup');
+
+// Actual v14 free-play client gains install help without changing saved state.
+baseline=v14;modern=false;
+const priorInstall=await b.newContext(),installPage=await priorInstall.newPage();await installPage.goto('http://127.0.0.1:4175/');await installPage.getByText('Ready for offline play',{exact:false}).waitFor({timeout:60000});
+await installPage.locator('[data-activity=day]').click();await installPage.locator('[data-chapter=morning]').click();await installPage.locator('[data-day-choice=wake]').click();await installPage.locator('#library').click();
+const installBefore=await installPage.evaluate(()=>localStorage.getItem('animal-buddies-v1'));modern=true;const installMoved=installPage.waitForEvent('framenavigated',{predicate:f=>f===installPage.mainFrame(),timeout:60000});await installPage.evaluate(()=>navigator.serviceWorker.getRegistration().then(r=>r.update()));await installMoved;await installPage.locator('#install-home [data-install]').waitFor();
+assert.equal(await installPage.evaluate(()=>localStorage.getItem('animal-buddies-v1')),installBefore);await priorInstall.setOffline(true);await installPage.reload();await installPage.locator('#install-home [data-install]').click();await installPage.locator('#install-home .install-help').waitFor();assert.equal(await installPage.evaluate(()=>localStorage.getItem('animal-buddies-v1')),installBefore);await priorInstall.close();console.log('PASS: actual v14 client upgrades to install help offline, entire game save unchanged');
 
 // Upgrade the actual previous story engine/schema, not only a synthetic worker.
 baseline=v10;modern=false;

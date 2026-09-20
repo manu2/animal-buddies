@@ -1,5 +1,7 @@
 # Current implementation status
-Updated 2026-09-21. Published worker v14 / schema 4, app commit 64c0425183eb0c62a32deec5129225f27d6de93f at https://manu2.github.io/animal-buddies/ . All twelve local suites and public free-play/daily/language checks passed; evidence in RELEASES.md.
+Updated 2026-09-21. Candidate worker v15 / schema 4 adds discoverable home-screen installation; all thirteen local suites passed. Publication/public verification pending below in RELEASES.md. Previous live release: v14 / app 64c0425183eb0c62a32deec5129225f27d6de93f at https://manu2.github.io/animal-buddies/.
+
+Installation: optional chooser card and parent entry use the native confirmation when eligible, otherwise iPhone Safari/Android browser instructions. No automatic modal; Not now hides the chooser card until reload, standalone app display hides installation UI. Game saves are unchanged. Phone OS installation remains unverified; event/capability paths were simulated in browser tests.
 
 Latest policy: free play by default, including existing users. Parent Time and turn limits can restore the original six-turn/timed/daily policy. Finish returns to Levels when limits are off; activities repeat past six turns and old completed visits unlock without losing story progress.
 

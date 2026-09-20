@@ -26,3 +26,5 @@ All earlier activities share the friendly illustrated animal identities. Names a
 
 ## Physical continuity and social scenes
 Bedtime means the chosen animal is IN bed, head supported by the pillow and body under the quilt. Waking starts in that same bed. Gestures belong to the character's attached limbs; a floating hand or flying cup is not the character performing an action. At school, an adult dog teacher has recognisable role props/posture beside the board, and seated animal classmates share the setting. Keep the lake classroom and chosen protagonist; use the same scenes in the day story and older school practice.
+
+Installation is a parent convenience on the chooser, not a prerequisite to play. Offer a native install confirmation where supported; otherwise explain the phone browser steps. Never interrupt an activity with installation prompts. Home-screen mode hides the invitation.

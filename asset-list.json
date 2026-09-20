@@ -277,5 +277,6 @@
   "./ui/animal-view.js",
   "./ui/day-view.js",
   "./ui/familiar-view.js",
+  "./ui/install-view.js",
   "./ui/parent-view.js"
 ]
