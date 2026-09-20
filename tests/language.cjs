@@ -12,7 +12,7 @@ await p.locator('#start').click();
 async function parent(){await p.locator('#parent').click();const n=(await p.locator('label[for=answer]').textContent()).match(/\d+/g).map(Number);await p.locator('#answer').fill(String(n[0]+n[1]));await p.locator('#gate button').click();}
 await parent();assert.equal(await p.locator('#instruction-language').inputValue(),'en');await p.locator('#instruction-language').selectOption('hi');await p.locator('#close-parent').click();
 await c.setOffline(true);assert.equal(await ev(()=>settings.instructionLanguage),'hi');
-const count=await ev(async()=>{const a=new AudioContext(),list=await(await fetch('./audio-list.json')).json();for(const n of list){const r=await fetch('./audio/'+n+'.m4a');if(!r.ok)throw Error(n);await a.decodeAudioData(await r.arrayBuffer());}await a.close();return list.length;});assert.equal(count,197);
+const count=await ev(async()=>{const a=new AudioContext(),list=await(await fetch('./audio-list.json')).json();for(const n of list){const r=await fetch('./audio/'+n+'.m4a');if(!r.ok)throw Error(n);await a.decodeAudioData(await r.arrayBuffer());}await a.close();return list.length;});assert.ok(count>=197);
 const timing=await ev(async()=>{
 stopStory();stopAudio();await unlockAudio();const starts=[],ends=[],original=audioContext.createBufferSource.bind(audioContext);
 audioContext.createBufferSource=()=>{const s=original(),start=s.start.bind(s);s.start=(...args)=>{starts.push(performance.now());return start(...args)};s.addEventListener('ended',()=>ends.push(performance.now()));return s;};
@@ -34,6 +34,10 @@ for(const lang of ['en','hi']){
  school.step=0;school.support='listen';calls=[];await narrateSchool();result['school-listen-'+lang]=calls.flat();
  school.support='explore';calls=[];await narrateSchool();result['school-explore-'+lang]=calls.flat();
 }
+for(const lang of ['en','hi']){
+ settings.instructionLanguage=lang;mode='day';dispatchDay({type:'CHAPTER',node:'brush'});dispatchDay({type:'SUPPORT',support:'listen'});dayRuntime.render();calls=[];await dayRuntime.narrate();result['day-prompt-'+lang]=calls.flat();
+ dispatchDay({type:'ACT',choice:'brush'});dayRuntime.render();calls=[];await dayRuntime.narrate();result['day-model-'+lang]=calls.flat();calls=[];dayRuntime.meaning();result['day-meaning-'+lang]=calls.flat();
+}
 return result;});
 assert.deepEqual(queues['names-en'],['cow-name','forward-en']);assert.deepEqual(queues['names-hi'],['cow-name','forward-hi']);
 for(const m of ['names','sentences','letters']){assert.equal(queues[m+'-en'].length,2);assert.equal(queues[m+'-meaning-en'].length,1);}
@@ -44,6 +48,7 @@ for(const lang of ['en','hi']){
  assert.deepEqual(queues['school-listen-'+lang],['school-help-step0-'+lang]);
  assert.deepEqual(queues['school-explore-'+lang],['school-help-step0-'+lang,'school-help-example-'+lang]);
 }
+for(const lang of ['en','hi']){assert.deepEqual(queues['day-prompt-'+lang],['day-brush-prompt-'+lang]);assert.deepEqual(queues['day-model-'+lang],['day-brush-model-en']);assert.deepEqual(queues['day-meaning-'+lang],['day-brush-model-hi']);}
 assert.deepEqual(queues.story,['story-cow-eat-en','story-cow-question-hi']);assert.deepEqual(queues.meaning,['story-cow-eat-hi']);
 await ev(()=>{play=realPlay;mode='actions';renderStory();});await p.locator('#listen').click();await p.waitForTimeout(2500);await p.locator('#hint').click();await p.waitForTimeout(3500);assert.equal(await ev(()=>audioBusy),false);
 await p.screenshot({path:'/tmp/language-game.png',fullPage:true});

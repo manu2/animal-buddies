@@ -983,5 +983,155 @@
     "text": "यह गेंद है। हमारे दोस्त को पानी चाहिए।",
     "voice": "hf_alpha",
     "seconds": 4.1
+  },
+  "day-levels-en": {
+    "text": "Choose how to play. Meet the animals. Play with actions. Or follow a day with your animal friend.",
+    "voice": "af_heart",
+    "seconds": 6.75
+  },
+  "day-levels-hi": {
+    "text": "खेल चुनो। जानवरों से मिलो। उनकी हरकतें देखो। या अपने दोस्त के साथ दिन बिताओ।",
+    "voice": "hf_alpha",
+    "seconds": 7.45
+  },
+  "day-lobby-en": {
+    "text": "Choose your animal friend. Then choose morning, school, or bedtime. You can continue where you stopped.",
+    "voice": "af_heart",
+    "seconds": 7.075
+  },
+  "day-lobby-hi": {
+    "text": "अपना जानवर दोस्त चुनो। फिर सुबह, स्कूल या सोने का समय चुनो। जहाँ रुके थे, वहीं से खेल सकते हो।",
+    "voice": "hf_alpha",
+    "seconds": 8.5
+  },
+  "day-retry-en": {
+    "text": "Let’s help our friend. Try another picture.",
+    "voice": "af_heart",
+    "seconds": 3.225
+  },
+  "day-retry-hi": {
+    "text": "अपने दोस्त की मदद करें। दूसरी तस्वीर चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 4.65
+  },
+  "day-wake-prompt-en": {
+    "text": "Wake up our friend. Tap the sun.",
+    "voice": "af_heart",
+    "seconds": 2.7
+  },
+  "day-wake-prompt-hi": {
+    "text": "अपने दोस्त को जगाओ। सूरज को छुओ।",
+    "voice": "hf_alpha",
+    "seconds": 3.85
+  },
+  "day-wake-model-en": {
+    "text": "Good morning!",
+    "voice": "af_heart",
+    "seconds": 1.725
+  },
+  "day-wake-model-hi": {
+    "text": "सुप्रभात!",
+    "voice": "hf_alpha",
+    "seconds": 1.9
+  },
+  "day-brush-prompt-en": {
+    "text": "Help our friend brush. Choose the toothbrush.",
+    "voice": "af_heart",
+    "seconds": 3.325
+  },
+  "day-brush-prompt-hi": {
+    "text": "दोस्त के दाँत साफ़ करने में मदद करो। टूथब्रश चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 5.275
+  },
+  "day-brush-model-en": {
+    "text": "Brush your teeth.",
+    "voice": "af_heart",
+    "seconds": 1.825
+  },
+  "day-brush-model-hi": {
+    "text": "अपने दाँत साफ़ करो।",
+    "voice": "hf_alpha",
+    "seconds": 2.725
+  },
+  "day-breakfast-prompt-en": {
+    "text": "Our friend is hungry. Choose breakfast.",
+    "voice": "af_heart",
+    "seconds": 3.025
+  },
+  "day-breakfast-prompt-hi": {
+    "text": "हमारे दोस्त को भूख लगी है। खाना चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 4.275
+  },
+  "day-breakfast-model-en": {
+    "text": "I am eating.",
+    "voice": "af_heart",
+    "seconds": 1.725
+  },
+  "day-breakfast-model-hi": {
+    "text": "मैं खाना खा रहा हूँ।",
+    "voice": "hf_alpha",
+    "seconds": 2.65
+  },
+  "day-walk-school-prompt-en": {
+    "text": "Let’s walk to meet our friends. Choose walking.",
+    "voice": "af_heart",
+    "seconds": 3.35
+  },
+  "day-walk-school-prompt-hi": {
+    "text": "चलो दोस्तों से मिलने चलें। चलने वाली तस्वीर चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 5.25
+  },
+  "day-walk-school-model-en": {
+    "text": "Let’s go to school.",
+    "voice": "af_heart",
+    "seconds": 2.0
+  },
+  "day-walk-school-model-hi": {
+    "text": "चलो स्कूल चलें।",
+    "voice": "hf_alpha",
+    "seconds": 2.3
+  },
+  "day-walk-home-prompt-en": {
+    "text": "Let’s walk home together. Choose walking.",
+    "voice": "af_heart",
+    "seconds": 3.2
+  },
+  "day-walk-home-prompt-hi": {
+    "text": "चलो साथ घर चलें। चलने वाली तस्वीर चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 4.675
+  },
+  "day-walk-home-model-en": {
+    "text": "Let’s go home.",
+    "voice": "af_heart",
+    "seconds": 1.825
+  },
+  "day-walk-home-model-hi": {
+    "text": "चलो घर चलें।",
+    "voice": "hf_alpha",
+    "seconds": 2.175
+  },
+  "day-sleep-prompt-en": {
+    "text": "Our friend is sleepy. Choose the bed.",
+    "voice": "af_heart",
+    "seconds": 2.85
+  },
+  "day-sleep-prompt-hi": {
+    "text": "हमारे दोस्त को नींद आ रही है। बिस्तर चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 4.425
+  },
+  "day-sleep-model-en": {
+    "text": "Good night!",
+    "voice": "af_heart",
+    "seconds": 1.625
+  },
+  "day-sleep-model-hi": {
+    "text": "शुभ रात्रि!",
+    "voice": "hf_alpha",
+    "seconds": 2.05
   }
 }

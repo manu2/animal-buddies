@@ -1,6 +1,6 @@
 # Corrected direction: the child's day through an animal friend
 
-Status: user direction recorded 2026-09-20; implementation plan, NOT delivered. This supersedes the school-first product structure. The existing school scene is reusable as one chapter. It is not the whole third level.
+Status: correction plan recorded 2026-09-20; core three-level and animal-day implementation locally verified 2026-09-21. See CURRENT_STATE.md for precise release status and remaining routines. This supersedes the school-first product structure. The existing school scene is reusable as one chapter. It is not the whole third level.
 
 ## What went wrong
 The earlier names/actions/sentences/letters code and the original eating/walking/sleeping sprite animations remain. However, the library prioritised school and the release handoff repeatedly opened school. An inventory check passed even though the intended progression and animal-led routine experience were missing. Technical success was incorrectly treated as sufficient direction verification. Home routines were deferred without adequately protecting the user's central idea. Keep this failure open until the actual navigation and story experience are corrected.

@@ -16,4 +16,4 @@ await p.waitForTimeout(3200);assert.equal(await p.evaluate(()=>document.getAnima
 await p.locator('#listen').click();await p.locator('#hint').click();assert.equal(await p.evaluate(()=>document.getAnimations().length),0,'Meaning cancels animation');
 await p.emulateMedia({reducedMotion:'reduce'});await p.locator('#listen').click();assert.equal(await p.evaluate(()=>document.getAnimations().length),0,'Reduced motion');
 const audio=await p.evaluate(async()=>{const list=await(await fetch('./audio-list.json')).json(),ctx=new AudioContext();for(const n of list){const r=await fetch('./audio/'+n+'.m4a');const a=await ctx.decodeAudioData(await r.arrayBuffer());if(a.duration<=0)throw Error(n);}await ctx.close();return list.length;});
-assert.equal(audio,197);assert.deepEqual(errors,[]);console.log(JSON.stringify({passed:true,actions:['walk','eat','sleep'],audio,offline:true}));}finally{await b.close();}})().catch(e=>{console.error(e);process.exit(1)});
+assert.ok(audio>=197);assert.deepEqual(errors,[]);console.log(JSON.stringify({passed:true,actions:['walk','eat','sleep'],audio,offline:true}));}finally{await b.close();}})().catch(e=>{console.error(e);process.exit(1)});

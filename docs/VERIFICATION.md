@@ -1,10 +1,10 @@
 # Release success gate
 Run this before publishing. Record actual results in RELEASES.md.
 
-1. Separate product-direction gate: explicitly report PASS/FAIL/NOT BUILT independently of technical tests. Compare against the user’s original requests and ANIMAL_DAY_PLAN.md, not only a narrowed implementation scope. I16 remains open until visible three-level navigation and an animal-led daily routine are delivered. Direction audit: compare delivered scope against every D ID. Label deferred work; do not silently change accepted direction.
+1. Separate product-direction gate: explicitly report PASS/FAIL/NOT BUILT independently of technical tests. Compare against the user’s original requests and ANIMAL_DAY_PLAN.md, not only a narrowed implementation scope. Recheck I16 every release: three equally visible levels and a connected animal-led daily routine must remain present. Direction audit: compare delivered scope against every D ID. Label deferred work; do not silently change accepted direction.
 2. Content audit: each mission has one purpose, picture/tap path, meaningful visible outcome, optional speech, neutral recovery, quiet stopping point. No literacy requirement.
 3. Behavioral tests: both heroes, all three missions, both support levels; correct and alternate choices; replay and Hindi meaning; interruption by back, parent settings and page hiding; reload at each checkpoint; completion counts exactly once.
-4. Compatibility regressions: check every current issue in ISSUES.md (currently I01–I16 and T01), including old activities, old storage, shared timer/six turns, next-day renewal, instant restart, all actions, audio-language routing.
+4. Compatibility regressions: check every current issue in ISSUES.md (currently I01–I17 and T01–T03), including old activities, old storage, shared timer/six turns, next-day renewal, instant restart, all actions, audio-language routing.
 5. Offline: fresh complete download; disable network, reload, exercise new content, decode every audio and image. Check correct cache inventory and no runtime API.
 6. Upgrade: seed older deployed files/cache plus ended yesterday and active visits; install candidate; verify automatic refresh, settings/deadlines/checkpoints unchanged, no loop.
 7. Visual: screenshots at 360x740 and desktop; large picture targets, no horizontal overflow, clear progress/back/replay; reduced motion. Check D16/I15: original illustrated animal style throughout school, lake and open-air classroom recognisable without title, no building, characters stand on dry ground; inspect the actual rendered composite, not just its asset.
@@ -12,3 +12,5 @@ Run this before publishing. Record actual results in RELEASES.md.
 9. Human follow-up remains separate: listen to English/Hindi pronunciations; use installed app on actual iPhone/Android; parent observes whether tasks are understood, prompts needed, language/gestures transfer off-screen, and stopping is comfortable. Never mark these passed from browser tests.
 
 Pass criteria: zero known blocking technical regressions, all accepted features present or explicitly deferred, no automatic bilingual duplication, no session-budget bypass, preserved old content/data, honest disclosure of untested human/device outcomes.
+
+For story-engine changes, run state/content tests plus the day browser suite. Test old-save migration, duplicate actions, independent hero bookmarks, exact turn receipts, timeout, reload and worker upgrades. Inspect the complete day and previous levels, not isolated new art. Reference DEVELOPMENT_RULES.md and STORY_AUTHORING.md.

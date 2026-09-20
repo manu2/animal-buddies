@@ -1,5 +1,13 @@
 # Lakeside classroom artwork
 
+## Home setting added 2026-09-21
+
+Built-in image generation; final asset `scenes/animal-home-v1.png`. Existing sprites and school backdrop remain unchanged. Exact generation prompt:
+
+Use case: illustration-story. Asset type: offline preschool animal game background, landscape 1536x1024. Draw a warm cosy animal friend's home in the exact gentle painted cartoon storybook style of our existing lakeside classroom. Empty of characters; game layers our cow/rabbit sprites over it. A softly rounded wooden bed with a peach blanket and cream pillow sits at far left, morning sun through a large rounded window in upper middle, tiny book shelf upper right, a small child-height washstand with basin, a little toothbrush cup and towel at far right. Big uncluttered pale honey floor and a round sage woven rug in lower center covering bottom half leave plenty of open space for one large animal character. A few everyday objects, coherent friendly shapes, calm warm morning lighting, readable on a small phone. No writing, no letters, no UI, no animals, no people, no watermarks. Full bleed. Trees visible outside window. Warm teal sage peach wood palette. Background should communicate a familiar morning routine without needing text, match polished children's book illustration, not geometric placeholder art.
+
+## Original classroom
+
 Generated with the built-in image generation tool, 2026-09-20. Final backdrop: `scenes/lakeside-classroom-v2.png`. Original `stories/cow.png`, `stories/rabbit.png`, and `stories/dog.png` were style references and are reused directly as CSS sprite frames for the actual characters. No runtime image-generation service is required.
 
 ## Exact prompt

@@ -4,7 +4,7 @@ const c=await b.newContext({viewport:{width:360,height:740}}),p=await c.newPage(
 await p.goto(process.env.GAME_URL||'http://127.0.0.1:4173/');
 await p.getByText('Ready for offline play',{exact:false}).waitFor({timeout:90000});
 await p.locator('#library').click();await p.screenshot({path:path.join(__dirname,'../docs/evidence/activity-library.png'),fullPage:true});
-await p.locator('[data-activity=school]').click();await p.screenshot({path:path.join(__dirname,'../docs/evidence/school-lobby.png'),fullPage:true});
+await p.locator('[data-activity=day]').click();await p.locator('.day-practice summary').click();await p.locator('#school-entry').click();await p.screenshot({path:path.join(__dirname,'../docs/evidence/school-lobby.png'),fullPage:true});
 await p.locator('[data-mission=help]').click();await p.locator('[data-school-choice=go]').click();
 await p.screenshot({path:path.join(__dirname,'../docs/evidence/school-help.png'),fullPage:true});
 await p.locator('[data-school-choice=finish]').click();await p.screenshot({path:path.join(__dirname,'../docs/evidence/school-outcome.png'),fullPage:true});

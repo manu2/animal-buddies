@@ -1,0 +1,11 @@
+# Learning guidance and evidence limits
+Reviewed 2026-09-21. Separate guidance from our design choices and from observed outcomes.
+
+- [ASHA: communication at 3–4 years](https://www.asha.org/public/developmental-milestones/communication-milestones-3-to-4-years/): simple stories, daily pretend activities and conversation in the family's comfortable languages are useful opportunities. Design implication: familiar routines, short model sentences, Hindi welcome. English performance alone is not our measure of overall language ability; this game does not diagnose development.
+- [NAEYC: dramatic play and literacy](https://www.naeyc.org/resources/pubs/tyc/winter2024/creating-dramatic-play-areas-to-support-literacy): meaningful pretend scenarios provide opportunities to use words in context. Design implication: a hungry friend eating, a stuck lunchbox needing help; avoid disconnected vocabulary drills as the only experience.
+- [AAP: co-viewing and co-playing](https://www.healthychildren.org/English/family-life/Media/Pages/why-co-viewing-is-important-tips-to-share-screen-time-with-your-kids.aspx): adult involvement and discussion can support a child's media experience. Design implication: parent bridges, optional speech and off-screen conversation.
+- [Ganea et al. 2014, animal picture-book study](https://pmc.ncbi.nlm.nih.gov/articles/PMC3989584/): human-like animal presentation can limit transfer of factual animal information in some conditions. This is not a trial of our game or its habit teaching. Design implication: distinguish pretend routines from real animal facts; never infer real-world transfer from in-game success.
+
+Our three levels, six-turn limit, 3/5/7-minute choices, two heroes and English/Hindi routing are product choices, not validated developmental prescriptions. A named favourite animal may invite engagement; it is not a proven learning treatment. Reading/spelling and spoken responses are never requirements.
+
+Human observation remains necessary: is the routine recognised, is a cue understood with less help after familiarisation, does a word/gesture appear outside the game, is stopping comfortable? Record anecdotal parent observations as such, separately from completion counts. Do not run coercive repeat-after-me tests. Real brushing and other care routines still need grown-up support; animated play cannot replace them.

@@ -1,3 +1,6 @@
+import {createSaveStore} from './engine/save-store.js';
+import {createDayController} from './engine/day-controller.js';
+import {visitExpired} from './engine/journey.js';
 import {SCHOOL,prop,schoolScene,schoolFriend} from './school.js';
 
 const $ = (id) => document.getElementById(id);
@@ -12,30 +15,16 @@ const ANIMALS = [
  {id:'lion',name:'Lion',hi:'शेर',letter:'L',sentence:'The lion can roar.'},
 ];
 const GROUPS = [['cow','dog','fish'],['cat','duck','rabbit'],['elephant','lion','cow']];
-const MODES = {school:{title:'Lakeside School',description:'Help our friends and talk together'},actions:{title:'Animal stories',description:'Choose an action and talk together'},names:{title:'Find a friend',icon:'◎',description:'Listen & pick an animal'},sentences:{title:'Little sentences',icon:'“ ”',description:'Listen to what animals do'},letters:{title:'Letter play',icon:'Aa',description:'Match a starting letter'}};
+const MODES = {day:{title:'A day with my animal',description:'Familiar routines together'},school:{title:'Lakeside School',description:'Help our friends and talk together'},actions:{title:'Animal stories',description:'Choose an action and talk together'},names:{title:'Find a friend',icon:'◎',description:'Listen & pick an animal'},sentences:{title:'Little sentences',icon:'“ ”',description:'Listen to what animals do'},letters:{title:'Letter play',icon:'Aa',description:'Match a starting letter'}};
 const STORY_ANIMALS=['cow','dog','rabbit'];
 const STORY_ACTIONS={walk:{column:0,label:'Walk',verb:'walking',hi:'चल'},eat:{column:1,label:'Eat',verb:'eating',hi:'खा'},sleep:{column:2,label:'Sleep',verb:'sleeping',hi:'सो'}};
 const STORY_PAIRS=[['walk','eat'],['sleep','walk'],['eat','sleep'],['eat','sleep'],['walk','eat'],['sleep','walk']];
 let storyFlow=0;
 const storyAnimations=new Set();
-const STORE='animal-buddies-v1';
-let storageWorks=true;
-function read(){try{return JSON.parse(localStorage.getItem(STORE)||'{}')}catch{return {}}}
-let saved=read();
-let settings={minutes:5,group:0,instructionLanguage:'en',...saved.settings};
-if(![3,5,7].includes(settings.minutes))settings.minutes=5;
-if(![0,1,2].includes(settings.group))settings.group=0;
-if(!['en','hi'].includes(settings.instructionLanguage))settings.instructionLanguage='en';
-let mode=saved.curriculumVersion===3 && MODES[saved.mode]?saved.mode:'actions';
-let school={hero:'rabbit',support:'explore',mission:null,step:0,counted:false,...saved.school};
-if(!['cow','rabbit'].includes(school.hero))school.hero='rabbit';
-if(!['explore','listen'].includes(school.support))school.support='explore';
-if(!Object.hasOwn(SCHOOL,school.mission)||![0,1,2].includes(school.step)){school.mission=null;school.step=0;}
-let progress={completed:{},observations:{},...saved.progress};
-if(!progress.completed||typeof progress.completed!=='object')progress.completed={};
-if(!progress.observations||typeof progress.observations!=='object')progress.observations={};
-let session=saved.session;
-if(session && (!Number.isFinite(session.deadline)||!Number.isInteger(session.round)||session.round<0||session.round>6||!Array.isArray(session.targets)||session.targets.length!==6||!session.targets.every(id=>ANIMALS.some(a=>a.id===id))||!['active','ended'].includes(session.status)))session=null;
+let deviceStorage;try{deviceStorage=window.localStorage;}catch{}
+const store=createSaveStore(deviceStorage);
+let saved=store.getState(),storageWorks=store.isHealthy();
+let {settings,mode,school,progress,session}=saved;
 let screen='home', phase='learn', hint=false, choiceOrder=[], wrong='', correct=false, offlineReady=false;
 let audioContext, audioSource, audioGeneration=0, audioBusy=false;
 const decoded=new Map();
@@ -53,7 +42,9 @@ function resetForNewDay(){
  const dialog=$('grownup-dialog');if(dialog){dialog.close();dialog.remove();}
  return true;
 }
-function persist(){try{localStorage.setItem(STORE,JSON.stringify({settings,mode,session,school,progress,curriculumVersion:3}));}catch{storageWorks=false;}}
+function persist(){store.commitLegacy({settings,mode,session,school,progress,curriculumVersion:3});storageWorks=store.isHealthy();}
+function dispatchDay(event){persist();const state=store.dispatch(event);session=state.session;storageWorks=store.isHealthy();return state;}
+
 function animal(id){return ANIMALS.find(a=>a.id===id);}
 function target(){return animal(session.targets[Math.min(session.round,5)]);}
 function picture(a,klass=''){return '<img class="animal '+klass+'" src="./animals/'+a.id+'.svg" alt="'+a.name+'" draggable="false">';}
@@ -85,6 +76,7 @@ function lessonAudio(a){
 }
 function rewardAudio(a){return [instruction('yes'),a.id+'-name',instruction('forward')];}
 function hearMeaning(){
+ if(mode==='day')return dayRuntime.meaning();
  if(mode==='school')return schoolMeaning();
  stopStory();
  const a=target();
@@ -92,6 +84,7 @@ function hearMeaning(){
  return play([a.id+(mode==='sentences'?'-model-hi':'-hi')]);
 }
 function listen(){
+ if(screen==='game'&&mode==='day')return dayRuntime.narrate();
  if(screen==='game'&&mode==='school')return narrateSchool();
  if(screen==='done')return play([instruction(mode==='actions'?'story-goodbye':'goodbye')]);
  if(screen==='game'&&mode==='actions')return storyNarrate();
@@ -102,14 +95,17 @@ function listen(){
  return play(modeAudio(a));
 }
 function shuffle(xs){const x=[...xs];for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]];}return x;}
-function home(){
- stopStory();stopAudio();screen='home';
- $('main').innerHTML='<section class="welcome '+(mode==='actions'?'story-home':'')+'"><p class="eyebrow">A SMALL ADVENTURE TOGETHER</p><h1>Hello, little explorer!</h1><p class="hindi" lang="hi">चलो, जानवरों से दोस्ती करें!</p><div class="friends">'+visibleFriends().map(id=>'<div class="friend">'+(mode==='actions'?storySprite(id,'walk'):picture(animal(id)))+'<span>'+animal(id).name+'</span></div>').join('')+'</div><button class="primary" id="start"><span class="play-symbol" aria-hidden="true">▶</span><span class="play-label">Let’s play</span></button><div class="school-home-link"><button class="sound" id="school-entry">'+prop('school')+'<span>Visit Lakeside School</span></button></div><p class="session-note">'+settings.minutes+' minutes at most · 6 little turns · Hindi help</p><p id="audio-note" class="audio-note" role="status"></p></section>';
- document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{mode=b.dataset.mode;persist();home();});
- $('start').onclick=start;
- if($('school-entry'))$('school-entry').onclick=()=>openActivity('school');
+function home(){stopStory();stopAudio();renderLevels();}
+function renderLevels(){
+ screen='home';
+ const cards=[['names','Meet the animals','Names & picture choices',schoolFriend('cow')],['actions','Animal actions','Eat · walk · sleep',storySprite('rabbit','eat')],['day','A day with my animal','Home · school · bedtime',schoolFriend('rabbit')]];
+ $('main').innerHTML='<section class="levels"><p class="eyebrow">THREE LITTLE WAYS TO PLAY</p><h1>Choose our adventure</h1><div class="level-grid">'+cards.map(([id,title,note,art],i)=>'<button class="level-card" '+(id==='actions'?'id="start"':'')+' data-activity="'+id+'" aria-label="Level '+(i+1)+': '+title+'"><span class="level-number" aria-hidden="true">'+(i+1)+'</span>'+art+'<strong>'+title+'</strong><small>'+note+'</small></button>').join('')+'</div><div class="level-extras"><button class="sound" data-activity="sentences">Little sentences</button><button class="sound" data-activity="letters">Aa · Letter play</button></div><button class="sound level-listen" id="library-listen">🔊 Hear the choices</button><p class="session-note">'+(session?'One shared visit. Choose any level.':'Choose freely. Earlier favourites stay here.')+'</p><p class="audio-note" id="audio-note"></p></section>';
+ document.querySelectorAll('[data-activity]').forEach(el=>el.onclick=()=>openActivity(el.dataset.activity));
+ $('library-listen').onclick=()=>play([instruction('day-levels')]);
 }
+
 async function start(){
+ if(mode==='day')return dayRuntime.lobby();
  if(mode==='school'){if(session?.status==='ended')return finish(false);return renderSchoolLobby();}
  await unlockAudio();
  resetForNewDay();
@@ -120,7 +116,7 @@ async function start(){
  if(expired())return finish();
  screen='game';phase='learn';hint=false;correct=false;renderGame();listen();
 }
-function expired(){return session?.status==='active' && (Date.now()>=session.deadline||session.round>=6);}
+function expired(){return visitExpired(session,Date.now());}
 function prepareChoices(){
  const a=target();
  if(mode==='letters'){const alternatives=['C','D','F','R','E','L'].filter(x=>x!==a.letter);choiceOrder=shuffle([a.letter,alternatives[Math.floor(Math.random()*alternatives.length)]]);}
@@ -143,6 +139,7 @@ function next(){
  phase='learn';hint=false;wrong='';correct=false;renderGame();listen();
 }
 function renderGame(){
+ if(mode==='day')return dayRuntime.render();
  if(mode==='school')return school.mission?renderSchool():renderSchoolLobby();
  if(mode==='actions')return renderStory();
  screen='game';const a=target();
@@ -167,8 +164,8 @@ function updateTime(){
 function finish(speak=true){
  stopStory();stopAudio();settleCompletedTurn();if(session){session.status='ended';persist();}
  screen='done';
- $('main').innerHTML='<section class="welcome goodbye"><p class="eyebrow">ALL DONE FOR TODAY</p><h1>See you, animal friends.</h1><div class="friends">'+visibleFriends().map(id=>'<div class="friend">'+(mode==='actions'?storySprite(id,'walk'):picture(animal(id)))+'</div>').join('')+'</div><p class="hindi" lang="hi">अब फोन रखकर साथ खेलें।</p><p class="offline-activity">Can you pretend to walk,<br>eat, or sleep?</p><button class="sound" id="listen"><span aria-hidden="true">🔊</span> Listen</button><p id="audio-note" class="audio-note" role="status"></p><p class="session-note">A fresh visit unlocks tomorrow. A grown-up can restart now.</p></section>';
- $('listen').onclick=listen;if(speak)listen();
+ $('main').innerHTML='<section class="welcome goodbye"><p class="eyebrow">ALL DONE FOR TODAY</p><h1>See you, animal friends.</h1><div class="friends">'+visibleFriends().map(id=>'<div class="friend">'+(mode==='actions'?storySprite(id,'walk'):picture(animal(id)))+'</div>').join('')+'</div><p class="hindi" lang="hi">अब फोन रखकर साथ खेलें।</p><p class="offline-activity">Can you pretend to walk,<br>eat, or sleep?</p><button class="sound" id="listen"><span aria-hidden="true">🔊</span> Listen</button><p id="audio-note" class="audio-note" role="status"></p><p class="session-note">A fresh visit unlocks tomorrow.</p><button class="sound" id="restart-parent">Grown-up: restart for testing</button></section>';
+ $('listen').onclick=listen;$('restart-parent').onclick=parentGate;if(speak)listen();
 }
 function tick(){if(resetForNewDay()){home();return;}if(expired())finish();else updateTime();}
 setInterval(tick,500);
@@ -235,6 +232,21 @@ async function prepareOffline(retry=false){
 window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();installPrompt=event;});
 window.addEventListener('online',()=>{if(!offlineReady)prepareOffline();else registration?.update().catch(()=>{});});
 navigator.serviceWorker?.addEventListener('message',e=>{if(e.data?.type==='OFFLINE_READY')checkOffline().then(ready=>{if(ready)offlineStatus('✓ Ready for offline play',true);});});
+const dayRuntime=createDayController({
+ read:()=>store.getState(),send:dispatchDay,language:()=>settings.instructionLanguage,
+ cancel:()=>{stopStory();stopAudio();},token:()=>storyFlow,
+ play:clips=>play(clips),pause:ms=>new Promise(resolve=>setTimeout(resolve,ms)),
+ setScreen:value=>{screen=value;},isActive:()=>mode==='day'&&screen==='game'&&session?.status==='active',
+ ensureVisit:async()=>{
+  await unlockAudio();resetForNewDay();if(session?.status==='ended'){finish(false);return false;}
+  mode='day';if(!session)session={day:localDay(),status:'active',round:0,targets:['cow','dog','rabbit','cow','dog','rabbit'],deadline:Date.now()+settings.minutes*60000,mode};
+  session.mode=mode;persist();if(expired()){finish();return false;}return true;
+ },
+ stopIfExpired:()=>{if(expired()||session?.status==='ended'){finish(false);return true;}return false;},
+ finish:()=>finish(),updateTime,animate:animateDay,
+ schoolPractice:hero=>{school.hero=hero;openActivity('school');}
+});
+
 resetForNewDay();
 if(session?.status==='ended')finish(false);else if(session?.status==='active'){mode=MODES[session.mode]?session.mode:mode;if(expired())finish(false);else{screen='game';phase='learn';if(session.pendingTurn&&['names','sentences','letters'].includes(mode)){phase='pick';correct=true;prepareChoices();}renderGame();}}else home();
 prepareOffline();
@@ -243,7 +255,7 @@ if(document.modelContext?.registerTool){
 }
 
 // Action play is choice-led: both pictures are valid, with no speech assessment.
-function visibleFriends(){return mode==='school'?['cow','rabbit','dog']:mode==='actions'?STORY_ANIMALS:GROUPS[settings.group];}
+function visibleFriends(){return (mode==='school'||mode==='day')?['cow','rabbit','dog']:mode==='actions'?STORY_ANIMALS:GROUPS[settings.group];}
 function storyChoices(){return session.storyPairs?.[session.round] || STORY_PAIRS[session.round];}
 function stopStory(){
  storyFlow++;
@@ -350,6 +362,7 @@ function renderStory(){
 // One budget for the whole visit. Changing activities never renews it.
 function settleCompletedTurn(){
  if(!session||session.status!=='active')return;
+ if(mode==='day'){dispatchDay({type:'SETTLE'});return;}
  let completed=false;
  if(mode==='school'&&school.mission&&school.step===2&&!school.counted){school.counted=true;completed=true;}
  else if(mode==='actions'&&session.storyAction){delete session.storyAction;completed=true;}
@@ -360,26 +373,18 @@ function showLibrary(){
  stopStory();stopAudio();settleCompletedTurn();
  if(expired())return finish();
  if(session?.status==='ended')return finish(false);
- screen='library';
- const cards=[
- ['school','<img class="school-library-art" src="./scenes/lakeside-classroom-v2.png" alt="Outdoor classroom beside the lake">','Lakeside School','3 · Everyday missions'],
- ['names',picture(animal('dog')),'Meet our friends','1 · Names'],
- ['actions',picture(animal('rabbit')),'Animal actions','2 · Actions'],
- ['sentences',prop('book'),'Little sentences','Listen together'],
- ['letters','<span class="library-letter" aria-hidden="true">Aa</span>','Letter play','Optional alphabet play']
- ];
- $('main').innerHTML='<section class="activity-library"><p class="eyebrow">CHOOSE YOUR LITTLE ADVENTURE</p><h1>Where shall we play?</h1><p class="library-intro">Visit an old favourite or try something new.</p><div class="library-grid">'+cards.map(([id,img,title,note])=>'<button class="library-card '+(id==='school'?'school-card':'')+'" data-activity="'+id+'" aria-label="'+title+'">'+img+'<span><strong>'+title+'</strong><small>'+note+'</small></span></button>').join('')+'</div><button class="sound" id="library-listen" aria-label="Hear the activity choices">🔊 Listen</button><p id="audio-note" class="audio-note"></p><p class="session-note">'+(session?'Your visit timer keeps running.':'Choose freely. Earlier activities stay here.')+'</p></section>';
- document.querySelectorAll('[data-activity]').forEach(button=>button.onclick=()=>openActivity(button.dataset.activity));
- $('library-listen').onclick=()=>play([instruction('school-library')]);
+ renderLevels();
 }
+
 function openActivity(id){
  if(!Object.hasOwn(MODES,id))return;
  stopStory();stopAudio();settleCompletedTurn();
  if(expired()||session?.status==='ended')return finish(false);
  mode=id;correct=false;hint=false;phase='learn';
- if(session){session.mode=mode;delete session.storyAction;}
+ if(session){session.mode=mode;delete session.storyAction;if(mode==='actions'&&session.targets.some(id=>!STORY_ANIMALS.includes(id)))session.targets=[...STORY_ANIMALS,...STORY_ANIMALS];}
  persist();
- if(id==='school'){renderSchoolLobby();play([instruction('school-lobby')]);}
+ if(id==='day'){dayRuntime.lobby();play([instruction('day-lobby')]);}
+ else if(id==='school'){renderSchoolLobby();play([instruction('school-lobby')]);}
  else start();
 }
 function renderSchoolLobby(){
@@ -478,4 +483,18 @@ async function narrateSchool(){
   if(!valid())return;
   el?.classList.remove('demonstrating');
  }
+}
+
+// Visual effects consume authored actions; they never advance story state.
+async function animateDay(node,beat){
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ const track=(element,frames,options)=>{if(!element)return Promise.resolve();const a=element.animate(frames,{duration:2400,easing:'ease-in-out',...options});storyAnimations.add(a);return a.finished.catch(()=>{}).finally(()=>storyAnimations.delete(a));};
+ if(node.kind==='school'){
+  const mission=node.mission,el=document.querySelector(mission==='help'?'.school-hero':'.school-prop');
+  return track(el,mission==='hello'?[{transform:'rotate(-15deg)'},{transform:'rotate(15deg)'},{transform:'rotate(-15deg)'},{transform:'none'}]:mission==='water'?[{transform:'none'},{transform:'translate(-110%,-40%) rotate(-20deg)'},{transform:'translate(-110%,-40%) rotate(-20deg)'},{transform:'none'}]:[{transform:'none'},{transform:'translateY(-7px)'},{transform:'none'}]);
+ }
+ const sprite=document.querySelector('.day-actor .action-sprite');
+ if(['walk','eat','sleep'].includes(node.action))return animateStory(sprite);
+ if(node.action==='brush')return track(document.querySelector('.toothbrush'),Array.from({length:13},(_,i)=>({transform:'translateX('+(i%2?12:0)+'px) rotate(-12deg)',offset:i/12})),{duration:3200});
+ if(node.action==='wake')return Promise.all([track(sprite,[{backgroundPosition:'100% 100%'},{backgroundPosition:'0% 0%'}],{duration:1000,easing:'steps(1,end)'}),track(document.querySelector('.morning-wave'),[{transform:'rotate(-15deg)'},{transform:'rotate(15deg)'},{transform:'none'}])]);
 }

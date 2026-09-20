@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import {migrateSave,createSaveStore,SAVE_KEY} from '../engine/save-store.js';
+import {reduceJourney,currentBeat} from '../engine/journey.js';
+const legacy={curriculumVersion:3,mode:'school',settings:{minutes:7,group:1,instructionLanguage:'hi'},school:{hero:'cow',support:'listen',mission:'help',step:1,counted:false},progress:{completed:{help:2},observations:{help:'comfortable'}},session:{status:'active',round:0,day:'2026-09-21',deadline:20000,targets:['cow','dog','rabbit','cow','dog','rabbit'],mode:'school'}};
+const original=structuredClone(legacy);let s=migrateSave(legacy);
+assert.deepEqual(s.settings,legacy.settings);assert.deepEqual(s.session,legacy.session);assert.deepEqual(s.school,legacy.school);assert.deepEqual(s.progress,legacy.progress);assert.equal(s.journey.hero,'cow');assert.deepEqual(legacy,original);
+function send(event){s=reduceJourney(s,event,1000);}
+send({type:'CHAPTER',node:'brush'});send({type:'ACT',choice:'invalid'});assert.equal(currentBeat(s.journey).phase,'choose');send({type:'ACT',choice:'retry'});assert.equal(s.session.round,0);
+send({type:'ACT',choice:'brush'});assert.equal(s.journey.completed['cow:brush'],1);assert.equal(currentBeat(s.journey).phase,'outcome');
+send({type:'ACT',choice:'brush'});assert.equal(s.journey.completed['cow:brush'],1,'duplicate completion ignored');
+s=migrateSave(JSON.parse(JSON.stringify(s)));send({type:'SETTLE'});send({type:'SETTLE'});assert.equal(s.session.round,1,'saved outcome charged once');
+send({type:'NEXT'});assert.equal(currentBeat(s.journey).node,'breakfast');assert.equal(s.session.round,1);send({type:'NEXT'});assert.equal(currentBeat(s.journey).node,'breakfast');
+send({type:'HERO',hero:'rabbit'});assert.equal(currentBeat(s.journey).node,'wake');send({type:'CHAPTER',node:'school-help'});send({type:'ACT',choice:'go'});assert.equal(currentBeat(s.journey).phase,'help');
+send({type:'HERO',hero:'cow'});assert.equal(currentBeat(s.journey).node,'breakfast');send({type:'HERO',hero:'rabbit'});assert.equal(currentBeat(s.journey).phase,'help');
+send({type:'ACT',choice:'finish'});assert.equal(s.journey.completed['rabbit:school-help'],1);s.session.round=5;send({type:'NEXT'});assert.equal(s.session.round,6);assert.equal(currentBeat(s.journey).node,'school-water');const atLimit=structuredClone(s);send({type:'ACT',choice:'go'});assert.deepEqual(s,atLimit);
+s.session.round=1;s.session.deadline=900;const timedOut=structuredClone(s);send({type:'ACT',choice:'go'});assert.deepEqual(s,timedOut,'expired visit cannot act');
+assert.equal(migrateSave(null).journey.hero,'rabbit');assert.equal(migrateSave({session:{},school:null,settings:{minutes:NaN},journey:{bookmarks:{rabbit:{node:'deleted'}}}}).session,null);
+const mem=new Map([[SAVE_KEY,JSON.stringify(legacy)]]),storage={getItem:k=>mem.get(k),setItem:(k,v)=>mem.set(k,v)};const store=createSaveStore(storage);assert.equal(mem.get(SAVE_KEY+'-backup'),JSON.stringify(legacy));const snap=store.getState();snap.settings.minutes=3;assert.equal(store.getState().settings.minutes,7,'snapshots do not mutate saved state');
+const future=JSON.stringify({schemaVersion:999,settings:{minutes:7}});mem.set(SAVE_KEY,future);const futureStore=createSaveStore(storage);futureStore.commitLegacy({mode:'day'});assert.equal(mem.get(SAVE_KEY),future,'never overwrite future-version saves');
+const denied=createSaveStore({getItem(){throw Error('denied')},setItem(){throw Error('denied')}});denied.dispatch({type:'HERO',hero:'cow'},1000);assert.equal(denied.getState().journey.hero,'cow');assert.equal(denied.isHealthy(),false);
+console.log('PASS state: migration, old fields, per-hero checkpoints, legal choices, duplicate/reload receipts, sixth-turn continuation, timeout, future schema and unavailable storage.');

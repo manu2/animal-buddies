@@ -5,3 +5,5 @@ GAME_URL targets another deployment. The upgrade test uses its own localhost ser
 The release runner stops at a failure and writes JSON to RELEASE_REPORT (default /tmp/animal-buddies-release.json). Correct issues, rerun affected tests, and record every result/limitation in docs/RELEASES.md.
 Visual capture: node tests/visual.cjs writes screenshots into docs/evidence; inspect them, do not equate capture with approval.
 Do not use a real child's browser profile for automated test data.
+
+Run npm test for pure state/migration and content validation (no browser). The release gate now includes state, content, day, pilot, daily, language, motion and upgrade suites. New day visuals: node tests/day-visual.cjs. Inspect the generated screenshots against GAME_DESIGN.md; a technical pass cannot establish child learning.

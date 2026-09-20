@@ -1,0 +1,1 @@
+{"name":"animal-buddies","private":true,"type":"module","scripts":{"test":"node tests/state.mjs && node tests/content.mjs","test:release":"node tests/release.cjs","test:visual":"node tests/day-visual.cjs"}}

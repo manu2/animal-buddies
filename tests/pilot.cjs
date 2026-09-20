@@ -15,12 +15,12 @@ const {chromium}=require('./runtime.cjs'),assert=require('assert/strict'),fs=req
   await p.locator('#parent').click();const ns=(await p.locator('label[for=answer]').textContent()).match(/[0-9]+/g).map(Number);
   await p.locator('#answer').fill(String(ns[0]+ns[1]));await p.locator('#gate button').click();
  }
- async function restart(){await parent();await p.locator('#new-visit').click();await p.locator('#school-entry').click();}
+ async function restart(){await parent();await p.locator('#new-visit').click();await p.locator('[data-activity=day]').click();await p.locator('.day-practice summary').click();await p.locator('#school-entry').click();}
  await p.locator('#library').click();
  assert.equal(await p.locator('[data-activity]').count(),5);
- for(const id of ['names','actions','sentences','letters','school'])assert.equal(await p.locator('[data-activity="'+id+'"]').count(),1);
+ for(const id of ['names','actions','sentences','letters','day'])assert.equal(await p.locator('[data-activity="'+id+'"]').count(),1);
  await p.screenshot({path:'/tmp/buddies-library.png',fullPage:true});
- await p.locator('[data-activity=school]').click();
+ await p.locator('[data-activity=day]').click();await p.locator('.day-practice summary').click();await p.locator('#school-entry').click();
  await p.screenshot({path:'/tmp/buddies-school-lobby.png',fullPage:true});
  let count=0,deadline=null;
  for(const support of ['explore','listen'])for(const hero of ['cow','rabbit'])for(const mission of ['hello','help','water']){
@@ -54,19 +54,19 @@ const {chromium}=require('./runtime.cjs'),assert=require('assert/strict'),fs=req
  await p.locator('#choose').click();await p.locator('[data-choice=cow]').click();await p.reload();
  await p.locator('#next').waitFor();assert.equal((await state()).session.pendingTurn,true);
  await p.locator('#library').click();assert.equal((await state()).session.round,1);
- await p.locator('[data-activity=school]').click();await p.locator('[data-mission=help]').click();
+ await p.locator('[data-activity=day]').click();await p.locator('.day-practice summary').click();await p.locator('#school-entry').click();await p.locator('[data-mission=help]').click();
  assert.equal((await state()).session.deadline,d,'Cross-activity shared deadline');
  assert.equal((await state()).session.round,1);
  await p.locator('[data-school-choice=go]').click();
  await p.locator('#library').click();await p.locator('[data-activity=letters]').click();
  await p.locator('#choose').click();await p.locator('[data-choice=D]').click();await p.locator('#next').waitFor();
- await p.locator('#library').click();await p.locator('[data-activity=school]').click();await p.locator('[data-mission=help]').click();
+ await p.locator('#library').click();await p.locator('[data-activity=day]').click();await p.locator('.day-practice summary').click();await p.locator('#school-entry').click();await p.locator('[data-mission=help]').click();
  assert.equal((await state()).school.step,1,'Checkpoint survives other activities');
  await p.locator('#parent').click();assert.equal(await p.evaluate(()=>document.getAnimations().length),0);await p.locator('#close-parent').click();
  await p.evaluate(()=>{const d=JSON.parse(localStorage.getItem('animal-buddies-v1'));d.session.deadline=Date.now()-1;localStorage.setItem('animal-buddies-v1',JSON.stringify(d));});
  await p.reload();await p.getByText('ALL DONE FOR TODAY',{exact:true}).waitFor();
  assert.equal((await state()).school.step,1,'Timer preserves unfinished mission');
- await parent();await p.locator('#test-next-day').click();await p.locator('#school-entry').click();await p.locator('[data-mission=help]').click();
+ await parent();await p.locator('#test-next-day').click();await p.locator('[data-activity=day]').click();await p.locator('.day-practice summary').click();await p.locator('#school-entry').click();await p.locator('[data-mission=help]').click();
  assert.equal((await state()).school.step,1,'New day can resume checkpoint');
  assert.equal((await state()).progress.observations.help,'comfortable');assert.equal((await state()).settings.instructionLanguage,'hi');
  await p.setViewportSize({width:1200,height:900});await p.screenshot({path:'/tmp/buddies-school-desktop.png',fullPage:true});

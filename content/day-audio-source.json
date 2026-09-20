@@ -1,0 +1,122 @@
+{
+  "day-levels-en": [
+    "Samantha",
+    "Choose how to play. Meet the animals. Play with actions. Or follow a day with your animal friend."
+  ],
+  "day-levels-hi": [
+    "Lekha",
+    "खेल चुनो। जानवरों से मिलो। उनकी हरकतें देखो। या अपने दोस्त के साथ दिन बिताओ।"
+  ],
+  "day-lobby-en": [
+    "Samantha",
+    "Choose your animal friend. Then choose morning, school, or bedtime. You can continue where you stopped."
+  ],
+  "day-lobby-hi": [
+    "Lekha",
+    "अपना जानवर दोस्त चुनो। फिर सुबह, स्कूल या सोने का समय चुनो। जहाँ रुके थे, वहीं से खेल सकते हो।"
+  ],
+  "day-retry-en": [
+    "Samantha",
+    "Let’s help our friend. Try another picture."
+  ],
+  "day-retry-hi": [
+    "Lekha",
+    "अपने दोस्त की मदद करें। दूसरी तस्वीर चुनो।"
+  ],
+  "day-wake-prompt-en": [
+    "Samantha",
+    "Wake up our friend. Tap the sun."
+  ],
+  "day-wake-prompt-hi": [
+    "Lekha",
+    "अपने दोस्त को जगाओ। सूरज को छुओ।"
+  ],
+  "day-wake-model-en": [
+    "Samantha",
+    "Good morning!"
+  ],
+  "day-wake-model-hi": [
+    "Lekha",
+    "सुप्रभात!"
+  ],
+  "day-brush-prompt-en": [
+    "Samantha",
+    "Help our friend brush. Choose the toothbrush."
+  ],
+  "day-brush-prompt-hi": [
+    "Lekha",
+    "दोस्त के दाँत साफ़ करने में मदद करो। टूथब्रश चुनो।"
+  ],
+  "day-brush-model-en": [
+    "Samantha",
+    "Brush your teeth."
+  ],
+  "day-brush-model-hi": [
+    "Lekha",
+    "अपने दाँत साफ़ करो।"
+  ],
+  "day-breakfast-prompt-en": [
+    "Samantha",
+    "Our friend is hungry. Choose breakfast."
+  ],
+  "day-breakfast-prompt-hi": [
+    "Lekha",
+    "हमारे दोस्त को भूख लगी है। खाना चुनो।"
+  ],
+  "day-breakfast-model-en": [
+    "Samantha",
+    "I am eating."
+  ],
+  "day-breakfast-model-hi": [
+    "Lekha",
+    "मैं खाना खा रहा हूँ।"
+  ],
+  "day-walk-school-prompt-en": [
+    "Samantha",
+    "Let’s walk to meet our friends. Choose walking."
+  ],
+  "day-walk-school-prompt-hi": [
+    "Lekha",
+    "चलो दोस्तों से मिलने चलें। चलने वाली तस्वीर चुनो।"
+  ],
+  "day-walk-school-model-en": [
+    "Samantha",
+    "Let’s go to school."
+  ],
+  "day-walk-school-model-hi": [
+    "Lekha",
+    "चलो स्कूल चलें।"
+  ],
+  "day-walk-home-prompt-en": [
+    "Samantha",
+    "Let’s walk home together. Choose walking."
+  ],
+  "day-walk-home-prompt-hi": [
+    "Lekha",
+    "चलो साथ घर चलें। चलने वाली तस्वीर चुनो।"
+  ],
+  "day-walk-home-model-en": [
+    "Samantha",
+    "Let’s go home."
+  ],
+  "day-walk-home-model-hi": [
+    "Lekha",
+    "चलो घर चलें।"
+  ],
+  "day-sleep-prompt-en": [
+    "Samantha",
+    "Our friend is sleepy. Choose the bed."
+  ],
+  "day-sleep-prompt-hi": [
+    "Lekha",
+    "हमारे दोस्त को नींद आ रही है। बिस्तर चुनो।"
+  ],
+  "day-sleep-model-en": [
+    "Samantha",
+    "Good night!"
+  ],
+  "day-sleep-model-hi": [
+    "Lekha",
+    "शुभ रात्रि!"
+  ]
+}
