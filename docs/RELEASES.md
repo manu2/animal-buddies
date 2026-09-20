@@ -4,18 +4,19 @@ Verified in previous work: offline voices and images, all animal actions, select
 Important limitation: browser simulation is not physical iPhone/Android testing; audio decode is not pronunciation review; no child learning outcome has been established.
 
 ## Lakeside School pilot — 2026-09-20
-Decisions: D01–D15. Regression history: I01–I10.
-Planned deliverables: living records and repository work rules; illustrated activity library; two characters; three practical communication episodes; Explore/Listen support; parent observations; persistent checkpoint and shared budget.
-Technical checks: passed locally. Deployment: pending public verification.
-Evidence: docs/evidence/local-release.json; screenshot files in docs/evidence/.
+Decisions: D01–D15. Regression history: I01–I13; test-harness issue T01.
+Delivered: living records and repository work rules; illustrated activity library; two characters; three practical communication episodes; Explore/Listen support; parent observations; persistent checkpoint and shared budget.
+Technical checks: all five suites passed locally and against the public release. GitHub Pages built application commit ae133fb270ebac5276046d94c5226dc232fe9442. Public verification completed 2026-09-20 at 12:28 UTC.
+Public target: https://manu2.github.io/animal-buddies/ . Pilot, daily, language and motion suites use the public target; the upgrade suite independently serves historical and candidate versions to exercise a real worker upgrade.
+Evidence: docs/evidence/local-release.json, docs/evidence/public-release.json; inspected screenshot files in docs/evidence/.
 Additional passing checks after the consolidated report: school English/Hindi instruction queues, Hindi-only meanings, Explore versus Listen prompting, and a live school checkpoint surviving a worker upgrade followed by offline reopen.
 
 | Decision / issue coverage | Evidence and result |
 |---|---|
-| D01, D14 / I01 | 197 clips decode offline; school modules, scenes and original assets cached; no runtime speech API or microphone. Public check pending. |
+| D01, D14 / I01 | 197 clips decode offline; school modules, scenes and original assets cached; no runtime speech API or microphone. Fresh public browser and offline reload passed without authentication; all 197 clips decoded. |
 | D02 / I12, I13 | Inspected mobile 360x740 and desktop 1200x900 screenshots. Completion button fits phone; picture choices; help button matches dog teacher; teacher stands on grass. |
 | D03, D08 / I09, I11 | Pilot suite: 12 hero/mission/support combinations, six-turn stop, shared deadline across names/letters/school; saved static reward consumes one turn. |
-| D04 / I02 | Language suite: English default, saved Hindi, no automatic duplicate translations, observed 1214ms inter-clip pause; new school queue assertions also passed. |
+| D04 / I02 | Language suite: English default, saved Hindi, no automatic duplicate translations, observed 1214ms local / 1215ms public inter-clip pause; new school queue assertions also passed. |
 | D05 / I03 | 36 new clips generated with the existing Kokoro voices and speed, total 197 decode successfully. Human pronunciation review remains open. |
 | D06 / I04 | Motion suite: walk/eat/sleep visibly change, stop, replay, cancel, respect reduced motion. |
 | D07 / I05, I06 | Daily suite: offline local midnight, legacy stored visits, immediate restart, simulated day. |

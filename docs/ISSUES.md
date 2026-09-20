@@ -13,9 +13,7 @@ Keep resolved issues here; removal loses the reason for the regression.
 | I08 | First upgrade fix stalled navigation | Awaiting client.navigate inside activation blocked new page; initiate navigation without awaiting it | Upgrade completes once; no reload loop; active state preserved |
 | I09 | Expansion risk: earlier activities disappear or switching bypasses timer | Release invariant: permanent illustrated activity access; one visit budget | Switch repeatedly, reload, expire, complete six across modes |
 | I10 | Task completion could be mistaken for language mastery | Store completion separately from optional parent observation | No tap-based mastery label or forced graduation |
-
 | I11 | Completed static choice could be forgotten on reload before Next | Persist pendingTurn; restore reward screen; consume on switch exactly once | Pilot mixed-mode reload and turn-count test |
 | I12 | Initial pilot help button used a human icon while teacher was a dog | Replace it with the same dog illustration as the scene | Visual correspondence audit |
 | T01 | First pilot run stopped at parent arithmetic helper | Test regex lost an escape during file creation; fixed to explicit digits | Rerun full pilot; this was a test-harness failure, not a game failure |
-
 | I13 | Desktop scene placed the teacher visually in the lake | Moved the decorative water behind the grass foreground | Re-rendered scene: teacher and hero remain on land |

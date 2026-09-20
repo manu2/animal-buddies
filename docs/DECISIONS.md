@@ -1,5 +1,5 @@
 # Product direction and decision record
-Status: accepted direction; Lakeside School pilot in implementation. Updated 2026-09-20.
+Status: accepted direction; Lakeside School pilot delivered and technically verified locally and on the public release. Updated 2026-09-20.
 This record is the reference for future changes, not a claim of educational efficacy.
 
 | ID | Decision | Why / acceptance evidence |
