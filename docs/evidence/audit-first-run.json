@@ -1,0 +1,60 @@
+{
+  "date": "2026-09-20T19:59:01.021Z",
+  "target": "local",
+  "results": [
+    {
+      "test": "state",
+      "passed": true,
+      "stdout": "PASS state: migration, old fields, per-hero checkpoints, legal choices, duplicate/reload receipts, sixth-turn continuation, timeout, future schema and unavailable storage.\nPASS audit state: chapter restore/replay, stale input rejection, quota-safe migration and corrupt-save recovery backup.\n",
+      "stderr": ""
+    },
+    {
+      "test": "content",
+      "passed": true,
+      "stdout": "PASS content: stable graph, bounded choices, both languages, recording and offline inventory coverage.\n",
+      "stderr": ""
+    },
+    {
+      "test": "day",
+      "passed": true,
+      "stdout": "PASS day: visible three levels; complete animal-led day; original actions; brush motion/cancel/reduced motion; independent hero checkpoints; same hero across home/school; exact shared budget; reload, restart, next day and timeout; offline artwork.\n",
+      "stderr": ""
+    },
+    {
+      "test": "audit",
+      "passed": true,
+      "stdout": "PASS audit: clear start/continue; different chapter imagery; props follow choice; per-chapter resume; chooser survives reload; visual travel and bedtime states; offline new art; parent day observations; cross-level target compatibility.\n",
+      "stderr": ""
+    },
+    {
+      "test": "pilot",
+      "passed": true,
+      "stdout": "PASS pilot: 12 mission/hero/support combinations offline; gentle recovery; every checkpoint reload; completion deduplication; shared six turns/deadline; all prior activities visible; pending legacy reward; parent observation; day/timeout checkpoint; 360px layout.\n",
+      "stderr": ""
+    },
+    {
+      "test": "daily",
+      "passed": true,
+      "stdout": "PASS: same-day lock, local midnight unlock offline, immediate parent restart, simulate-next-day button, legacy migration, stale active visit, settings preserved\n",
+      "stderr": ""
+    },
+    {
+      "test": "language",
+      "passed": true,
+      "stdout": "{\"passed\":true,\"offlineClips\":233,\"pauseMs\":1214,\"checks\":[\"English default\",\"Hindi setting persists offline\",\"static modes choose one instruction language\",\"Hindi meaning only\",\"story model English and selected question language\",\"meaning interrupts pending question\"]}\n",
+      "stderr": ""
+    },
+    {
+      "test": "motion",
+      "passed": true,
+      "stdout": "{\"passed\":true,\"actions\":[\"walk\",\"eat\",\"sleep\"],\"audio\":233,\"offline\":true}\n",
+      "stderr": ""
+    },
+    {
+      "test": "upgrade",
+      "passed": false,
+      "stdout": "case ended\noffline ready\nrequested update\nnew UI\ncase active\noffline ready\nrequested update\nnew UI\n",
+      "stderr": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    deadline: 1789934578466,\n    mode: 'actions',\n    round: 1,\n    status: 'active',\n...\n    ],\n+   view: 'game'\n  }\n\n    at /Users/manuagrawal/projects/vibe-coding/animal-buddies-public/tests/upgrade.cjs:36:13 {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: [Object],\n  expected: [Object],\n  operator: 'deepStrictEqual',\n  diff: 'simple'\n}\n"
+    }
+  ]
+}

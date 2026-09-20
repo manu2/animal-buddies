@@ -19,3 +19,5 @@ Read with GAME_DESIGN.md, CURRENT_STATE.md, ARCHITECTURE.md, STORY_AUTHORING.md,
 10. Product-direction PASS and technical PASS are separate release requirements. Compare the user's intent with actual starting navigation and a whole story episode. Do not silently defer a central requirement to claim a pass.
 11. Record failures and fixes in ISSUES.md; append evidence to RELEASES.md. Keep CURRENT_STATE.md honest about shipped versus planned features and physical-device/child-learning limits.
 12. No new sign-in, runtime server, API key, external speech call or microphone to add content. Pre-render audio at build time and ship it in the offline inventory.
+
+Audit additions: navigation must preserve unfinished chapter work; distinguish resume from replay. Loading valid state must not depend on a backup write succeeding. Async entry must recheck cancellation before creating a visit, not only before rendering. Inspect prompt AND outcome: a prop must appear when used, the depicted destination must match the action, and day/night choices must differ without requiring text. Read the latest dated audit alongside issue history when checking related behavior.

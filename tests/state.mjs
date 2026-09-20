@@ -19,3 +19,24 @@ const mem=new Map([[SAVE_KEY,JSON.stringify(legacy)]]),storage={getItem:k=>mem.g
 const future=JSON.stringify({schemaVersion:999,settings:{minutes:7}});mem.set(SAVE_KEY,future);const futureStore=createSaveStore(storage);futureStore.commitLegacy({mode:'day'});assert.equal(mem.get(SAVE_KEY),future,'never overwrite future-version saves');
 const denied=createSaveStore({getItem(){throw Error('denied')},setItem(){throw Error('denied')}});denied.dispatch({type:'HERO',hero:'cow'},1000);assert.equal(denied.getState().journey.hero,'cow');assert.equal(denied.isHealthy(),false);
 console.log('PASS state: migration, old fields, per-hero checkpoints, legal choices, duplicate/reload receipts, sixth-turn continuation, timeout, future schema and unavailable storage.');
+// Audit regressions: chapter revisits, stale input, and backup quota failure.
+let chapterState=migrateSave({...legacy,journey:{hero:'rabbit'}});
+const advance=event=>chapterState=reduceJourney(chapterState,event,1000);
+advance({type:'ACT',choice:'wake'});advance({type:'NEXT'});advance({type:'ACT',choice:'brush'});advance({type:'SETTLE'});
+const morning=structuredClone(currentBeat(chapterState.journey)),round=chapterState.session.round;
+advance({type:'CHAPTER',node:'walk-school',resume:true});advance({type:'CHAPTER',node:'wake',resume:true});
+assert.deepEqual(currentBeat(chapterState.journey),morning,'Chapter selection resumes a completed-but-not-advanced action');assert.equal(chapterState.session.round,round);
+advance({type:'NEXT'});const beforeStale=structuredClone(chapterState);
+advance({type:'ACT',choice:'eat',at:{hero:'cow',node:'breakfast',phase:'choose'}});assert.deepEqual(chapterState,beforeStale,'Stale hero input ignored');
+advance({type:'ACT',choice:'eat'});advance({type:'NEXT'});assert.equal(chapterState.journey.chapters.rabbit.morning.finished,true,'Chapter completed on crossing boundary');
+advance({type:'CHAPTER',node:'wake',resume:true});assert.equal(currentBeat(chapterState.journey).node,'wake','Completed chapter can be replayed');
+const quota=createSaveStore({getItem:k=>k===SAVE_KEY?JSON.stringify(legacy):null,setItem(){throw Error('quota')}});
+assert.deepEqual(quota.getState().session,legacy.session,'A failed backup retains loaded deadline and progress');assert.deepEqual(quota.getState().progress,legacy.progress);
+const broken=new Map([[SAVE_KEY,'{broken']]);createSaveStore({getItem:k=>broken.get(k),setItem:(k,v)=>broken.set(k,v)}).commitLegacy({mode:'day'});assert.equal(broken.get(SAVE_KEY+'-invalid-backup'),'{broken');
+console.log('PASS audit state: chapter restore/replay, stale input rejection, quota-safe migration and corrupt-save recovery backup.');
+
+// Continuing in story order must also preserve an unfinished later chapter.
+let crossing=migrateSave({...legacy,journey:{hero:'rabbit'}});
+for(const e of [{type:'CHAPTER',node:'school-help'},{type:'ACT',choice:'go'},{type:'CHAPTER',node:'breakfast'},{type:'ACT',choice:'eat'},{type:'NEXT'}])crossing=reduceJourney(crossing,e,1000);
+assert.equal(currentBeat(crossing.journey).node,'school-help');assert.equal(currentBeat(crossing.journey).phase,'help');
+console.log('PASS chapter boundary resumes unfinished later work, including story-order continuation.');

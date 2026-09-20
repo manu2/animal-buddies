@@ -1133,5 +1133,35 @@
     "text": "शुभ रात्रि!",
     "voice": "hf_alpha",
     "seconds": 2.05
+  },
+  "day-brush-retry-en": {
+    "text": "That is a ball. Choose the toothbrush.",
+    "voice": "af_heart",
+    "seconds": 2.825
+  },
+  "day-brush-retry-hi": {
+    "text": "यह गेंद है। टूथब्रश चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 3.275
+  },
+  "day-breakfast-retry-en": {
+    "text": "That is a toothbrush. Our friend needs breakfast.",
+    "voice": "af_heart",
+    "seconds": 3.375
+  },
+  "day-breakfast-retry-hi": {
+    "text": "यह टूथब्रश है। हमारे दोस्त को भूख लगी है। खाना चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 5.625
+  },
+  "day-sleep-retry-en": {
+    "text": "That is a ball. Our friend is sleepy. Choose the bed.",
+    "voice": "af_heart",
+    "seconds": 3.85
+  },
+  "day-sleep-retry-hi": {
+    "text": "यह गेंद है। हमारे दोस्त को नींद आ रही है। बिस्तर चुनो।",
+    "voice": "hf_alpha",
+    "seconds": 5.4
   }
 }

@@ -1,4 +1,4 @@
-import {DAY,CHAPTERS,storyClips} from '../content/day.js';
+import {DAY,CHAPTERS,storyClips,retryFor} from '../content/day.js';
 import {currentBeat} from './journey.js';
 import {dayLobby,dayScreen} from '../ui/day-view.js';
 // Runtime effects are injected. Content and reducers remain independently testable.
@@ -10,23 +10,25 @@ export function createDayController(host){
  function lobby(){cancel();screen='lobby';host.setScreen('day-lobby');$('main').innerHTML=dayLobby(journey());
   document.querySelectorAll('[data-day-hero]').forEach(el=>el.onclick=()=>{host.send({type:'HERO',hero:el.dataset.dayHero});lobby();host.play([el.dataset.dayHero+'-name']);});
   document.querySelectorAll('[data-day-support]').forEach(el=>el.onclick=()=>{host.send({type:'SUPPORT',support:el.dataset.daySupport});lobby();});
-  document.querySelectorAll('[data-chapter]').forEach(el=>el.onclick=()=>{host.send({type:'CHAPTER',node:CHAPTERS.find(c=>c.id===el.dataset.chapter).start});begin();});
+  document.querySelectorAll('[data-chapter]').forEach(el=>el.onclick=()=>{host.send({type:'CHAPTER',node:CHAPTERS.find(c=>c.id===el.dataset.chapter).start,resume:true});begin();});
   $('day-resume').onclick=()=>{if(currentBeat(journey()).finished)host.send({type:'CHAPTER',node:'wake'});begin();};
   $('day-lobby-listen').onclick=()=>host.play(['day-lobby-'+host.language()]);
   $('school-entry').onclick=()=>host.schoolPractice(journey().hero);
  }
- async function begin(){cancel();if(!await host.ensureVisit())return;render();narrate();}
+ async function begin(){cancel();const run=generation,token=host.token();const valid=()=>run===generation&&token===host.token();if(!await host.ensureVisit(valid)||!valid())return;render();narrate();}
  function render(){cancel();screen='beat';host.setScreen('game');$('main').innerHTML=dayScreen(journey());
   $('day-back').onclick=()=>{host.send({type:'SETTLE'});if(!host.stopIfExpired())lobby();};
   $('stop').onclick=host.finish;$('listen').onclick=narrate;$('hint').onclick=meaning;
-  document.querySelectorAll('[data-day-choice]').forEach(el=>el.onclick=()=>choose(el.dataset.dayChoice));
-  if($('day-next'))$('day-next').onclick=()=>{cancel();host.send({type:'NEXT'});if(host.stopIfExpired())return;if(currentBeat(journey()).finished)lobby();else{render();narrate();}};
+  const b=currentBeat(journey()),at={hero:journey().hero,node:b.node,phase:b.phase};
+  document.querySelectorAll('[data-day-choice]').forEach(el=>el.onclick=()=>choose(el.dataset.dayChoice,at));
+  if($('day-next'))$('day-next').onclick=()=>{cancel();host.send({type:'NEXT',at});if(host.stopIfExpired())return;if(currentBeat(journey()).finished)lobby();else{render();narrate();}};
   host.updateTime();
  }
- function choose(choice){
+ function choose(choice,at){
+  const current=currentBeat(journey());if(!host.isActive()||at.hero!==journey().hero||at.node!==current.node||at.phase!==current.phase)return;
   if(host.stopIfExpired())return;
-  if(choice==='retry'){cancel();$('day-feedback').textContent='Let’s help our friend. Try another picture.';host.play(['day-retry-'+host.language()]);return;}
-  host.send({type:'ACT',choice});render();narrate();
+  if(choice==='retry'){cancel();const b=currentBeat(journey()),feedback=retryFor(DAY[b.node],b.node,host.language());$('day-feedback').textContent=feedback.text;host.play([feedback.clip]);return;}
+  host.send({type:'ACT',choice,at});render();narrate();
  }
  async function narrate(){
   if(screen!=='beat'||!host.isActive())return;cancel();const run=generation,token=host.token(),j=journey(),b=currentBeat(j),node=DAY[b.node];
@@ -37,6 +39,8 @@ export function createDayController(host){
   if(!valid()||b.phase==='outcome'||j.support!=='explore')return;
   const option=document.querySelector('[data-day-choice]:not([data-day-choice="retry"])');option?.classList.add('demonstrating');
   await host.pause(1200);if(!valid())return;
+  if(node.kind==='routine'&&node.action==='walk')await host.preview(option?.querySelector('.action-sprite'));
+  if(!valid())return;
   if(node.kind==='school'&&b.phase==='choose')await host.play(['school-'+node.mission+'-example-'+host.language()]);
   option?.classList.remove('demonstrating');
  }

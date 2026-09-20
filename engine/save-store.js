@@ -1,5 +1,5 @@
 import {normalizeJourney,reduceJourney} from './journey.js';
-export const SAVE_KEY='animal-buddies-v1',SCHEMA_VERSION=2;
+export const SAVE_KEY='animal-buddies-v1',SCHEMA_VERSION=3;
 const object=x=>x&&typeof x==='object'&&!Array.isArray(x)?x:{};
 export function migrateSave(raw){
  const old=object(raw),settings={minutes:5,group:0,instructionLanguage:'en',...object(old.settings)};
@@ -17,8 +17,23 @@ export function migrateSave(raw){
  return {...old,schemaVersion:SCHEMA_VERSION,curriculumVersion:3,settings,mode:modes.includes(old.mode)?old.mode:'actions',session,school,progress:{completed:object(old.progress?.completed),observations:object(old.progress?.observations)},journey:normalizeJourney(old.journey,school.hero)};
 }
 export function createSaveStore(storage){
- let state,healthy=true,readOnly=false;
- try{const raw=storage.getItem(SAVE_KEY);const parsed=JSON.parse(raw||'{}');state=migrateSave(parsed);readOnly=Number(parsed?.schemaVersion)>SCHEMA_VERSION;if(readOnly)healthy=false;if(raw&&parsed?.schemaVersion!==SCHEMA_VERSION&&!storage.getItem(SAVE_KEY+'-backup'))storage.setItem(SAVE_KEY+'-backup',raw);}catch{state=migrateSave({});healthy=false;}
+ let state=migrateSave({}),healthy=true,readOnly=false,raw;
+ try{
+  raw=storage.getItem(SAVE_KEY);
+  const parsed=JSON.parse(raw||'{}');state=migrateSave(parsed);
+  readOnly=Number(parsed?.schemaVersion)>SCHEMA_VERSION;if(readOnly)healthy=false;
+  if(raw&&!readOnly&&parsed?.schemaVersion!==SCHEMA_VERSION){
+   // A quota failure while backing up must NEVER discard a valid loaded save.
+   try{
+    const version=Number.isInteger(parsed?.schemaVersion)?parsed.schemaVersion:0;
+    for(const key of [SAVE_KEY+'-backup',SAVE_KEY+'-backup-v'+version])if(!storage.getItem(key))storage.setItem(key,raw);
+   }catch{healthy=false;}
+  }
+ }catch{
+  healthy=false;
+  // Preserve malformed input for recovery before subsequent in-memory defaults save.
+  if(raw)try{storage.setItem(SAVE_KEY+'-invalid-backup',raw);}catch{readOnly=true;}
+ }
  const save=()=>{if(readOnly)return;try{storage.setItem(SAVE_KEY,JSON.stringify(state));}catch{healthy=false;}};
  return {
   getState:()=>structuredClone(state),isHealthy:()=>healthy,

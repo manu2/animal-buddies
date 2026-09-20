@@ -31,3 +31,5 @@ Research informs design, not guarantees: ASHA 3–4 communication milestones htt
 Direction authority: the user’s stated progression and animal-led day take precedence over the previously narrowed school pilot scope. ANIMAL_DAY_PLAN.md records the correction, supporting research, limits and acceptance criteria. Do not silently defer that core again.
 
 Latest user clarification: the present lakeside school looks good and must be reused as a chapter of the chosen animal’s day. Preserve the existing simple action activities, original animations, voice recordings and assets. Correct the structure and continuity, not the approved scenery.
+
+Audit clarifications (2026-09-21, no scope replacement): D02/D09 use single invitations where no useful choice exists; alternatives name the object and give contextual help. D10/D12 now preserve a bookmark for each animal and chapter. Chapter cards resume unfinished work; completed chapters replay. D11 now includes separate parent observations for each animal day. D17 retains coarse navigation position and guards asynchronous entry before visit creation. Details: AUDIT_2026_09_21.md.

@@ -1,0 +1,26 @@
+{
+  "day-brush-retry-en": [
+    "Samantha",
+    "That is a ball. Choose the toothbrush."
+  ],
+  "day-brush-retry-hi": [
+    "Lekha",
+    "यह गेंद है। टूथब्रश चुनो।"
+  ],
+  "day-breakfast-retry-en": [
+    "Samantha",
+    "That is a toothbrush. Our friend needs breakfast."
+  ],
+  "day-breakfast-retry-hi": [
+    "Lekha",
+    "यह टूथब्रश है। हमारे दोस्त को भूख लगी है। खाना चुनो।"
+  ],
+  "day-sleep-retry-en": [
+    "Samantha",
+    "That is a ball. Our friend is sleepy. Choose the bed."
+  ],
+  "day-sleep-retry-hi": [
+    "Lekha",
+    "यह गेंद है। हमारे दोस्त को नींद आ रही है। बिस्तर चुनो।"
+  ]
+}

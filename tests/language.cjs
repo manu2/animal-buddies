@@ -35,7 +35,7 @@ for(const lang of ['en','hi']){
  school.support='explore';calls=[];await narrateSchool();result['school-explore-'+lang]=calls.flat();
 }
 for(const lang of ['en','hi']){
- settings.instructionLanguage=lang;mode='day';dispatchDay({type:'CHAPTER',node:'brush'});dispatchDay({type:'SUPPORT',support:'listen'});dayRuntime.render();calls=[];await dayRuntime.narrate();result['day-prompt-'+lang]=calls.flat();
+ settings.instructionLanguage=lang;mode='day';dispatchDay({type:'CHAPTER',node:'brush'});dispatchDay({type:'SUPPORT',support:'listen'});dayRuntime.render();calls=[];await dayRuntime.narrate();result['day-prompt-'+lang]=calls.flat();calls=[];document.querySelector('[data-day-choice=retry]').click();result['day-retry-'+lang]=calls.flat();
  dispatchDay({type:'ACT',choice:'brush'});dayRuntime.render();calls=[];await dayRuntime.narrate();result['day-model-'+lang]=calls.flat();calls=[];dayRuntime.meaning();result['day-meaning-'+lang]=calls.flat();
 }
 return result;});
@@ -48,7 +48,7 @@ for(const lang of ['en','hi']){
  assert.deepEqual(queues['school-listen-'+lang],['school-help-step0-'+lang]);
  assert.deepEqual(queues['school-explore-'+lang],['school-help-step0-'+lang,'school-help-example-'+lang]);
 }
-for(const lang of ['en','hi']){assert.deepEqual(queues['day-prompt-'+lang],['day-brush-prompt-'+lang]);assert.deepEqual(queues['day-model-'+lang],['day-brush-model-en']);assert.deepEqual(queues['day-meaning-'+lang],['day-brush-model-hi']);}
+for(const lang of ['en','hi']){assert.deepEqual(queues['day-retry-'+lang],['day-brush-retry-'+lang]);assert.deepEqual(queues['day-prompt-'+lang],['day-brush-prompt-'+lang]);assert.deepEqual(queues['day-model-'+lang],['day-brush-model-en']);assert.deepEqual(queues['day-meaning-'+lang],['day-brush-model-hi']);}
 assert.deepEqual(queues.story,['story-cow-eat-en','story-cow-question-hi']);assert.deepEqual(queues.meaning,['story-cow-eat-hi']);
 await ev(()=>{play=realPlay;mode='actions';renderStory();});await p.locator('#listen').click();await p.waitForTimeout(2500);await p.locator('#hint').click();await p.waitForTimeout(3500);assert.equal(await ev(()=>audioBusy),false);
 await p.screenshot({path:'/tmp/language-game.png',fullPage:true});
