@@ -4,7 +4,7 @@ const {chromium}=require('./runtime.cjs'),assert=require('assert/strict'),fs=req
  p.on('pageerror',e=>errors.push(e.message));
  await p.goto(process.env.GAME_URL||'http://127.0.0.1:4173/');
  await p.getByText('Ready for offline play',{exact:false}).waitFor({timeout:90000});
- await c.setOffline(true);
+ await c.setOffline(true);await require('./parent-controls.cjs').enableLimits(p);
  // Every new raster must really decode from the offline cache, including CSS sprites.
  await p.evaluate(async()=>{for(const url of ['./scenes/lakeside-classroom-v2.png',...['cow','dog','rabbit'].map(id=>'./stories/'+id+'.png')]){
   const response=await fetch(url);if(!response.ok)throw Error('Missing offline artwork: '+url);

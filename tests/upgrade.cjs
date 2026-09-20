@@ -9,6 +9,8 @@ const v11={};
 for(const f of Object.keys(v10))try{v11[f]=execFileSync('git',['show','680f297:'+f],{cwd:root,stdio:['pipe','pipe','ignore']});}catch{}
 const v12={};
 for(const f of execFileSync('git',['ls-tree','-r','--name-only','fc0df1f'],{cwd:root,encoding:'utf8'}).trim().split('\n').filter(f=>/\.(js|json|html|css)$/.test(f)&&!f.startsWith('tests/')&&!f.startsWith('docs/')))v12[f]=execFileSync('git',['show','fc0df1f:'+f],{cwd:root});
+const v13={};
+for(const f of Object.keys(v12))try{v13[f]=execFileSync('git',['show','7476872:'+f],{cwd:root,stdio:['pipe','pipe','ignore']});}catch{}
 let modern=false,revision=0,baseline=old;
 const server=http.createServer((req,res)=>{
  const path=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\//,'')||'index.html';
@@ -37,7 +39,7 @@ await p.waitForFunction(()=>document.querySelector('#start')||document.querySele
 console.log('new UI');await p.waitForTimeout(1000);
 assert.equal(navigations,1,'Exactly one automatic refresh');
 const after=await p.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1')));
-assert.deepEqual(after.settings,before.settings);
+assert.deepEqual(after.settings,{...before.settings,limitsEnabled:false});
 if(status==='ended'){assert.equal(after.session,null);await p.locator('#start').waitFor();}
 else{assert.deepEqual(after.session,{...before.session,view:'game'});await p.locator('#next').waitFor();}
 await c.setOffline(true);await p.reload();
@@ -52,7 +54,7 @@ const target=await familiarPage.evaluate(()=>JSON.parse(localStorage.getItem('an
 const familiarBefore=await familiarPage.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1')));modern=true;
 const familiarMoved=familiarPage.waitForEvent('framenavigated',{predicate:f=>f===familiarPage.mainFrame(),timeout:60000});await familiarPage.evaluate(()=>navigator.serviceWorker.getRegistration().then(r=>r.update()));await familiarMoved;
 await familiarPage.locator('.familiar-outcome').waitFor();const familiarAfter=await familiarPage.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1')));
-assert.deepEqual(familiarAfter.settings,familiarBefore.settings);assert.equal(familiarAfter.session.deadline,familiarBefore.session.deadline);assert.equal(familiarAfter.session.round,familiarBefore.session.round);assert.equal(familiarAfter.session.pendingTurn,true);
+assert.deepEqual(familiarAfter.settings,{...familiarBefore.settings,limitsEnabled:false});assert.equal(familiarAfter.session.deadline,familiarBefore.session.deadline);assert.equal(familiarAfter.session.round,familiarBefore.session.round);assert.equal(familiarAfter.session.pendingTurn,true);
 await familiarContext.setOffline(true);await familiarPage.reload();await familiarPage.locator('#next').click();assert.equal(await familiarPage.locator('[data-choice]').count(),2);assert.equal(await familiarPage.locator('#choose').count(),0);assert.equal(await familiarPage.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1')).session.round),1);await familiarContext.close();
 console.log('PASS: actual v11 names outcome upgrades to direct illustrated choices offline, preserving settings, deadline and exact turn receipt');
 
@@ -63,11 +65,19 @@ for(const scene of ['sleep','hello']){
  await page.locator('[data-activity=day]').click();await page.locator('[data-day-hero=cow]').click();await page.locator('[data-chapter='+ (scene==='sleep'?'home':'school') +']').click();await page.locator('[data-day-choice=walk]').click();await page.locator('#day-next').click();
  if(scene==='sleep')await page.locator('[data-day-choice=sleep]').click();else{await page.locator('[data-day-choice=go]').click();await page.locator('[data-day-choice=finish]').click();}
  const before=await page.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1')));modern=true;const moved=page.waitForEvent('framenavigated',{predicate:f=>f===page.mainFrame(),timeout:60000});await page.evaluate(()=>navigator.serviceWorker.getRegistration().then(r=>r.update()));await moved;await page.locator('#day-next').waitFor();
- assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1'))),before,'Presentation upgrade preserves full saved visit');await prior.setOffline(true);await page.reload();await page.locator('#day-next').waitFor();
+ assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1'))),{...before,schemaVersion:4,settings:{...before.settings,limitsEnabled:false}},'Policy migration preserves saved visit and adds free-play default');await prior.setOffline(true);await page.reload();await page.locator('#day-next').waitFor();
  if(scene==='sleep')assert.equal(await page.locator('.bedroom-scene').getAttribute('data-bedding'),'asleep');else{assert.equal(await page.locator('.school-hero [data-pose=wave]').count(),1);assert.equal(await page.locator('.school-classmate').count(),2);}
  await prior.close();
 }
 console.log('PASS: actual v12 bedtime and school greeting outcomes retain complete state during v13 presentation upgrade and offline reopen');
+
+// A same-day completed visit from the actual previous release unlocks by default.
+baseline=v13;modern=false;
+const locked=await b.newContext(),lockedPage=await locked.newPage();await lockedPage.goto('http://127.0.0.1:4175/');await lockedPage.getByText('Ready for offline play',{exact:false}).waitFor({timeout:60000});
+await lockedPage.locator('[data-activity=day]').click();await lockedPage.locator('[data-chapter=morning]').click();await lockedPage.locator('[data-day-choice=wake]').click();await lockedPage.locator('#stop').click();await lockedPage.getByText('ALL DONE FOR TODAY',{exact:true}).waitFor();const lockedBefore=await lockedPage.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1')));
+modern=true;const unlocked=lockedPage.waitForEvent('framenavigated',{predicate:f=>f===lockedPage.mainFrame(),timeout:60000});await lockedPage.evaluate(()=>navigator.serviceWorker.getRegistration().then(r=>r.update()));await unlocked;await lockedPage.locator('.level-card').first().waitFor();
+const unlockedSave=await lockedPage.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1')));assert.equal(unlockedSave.settings.limitsEnabled,false);assert.equal(unlockedSave.session,null);assert.deepEqual(unlockedSave.journey,lockedBefore.journey);assert.deepEqual(unlockedSave.settings,{...lockedBefore.settings,limitsEnabled:false});assert.ok(await lockedPage.evaluate(()=>localStorage.getItem('animal-buddies-v1-backup-v3')));
+await locked.setOffline(true);await lockedPage.reload();await lockedPage.locator('[data-activity=actions]').click();await lockedPage.locator('[data-story-choice]').first().waitFor();await locked.close();console.log('PASS: actual v13 same-day lock upgrades to free play offline, retaining story progress/settings and schema-3 backup');
 
 // Upgrade the actual previous story engine/schema, not only a synthetic worker.
 baseline=v10;modern=false;
@@ -77,13 +87,13 @@ await previousPage.locator('[data-activity=day]').click();await previousPage.loc
 const v2Before=await previousPage.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1')));assert.equal(v2Before.schemaVersion,2);
 modern=true;const upgraded=previousPage.waitForEvent('framenavigated',{predicate:f=>f===previousPage.mainFrame(),timeout:60000});await previousPage.evaluate(()=>navigator.serviceWorker.getRegistration().then(r=>r.update()));await upgraded;
 await previousPage.locator('#day-next').waitFor();const v3After=await previousPage.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1')));
-assert.equal(v3After.schemaVersion,3);assert.deepEqual(v3After.journey.bookmarks,v2Before.journey.bookmarks);assert.deepEqual(v3After.journey.completed,v2Before.journey.completed);assert.equal(v3After.session.deadline,v2Before.session.deadline);assert.equal(v3After.session.round,v2Before.session.round);assert.deepEqual(v3After.settings,v2Before.settings);assert.deepEqual(v3After.journey.chapters.rabbit.morning,v2Before.journey.bookmarks.rabbit);
+assert.equal(v3After.schemaVersion,4);assert.deepEqual(v3After.journey.bookmarks,v2Before.journey.bookmarks);assert.deepEqual(v3After.journey.completed,v2Before.journey.completed);assert.equal(v3After.session.deadline,v2Before.session.deadline);assert.equal(v3After.session.round,v2Before.session.round);assert.deepEqual(v3After.settings,{...v2Before.settings,limitsEnabled:false});assert.deepEqual(v3After.journey.chapters.rabbit.morning,v2Before.journey.bookmarks.rabbit);
 assert.ok(await previousPage.evaluate(()=>localStorage.getItem('animal-buddies-v1-backup-v2')));await previous.setOffline(true);await previousPage.reload();await previousPage.locator('#day-next').waitFor();await previous.close();
-console.log('PASS: actual v10/schema-2 story migrates to schema 3 with deadline, outcome receipt, per-hero progress and versioned backup intact offline');
+console.log('PASS: actual v10/schema-2 story migrates to current schema with deadline, outcome receipt, per-hero progress and versioned backup intact offline');
 modern=true;
 const c=await b.newContext(),p=await c.newPage();
 await p.goto('http://127.0.0.1:4175/');await p.getByText('Ready for offline play',{exact:false}).waitFor({timeout:60000});
-await p.locator('[data-activity=day]').click();await p.locator('.day-practice summary').click();await p.locator('#school-entry').click();await p.locator('[data-hero=cow]').click();await p.locator('[data-mission=help]').click();await p.locator('[data-school-choice=go]').click();
+await require('./parent-controls.cjs').enableLimits(p);await p.locator('[data-activity=day]').click();await p.locator('.day-practice summary').click();await p.locator('#school-entry').click();await p.locator('[data-hero=cow]').click();await p.locator('[data-mission=help]').click();await p.locator('[data-school-choice=go]').click();
 const beforeSchool=await p.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1')));
 revision=1;
 const moved=p.waitForEvent('framenavigated',{predicate:f=>f===p.mainFrame(),timeout:60000});
@@ -94,7 +104,7 @@ await c.setOffline(true);await p.reload();await p.locator('[data-school-choice=f
 console.log('PASS: school checkpoint and stored progress survive an automatic upgrade and offline reopen');
 const dayContext=await b.newContext(),dayPage=await dayContext.newPage();
 await dayPage.goto('http://127.0.0.1:4175/');await dayPage.getByText('Ready for offline play',{exact:false}).waitFor({timeout:60000});
-await dayPage.locator('[data-activity=day]').click();await dayPage.locator('[data-day-hero=cow]').click();await dayPage.locator('[data-chapter=morning]').click();await dayPage.locator('[data-day-choice=wake]').click();await dayPage.locator('#day-next').click();await dayPage.locator('[data-day-choice=brush]').click();
+await require('./parent-controls.cjs').enableLimits(dayPage);await dayPage.locator('[data-activity=day]').click();await dayPage.locator('[data-day-hero=cow]').click();await dayPage.locator('[data-chapter=morning]').click();await dayPage.locator('[data-day-choice=wake]').click();await dayPage.locator('#day-next').click();await dayPage.locator('[data-day-choice=brush]').click();
 const dayBefore=await dayPage.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1')));revision=2;
 const refreshed=dayPage.waitForEvent('framenavigated',{predicate:f=>f===dayPage.mainFrame(),timeout:60000});await dayPage.evaluate(()=>{navigator.serviceWorker.getRegistration().then(r=>r.update());});await refreshed;
 await dayPage.locator('#day-next').waitFor();assert.deepEqual(await dayPage.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1'))),dayBefore);

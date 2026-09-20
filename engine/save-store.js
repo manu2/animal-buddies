@@ -1,8 +1,9 @@
 import {normalizeJourney,reduceJourney} from './journey.js';
-export const SAVE_KEY='animal-buddies-v1',SCHEMA_VERSION=3;
+export const SAVE_KEY='animal-buddies-v1',SCHEMA_VERSION=4;
 const object=x=>x&&typeof x==='object'&&!Array.isArray(x)?x:{};
 export function migrateSave(raw){
- const old=object(raw),settings={minutes:5,group:0,instructionLanguage:'en',...object(old.settings)};
+ const old=object(raw),settings={minutes:5,group:0,instructionLanguage:'en',limitsEnabled:false,...object(old.settings)};
+ settings.limitsEnabled=settings.limitsEnabled===true;
  if(![3,5,7].includes(settings.minutes))settings.minutes=5;
  if(![0,1,2].includes(settings.group))settings.group=0;
  if(!['en','hi'].includes(settings.instructionLanguage))settings.instructionLanguage='en';
@@ -13,7 +14,7 @@ export function migrateSave(raw){
  if(!['hello','help','water'].includes(school.mission)||![0,1,2].includes(school.step)){school.mission=null;school.step=0;}
  let session=old.session?structuredClone(old.session):null;
  const animals=['cow','dog','fish','cat','duck','rabbit','elephant','lion'];
- if(session&&(!Number.isFinite(session.deadline)||!Number.isInteger(session.round)||session.round<0||session.round>6||!['active','ended'].includes(session.status)||!Array.isArray(session.targets)||session.targets.length!==6||session.targets.some(id=>!animals.includes(id))))session=null;
+ if(session&&(!Number.isFinite(session.deadline)||!Number.isSafeInteger(session.round)||session.round<0||!['active','ended'].includes(session.status)||!Array.isArray(session.targets)||session.targets.length!==6||session.targets.some(id=>!animals.includes(id))))session=null;
  return {...old,schemaVersion:SCHEMA_VERSION,curriculumVersion:3,settings,mode:modes.includes(old.mode)?old.mode:'actions',session,school,progress:{completed:object(old.progress?.completed),observations:object(old.progress?.observations)},journey:normalizeJourney(old.journey,school.hero)};
 }
 export function createSaveStore(storage){

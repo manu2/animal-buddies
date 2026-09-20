@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {migrateSave,createSaveStore,SAVE_KEY} from '../engine/save-store.js';
 import {reduceJourney,currentBeat} from '../engine/journey.js';
-const legacy={curriculumVersion:3,mode:'school',settings:{minutes:7,group:1,instructionLanguage:'hi'},school:{hero:'cow',support:'listen',mission:'help',step:1,counted:false},progress:{completed:{help:2},observations:{help:'comfortable'}},session:{status:'active',round:0,day:'2026-09-21',deadline:20000,targets:['cow','dog','rabbit','cow','dog','rabbit'],mode:'school'}};
+const legacy={curriculumVersion:3,mode:'school',settings:{minutes:7,group:1,instructionLanguage:'hi',limitsEnabled:true},school:{hero:'cow',support:'listen',mission:'help',step:1,counted:false},progress:{completed:{help:2},observations:{help:'comfortable'}},session:{status:'active',round:0,day:'2026-09-21',deadline:20000,targets:['cow','dog','rabbit','cow','dog','rabbit'],mode:'school'}};
 const original=structuredClone(legacy);let s=migrateSave(legacy);
 assert.deepEqual(s.settings,legacy.settings);assert.deepEqual(s.session,legacy.session);assert.deepEqual(s.school,legacy.school);assert.deepEqual(s.progress,legacy.progress);assert.equal(s.journey.hero,'cow');assert.deepEqual(legacy,original);
 function send(event){s=reduceJourney(s,event,1000);}
@@ -40,3 +40,10 @@ let crossing=migrateSave({...legacy,journey:{hero:'rabbit'}});
 for(const e of [{type:'CHAPTER',node:'school-help'},{type:'ACT',choice:'go'},{type:'CHAPTER',node:'breakfast'},{type:'ACT',choice:'eat'},{type:'NEXT'}])crossing=reduceJourney(crossing,e,1000);
 assert.equal(currentBeat(crossing.journey).node,'school-help');assert.equal(currentBeat(crossing.journey).phase,'help');
 console.log('PASS chapter boundary resumes unfinished later work, including story-order continuation.');
+
+assert.equal(migrateSave({}).settings.limitsEnabled,false,'Fresh installs default to free play');
+assert.equal(migrateSave({settings:{minutes:7}}).settings.limitsEnabled,false,'Existing users gain free play by default');
+let free=migrateSave({...legacy,settings:{...legacy.settings,limitsEnabled:false},session:{...legacy.session,round:12,deadline:0}});
+free=reduceJourney(free,{type:'CHAPTER',node:'brush'},30000);free=reduceJourney(free,{type:'ACT',choice:'brush'},30000);free=reduceJourney(free,{type:'NEXT'},30000);
+assert.equal(free.session.round,13);assert.equal(currentBeat(free.journey).node,'breakfast');assert.equal(migrateSave(free).session.round,13,'Unlimited rounds survive reload');
+console.log('PASS policy: free play default and migration, unlimited reducer beyond six turns and expired deadline; optional limits retained.');

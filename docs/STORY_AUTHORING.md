@@ -25,3 +25,5 @@ Choose a room from `content/rooms.js` for every routine node; set `from` for tra
 
 ## Actor contact and school cast
 Use bedroomScene for sleep/wake, with two complete authored frames per hero and time of day. Outcomes must remain meaningful with reduced motion or after interruption/reload. School greeting tiles use the selected hero's wave, teacher tiles use the actual dog teacher, and two classmates remain static supporting cast. Greetings animate hero and teacher attached limbs; drinking animates held-cup poses. Keep surrounding characters still to maintain focus. Do not add a decorative hand or animate a loose cup to imply an action. New actor roles must be distinguishable visually without relying on labels.
+
+Free-play compatibility: a chapter finish may return to its chooser, but must not create a daily lock unless the parent enabled limits. Do not add independent per-chapter/session cutoffs. The same content graph and completion receipts work with both policies; the session policy belongs to the host/reducer boundary, not authored missions.

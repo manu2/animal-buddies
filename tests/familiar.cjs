@@ -1,7 +1,7 @@
 const {chromium}=require('./runtime.cjs'),assert=require('assert/strict'),path=require('path');
 (async()=>{const b=await chromium.launch({executablePath:process.env.CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true});try{
  const c=await b.newContext({viewport:{width:360,height:740}}),p=await c.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));
- await p.goto(process.env.GAME_URL||'http://127.0.0.1:4173/');await p.getByText('Ready for offline play',{exact:false}).waitFor({timeout:90000});await c.setOffline(true);
+ await p.goto(process.env.GAME_URL||'http://127.0.0.1:4173/');await p.getByText('Ready for offline play',{exact:false}).waitFor({timeout:90000});await c.setOffline(true);await require('./parent-controls.cjs').enableLimits(p);
  const state=()=>p.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1')));
  async function parent(){await p.locator('#parent').click();const ns=(await p.locator('label[for=answer]').textContent()).match(/[0-9]+/g).map(Number);await p.locator('#answer').fill(String(ns[0]+ns[1]));await p.locator('#gate button').click();}
  async function restart(){await parent();await p.locator('#new-visit').click();}

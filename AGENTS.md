@@ -7,3 +7,5 @@ Verify both a fresh install and an upgrade from an older cached version. Test of
 Do not infer spoken-language mastery from taps. Parent observations and mission completions are separate.
 No deployment until technical failures are fixed. Clearly distinguish browser simulation from actual phone/human listening/child observation. Child-learning outcomes remain unverified until a parent observes them.
 Never discard or replace earlier modes, the new neural voices, selected instruction language, daily reset, instant parent restart or offline updates to add a feature.
+
+Latest user direction D21: free play is the default. Preserve the time/six-turn/daily-lock code as an opt-in parent setting; test both policies explicitly. Old completed saves must unlock when limits are off, without losing story progress. Earlier shared-budget requirements apply only with limits enabled.

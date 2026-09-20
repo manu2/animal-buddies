@@ -8,7 +8,7 @@ p.on('pageerror',e=>errors.push(e.message));
 await p.clock.install({time:new Date('2026-09-18T23:58:00+05:30')});
 await p.goto(process.env.GAME_URL||'http://127.0.0.1:4173/');
 await p.getByText('Ready for offline play',{exact:false}).waitFor({timeout:90000});
-await c.setOffline(true);
+await c.setOffline(true);await require('./parent-controls.cjs').enableLimits(p);
 await p.locator('#start').click();await p.locator('#stop').click();await p.reload();
 assert.equal(await p.locator('#start').count(),0,'Same-day lock');
 await p.clock.fastForward(3*60000);

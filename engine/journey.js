@@ -19,12 +19,12 @@ export function normalizeJourney(value,legacyHero='rabbit'){
  return {hero,support:raw.support==='listen'?'listen':'explore',bookmarks,chapters,completed};
 }
 export function currentBeat(journey){return journey.bookmarks[journey.hero];}
-export function visitExpired(session,now){return session?.status==='active'&&(session.round>=6||now>=session.deadline);}
+export function visitExpired(session,now,settings){return settings?.limitsEnabled===true&&session?.status==='active'&&(session.round>=6||now>=session.deadline);}
 // All durable story changes are pure events. Effects cannot advance the story.
 export function reduceJourney(state,event,now){
  const next=structuredClone(state),j=next.journey,b=currentBeat(j);
  const remember=()=>{j.chapters[j.hero][DAY[b.node].chapter]={...b};};
- const settle=()=>{if(next.session?.status==='active'&&b.phase==='outcome'&&!b.counted){b.counted=true;next.session.round=Math.min(6,next.session.round+1);}remember();};
+ const settle=()=>{if(next.session?.status==='active'&&b.phase==='outcome'&&!b.counted){b.counted=true;next.session.round=next.settings.limitsEnabled?Math.min(6,next.session.round+1):next.session.round+1;}remember();};
  if(event.type==='SETTLE'){settle();return next;}
  if(event.type==='HERO'&&HEROES.includes(event.hero)){settle();j.hero=event.hero;return next;}
  if(event.type==='SUPPORT'&&['explore','listen'].includes(event.support)){j.support=event.support;return next;}
@@ -33,7 +33,7 @@ export function reduceJourney(state,event,now){
   j.bookmarks[j.hero]=event.resume&&saved&&!saved.finished?{...saved}:fresh(event.node);
   return next;
  }
- if(next.session?.status!=='active'||visitExpired(next.session,now))return state;
+ if(next.session?.status!=='active'||visitExpired(next.session,now,next.settings))return state;
  // Reject events from detached buttons or an async callback for an older beat.
  if(event.at&&(event.at.hero!==j.hero||event.at.node!==b.node||event.at.phase!==b.phase))return state;
  const node=DAY[b.node];

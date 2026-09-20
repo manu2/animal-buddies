@@ -17,7 +17,7 @@ An illustrated situation, one spoken cue in the chosen instruction language, one
 Each outcome has a small parent bridge to the child's day. Pretend animals do human routines; do not teach these as biological facts. Habits need real-world practice with a grown-up. Adult support, comfort and connection take precedence over completing a routine.
 
 ## Session and progress
-Six completed turns or the selected 3/5/7 minute wall-clock limit across every level. The timer includes time away. Same-day stop remains; next local day starts a new visit. Parents can restart immediately for testing. Story checkpoints, chosen character, settings and observations survive restart/day change/update. Chapter replay is available; successful taps are not proof of language mastery.
+Free play is the default for fresh and existing users. There is no automatic time limit, turn cutoff or same-day lock; any level/chapter can be replayed, and Finish returns to the chooser. Parents may enable Time and turn limits: six completed turns or the selected 3/5/7 minute wall-clock limit shared across every level, including time away. Only this optional policy has a same-day stop and next-local-day reset. Parents can restart immediately for testing. Story checkpoints, chosen character, settings and observations survive restart/day change/update. Chapter replay is available; successful taps are not proof of language mastery.
 
 No account, runtime AI service, microphone, ads, background music, streaks or competitive rewards. After initial installation/download, the game runs offline with no computer server.
 

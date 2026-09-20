@@ -38,6 +38,7 @@ function localDay(time=Date.now()){
 }
 function resetForNewDay(){
  if(!session)return false;
+ if(!settings.limitsEnabled){if(session.status!=='ended')return false;session=null;persist();return true;}
  // Older versions saved only a deadline. Recover the visit's starting day.
  const day=session.day || localDay(session.deadline-settings.minutes*60000);
  if(localDay()<=day)return false;
@@ -49,7 +50,7 @@ function persist(){store.commitLegacy({settings,mode,session,school,progress,cur
 function dispatchDay(event){persist();const state=store.dispatch(event);session=state.session;storageWorks=store.isHealthy();return state;}
 
 function animal(id){return ANIMALS.find(a=>a.id===id);}
-function target(){return animal(session.targets[Math.min(session.round,5)]);}
+function target(){return animal(session.targets[session.round%6]);}
 function picture(a,klass=''){return animalPortrait(a.id,a.name,klass);}
 function stopAudio(){audioGeneration++;if(audioSource){try{audioSource.stop()}catch{}audioSource=null;}audioBusy=false;}
 async function unlockAudio(){try{audioContext ||= new (window.AudioContext||window.webkitAudioContext)();if(audioContext.state!=='running')await audioContext.resume();}catch{showAudioError();}}
@@ -102,7 +103,7 @@ function home(){stopStory();stopAudio();renderLevels();}
 function renderLevels(){
  screen='home';if(session){session.view='levels';persist();}
  const cards=[['names','Meet the animals','Names & picture choices',schoolFriend('cow')],['actions','Animal actions','Eat · walk · sleep',storySprite('rabbit','eat')],['day','A day with my animal','Home · school · bedtime',schoolFriend('rabbit')]];
- $('main').innerHTML='<section class="levels"><p class="eyebrow">THREE LITTLE WAYS TO PLAY</p><h1>Choose our adventure</h1><div class="level-grid">'+cards.map(([id,title,note,art],i)=>'<button class="level-card" '+(id==='actions'?'id="start"':'')+' data-activity="'+id+'" aria-label="Level '+(i+1)+': '+title+'"><span class="level-number" aria-hidden="true">'+(i+1)+'</span>'+art+'<strong>'+title+'</strong><small>'+note+'</small></button>').join('')+'</div><div class="level-extras"><button class="sound" data-activity="sentences">Little sentences</button><button class="sound" data-activity="letters">Aa · Letter play</button></div><button class="sound level-listen" id="library-listen">🔊 Hear the choices</button><p class="session-note">'+(session?'One shared visit. Choose any level.':'Choose freely. Earlier favourites stay here.')+'</p><p class="audio-note" id="audio-note"></p></section>';
+ $('main').innerHTML='<section class="levels"><p class="eyebrow">THREE LITTLE WAYS TO PLAY</p><h1>Choose our adventure</h1><div class="level-grid">'+cards.map(([id,title,note,art],i)=>'<button class="level-card" '+(id==='actions'?'id="start"':'')+' data-activity="'+id+'" aria-label="Level '+(i+1)+': '+title+'"><span class="level-number" aria-hidden="true">'+(i+1)+'</span>'+art+'<strong>'+title+'</strong><small>'+note+'</small></button>').join('')+'</div><div class="level-extras"><button class="sound" data-activity="sentences">Little sentences</button><button class="sound" data-activity="letters">Aa · Letter play</button></div><button class="sound level-listen" id="library-listen">🔊 Hear the choices</button><p class="session-note">'+(settings.limitsEnabled&&session?'One shared visit. Choose any level.':'Choose freely. Earlier favourites stay here.')+'</p><p class="audio-note" id="audio-note"></p></section>';
  document.querySelectorAll('[data-activity]').forEach(el=>el.onclick=()=>openActivity(el.dataset.activity));
  $('library-listen').onclick=()=>play([instruction('day-levels')]);
 }
@@ -119,7 +120,7 @@ async function start(){
  if(expired())return finish();
  screen='game';phase='pick';hint=false;correct=false;wrong='';if(['names','sentences','letters'].includes(mode))prepareChoices();renderGame();listen();
 }
-function expired(){return visitExpired(session,Date.now());}
+function expired(){return visitExpired(session,Date.now(),settings);}
 function prepareChoices(){
  const a=target(),key=mode+':'+session.round+':'+a.id;
  const stored=session.pictureChoice,valid=mode==='letters'?['C','D','F','R','E','L']:ANIMALS.map(a=>a.id),answer=mode==='letters'?a.letter:a.id;
@@ -140,7 +141,7 @@ function next(){
  if(expired())return finish();
  if(!correct)return;
  stopAudio();delete session.pendingTurn;session.round++;persist();
- if(session.round>=6)return finish();
+ if(settings.limitsEnabled&&session.round>=6)return finish();
  phase='pick';hint=false;wrong='';correct=false;prepareChoices();renderGame();listen();
 }
 function renderGame(){
@@ -149,7 +150,7 @@ function renderGame(){
  if(mode==='school')return school.mission?renderSchool():renderSchoolLobby();
  if(mode==='actions')return renderStory();
  screen='game';phase='pick';prepareChoices();persist();
- $('main').innerHTML=familiarView({mode,animal:target(),choices:choiceOrder,animals:ANIMALS,correct,wrong,round:session.round});
+ $('main').innerHTML=familiarView({mode,animal:target(),choices:choiceOrder,animals:ANIMALS,correct,wrong,round:session.round,limited:settings.limitsEnabled});
  $('stop').onclick=()=>finish();$('listen').onclick=listen;$('hint').onclick=hearMeaning;
  $('familiar-back').onclick=showLibrary;
  if($('next'))$('next').onclick=next;
@@ -157,10 +158,11 @@ function renderGame(){
  updateTime();
 }
 function updateTime(){
+ if($('time-note')){$('time-note').hidden=!settings.limitsEnabled;if(!settings.limitsEnabled){$('time-note').textContent='';return;}}
  if($('time-note')&&session)$('time-note').textContent=Math.ceil(Math.max(0,session.deadline-Date.now())/60000)+' min left';
 }
 function finish(speak=true){
- stopStory();stopAudio();settleCompletedTurn();if(session){session.status='ended';persist();}
+ stopStory();stopAudio();settleCompletedTurn();if(!settings.limitsEnabled){session=null;persist();home();return;}if(session){session.status='ended';persist();}
  screen='done';
  $('main').innerHTML='<section class="welcome goodbye"><p class="eyebrow">ALL DONE FOR TODAY</p><h1>See you, animal friends.</h1><div class="friends">'+visibleFriends().map(id=>'<div class="friend">'+(mode==='actions'?storySprite(id,'walk'):picture(animal(id)))+'</div>').join('')+'</div><p class="hindi" lang="hi">अब फोन रखकर साथ खेलें।</p><p class="offline-activity">Can you pretend to walk,<br>eat, or sleep?</p><button class="sound" id="listen"><span aria-hidden="true">🔊</span> Listen</button><p id="audio-note" class="audio-note" role="status"></p><p class="session-note">A fresh visit unlocks tomorrow.</p><button class="sound" id="restart-parent">Grown-up: restart for testing</button></section>';
  $('listen').onclick=listen;$('restart-parent').onclick=parentGate;if(speak)listen();
@@ -183,11 +185,17 @@ function parentGate(){
 }
 function parentSettings(dialog){
  const active=session?.status==='active';
- dialog.innerHTML='<div class="dialog-top"><h2>A little guide</h2><button class="quiet" id="close-parent">Close</button></div><p><b>Three ways to play:</b> meet animals, choose animated actions, or follow an animal’s day. Use Levels to move freely between them. In the day story, choose Rabbit or Cow and continue a saved morning, school visit or bedtime. Watch, point or talk together. Hindi is welcome; repeating is optional.</p><div class="setting-row"><label for="instruction-language">Spoken instructions</label><select id="instruction-language"><option value="en" '+(settings.instructionLanguage==='en'?'selected':'')+'>English</option><option value="hi" '+(settings.instructionLanguage==='hi'?'selected':'')+'>हिन्दी</option></select></div><p class="small">Instructions use one language only. Learning words and model sentences stay in English. Tap अर्थ for a Hindi meaning, without an English replay. Pauses give you time to listen.</p><div class="setting-row"><label for="minutes">Session limit</label><select id="minutes" '+(active?'disabled':'')+'>'+[3,5,7].map(n=>'<option value="'+n+'" '+(settings.minutes===n?'selected':'')+'>'+n+' minutes</option>').join('')+'</select></div><div class="setting-row"><label for="group">Animals for names and letters</label><select id="group" '+(active?'disabled':'')+'>'+GROUPS.map((g,i)=>'<option value="'+i+'" '+(settings.group===i?'selected':'')+'>'+g.map(id=>animal(id).name).join(', ')+'</option>').join('')+'</select></div><p class="small">Each visit ends after 6 turns or the time limit, shared across all activities. The timer includes time away from the app. A fresh visit unlocks each new day using this phone’s local date. '+(active?'Finish this visit to change its settings.':'')+'</p><button class="primary compact" id="new-visit">Restart visit now</button><p class="small">Testing? Restart immediately, or simulate a new day below. Neither changes your phone’s clock or language settings.</p><button class="sound" id="test-next-day" '+(!session?'disabled':'')+'>Test next-day reset</button><hr>'+dayProgress(store.getState().journey)+'<h3>School practice</h3><p class="small">Finished missions are practice, not proof of language mastery. Your optional observations guide what to try next; all activities stay available.</p><div id="parent-progress" class="parent-observations"></div><hr><h3>Save to your phone</h3><p><b>iPhone:</b> Open in Safari → Share → Add to Home Screen → Add.</p><p><b>Android:</b> Open in Chrome → menu → Install app or Add to Home screen.</p><button class="sound" id="install-app" '+(!installPrompt?'hidden':'')+'>Install Animal Buddies</button><p><b>Open from the new home-screen icon while online.</b> Wait for “Ready for offline play”, then try airplane mode. No computer or running server is needed.</p><button class="sound" id="save-offline">Check offline download</button><p id="download-detail" role="status">'+(offlineReady?'Ready for offline play.':'Preparing offline files…')+'</p><p class="small">If you clear website data, remove the app, or the phone clears its storage, reconnect once to download again. No sign-in is needed. Browser storage keeps settings on this phone only.</p><hr><h3>Why this game?</h3><p>At 3–4, familiar words, simple sentences, playful listening, and noticing a few letters are useful goals. Whole-word spelling is not required here. Keep speaking Hindi together; it supports language learning.</p><p class="small">The five-minute limit is our design choice, not a developmental prescription. Play together when possible. No ads, scores, streaks, background music, or microphone recording.</p><p class="small">Sources: <a href="https://headstart.gov/school-readiness/article/literacy-preschool" target="_blank" rel="noopener">Head Start literacy guidance</a> · <a href="https://www.healthychildren.org/English/ages-stages/gradeschool/school/Pages/7-Myths-Facts-Bilingual-Children-Learning-Language.aspx" target="_blank" rel="noopener">AAP multilingual guidance</a> · <a href="https://www.cdc.gov/act-early/milestones/3-years.html" target="_blank" rel="noopener">CDC age-three milestones</a></p><p class="small">Action illustrations generated for this game. Other animal illustrations: <a href="https://openmoji.org/" target="_blank" rel="noopener">OpenMoji</a>, CC BY-SA 4.0. Recorded synthetic voices. Hindi meanings use familiar everyday animal names.</p>'+(!storageWorks?'<p>Settings could not be saved by this browser. Session limits may reset when you close the app.</p>':'');
+ dialog.innerHTML='<div class="dialog-top"><h2>A little guide</h2><button class="quiet" id="close-parent">Close</button></div><p><b>Three ways to play:</b> meet animals, choose animated actions, or follow an animal’s day. Use Levels to move freely between them. In the day story, choose Rabbit or Cow and continue a saved morning, school visit or bedtime. Watch, point or talk together. Hindi is welcome; repeating is optional.</p><div class="setting-row"><label for="instruction-language">Spoken instructions</label><select id="instruction-language"><option value="en" '+(settings.instructionLanguage==='en'?'selected':'')+'>English</option><option value="hi" '+(settings.instructionLanguage==='hi'?'selected':'')+'>हिन्दी</option></select></div><p class="small">Instructions use one language only. Learning words and model sentences stay in English. Tap अर्थ for a Hindi meaning, without an English replay. Pauses give you time to listen.</p><div class="setting-row"><label for="limits-enabled">Time and turn limits</label><select id="limits-enabled"><option value="off" '+(!settings.limitsEnabled?'selected':'')+'>Off — play freely</option><option value="on" '+(settings.limitsEnabled?'selected':'')+'>On — short visits</option></select></div><p class="small">Off by default. Play any chapter or level for as long as you choose. Turning limits on starts a fresh budget the next time you play; story progress stays saved.</p><div class="setting-row" '+(!settings.limitsEnabled?'hidden':'')+'><label for="minutes">Session limit</label><select id="minutes" '+(active?'disabled':'')+'>'+[3,5,7].map(n=>'<option value="'+n+'" '+(settings.minutes===n?'selected':'')+'>'+n+' minutes</option>').join('')+'</select></div><div class="setting-row"><label for="group">Animals for names and letters</label><select id="group" '+(active?'disabled':'')+'>'+GROUPS.map((g,i)=>'<option value="'+i+'" '+(settings.group===i?'selected':'')+'>'+g.map(id=>animal(id).name).join(', ')+'</option>').join('')+'</select></div><p class="small" '+(!settings.limitsEnabled?'hidden':'')+'>With limits on, each visit ends after 6 turns or the time limit, shared across all activities. The timer includes time away from the app. A fresh visit unlocks each new day using this phone’s local date. '+(active?'Finish this visit to change its settings.':'')+'</p><button class="primary compact" id="new-visit">Restart visit now</button><p class="small">Restart clears the current visit without removing story progress or settings. With limits on, you can also test the next-day reset.</p><button class="sound" id="test-next-day" '+(!settings.limitsEnabled?'hidden':'')+' '+(!session?'disabled':'')+'>Test next-day reset</button><hr>'+dayProgress(store.getState().journey)+'<h3>School practice</h3><p class="small">Finished missions are practice, not proof of language mastery. Your optional observations guide what to try next; all activities stay available.</p><div id="parent-progress" class="parent-observations"></div><hr><h3>Save to your phone</h3><p><b>iPhone:</b> Open in Safari → Share → Add to Home Screen → Add.</p><p><b>Android:</b> Open in Chrome → menu → Install app or Add to Home screen.</p><button class="sound" id="install-app" '+(!installPrompt?'hidden':'')+'>Install Animal Buddies</button><p><b>Open from the new home-screen icon while online.</b> Wait for “Ready for offline play”, then try airplane mode. No computer or running server is needed.</p><button class="sound" id="save-offline">Check offline download</button><p id="download-detail" role="status">'+(offlineReady?'Ready for offline play.':'Preparing offline files…')+'</p><p class="small">If you clear website data, remove the app, or the phone clears its storage, reconnect once to download again. No sign-in is needed. Browser storage keeps settings on this phone only.</p><hr><h3>Why this game?</h3><p>At 3–4, familiar words, simple sentences, playful listening, and noticing a few letters are useful goals. Whole-word spelling is not required here. Keep speaking Hindi together; it supports language learning.</p><p class="small">Optional visit limits are a parent preference, not a developmental prescription. Play together when possible. No ads, scores, streaks, background music, or microphone recording.</p><p class="small">Sources: <a href="https://headstart.gov/school-readiness/article/literacy-preschool" target="_blank" rel="noopener">Head Start literacy guidance</a> · <a href="https://www.healthychildren.org/English/ages-stages/gradeschool/school/Pages/7-Myths-Facts-Bilingual-Children-Learning-Language.aspx" target="_blank" rel="noopener">AAP multilingual guidance</a> · <a href="https://www.cdc.gov/act-early/milestones/3-years.html" target="_blank" rel="noopener">CDC age-three milestones</a></p><p class="small">Action illustrations generated for this game. Other animal illustrations: <a href="https://openmoji.org/" target="_blank" rel="noopener">OpenMoji</a>, CC BY-SA 4.0. Recorded synthetic voices. Hindi meanings use familiar everyday animal names.</p>'+(!storageWorks?'<p>Settings could not be saved by this browser. Session limits may reset when you close the app.</p>':'');
  $('close-parent').onclick=()=>dialog.close();
  $('parent-progress').innerHTML=Object.entries(SCHOOL).map(([id,m])=>'<label>'+m.title+' · '+(Number(progress.completed[id])||0)+' visits<select data-observe="'+id+'"><option value="">No observation yet</option><option value="help">Needed help</option><option value="comfortable">Comfortable</option><option value="more">Try something harder</option></select></label>').join('');
  dialog.querySelectorAll('[data-observe]').forEach(el=>{el.value=['help','comfortable','more'].includes(progress.observations[el.dataset.observe])?progress.observations[el.dataset.observe]:'';el.onchange=()=>{progress.observations[el.dataset.observe]=el.value;persist();};});
  $('instruction-language').onchange=e=>{stopStory();stopAudio();settings.instructionLanguage=e.target.value;persist();};
+ $('limits-enabled').onchange=e=>{
+  const enabled=e.target.value==='on';if(enabled===settings.limitsEnabled)return;
+  stopStory();stopAudio();settleCompletedTurn();settings.limitsEnabled=enabled;
+  // Changing policy starts with a clean visit budget, never erased story progress.
+  session=null;correct=false;persist();home();parentSettings(dialog);
+ };
  $('minutes').onchange=e=>{settings.minutes=Number(e.target.value);persist();};
  $('group').onchange=e=>{settings.group=Number(e.target.value);persist();};
  $('new-visit').onclick=()=>{stopStory();stopAudio();settleCompletedTurn();session=null;persist();dialog.close();home();};
@@ -248,12 +256,12 @@ resetForNewDay();
 if(session?.status==='ended')finish(false);else if(session?.status==='active'){mode=MODES[session.mode]?session.mode:mode;if(expired())finish(false);else if(session.view==='levels')renderLevels();else if(session.view==='day-lobby'&&mode==='day')dayRuntime.lobby();else if(session.view==='school-lobby'&&mode==='school')renderSchoolLobby();else{screen='game';phase='pick';if(session.pendingTurn&&['names','sentences','letters'].includes(mode)){phase='pick';correct=true;prepareChoices();}renderGame();}}else home();
 prepareOffline();
 if(document.modelContext?.registerTool){
- try{Promise.resolve(document.modelContext.registerTool({name:'get_animal_game_status',description:'Read the current activity, session and offline readiness. Does not start play or change parental controls.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true},execute(input){if(!input||typeof input!=='object'||Object.keys(input).length)throw Error('No inputs expected');return {activity:mode,screen,sessionStatus:session?.status||'not-started',turn:session?Math.min(session.round+1,6):null,offlineReady};}})).catch(()=>{});}catch{}
+ try{Promise.resolve(document.modelContext.registerTool({name:'get_animal_game_status',description:'Read the current activity, session and offline readiness. Does not start play or change parental controls.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true},execute(input){if(!input||typeof input!=='object'||Object.keys(input).length)throw Error('No inputs expected');return {activity:mode,screen,sessionStatus:session?.status||'not-started',turn:session?(settings.limitsEnabled?Math.min(session.round+1,6):session.round+1):null,offlineReady};}})).catch(()=>{});}catch{}
 }
 
 // Action play is choice-led: both pictures are valid, with no speech assessment.
 function visibleFriends(){return (mode==='school'||mode==='day')?['cow','rabbit','dog']:mode==='actions'?STORY_ANIMALS:GROUPS[settings.group];}
-function storyChoices(){return session.storyPairs?.[session.round] || STORY_PAIRS[session.round];}
+function storyChoices(){return session.storyPairs?.[session.round%6] || STORY_PAIRS[session.round%6];}
 function stopStory(){
  storyFlow++;
  for(const animation of storyAnimations)animation.cancel();
@@ -337,17 +345,17 @@ function nextStory(){
  if(!session?.storyAction)return;
  stopStory();stopAudio();
  session.round++;delete session.storyAction;persist();
- if(session.round>=6)return finish();
+ if(settings.limitsEnabled&&session.round>=6)return finish();
  hint=false;renderStory();storyNarrate();
 }
 function renderStory(){
  screen='game';const a=target(),selected=session.storyAction;
  const dots=Array.from({length:6},(_,i)=>'<span class="step '+(i<session.round?'complete':i===session.round?'current':'')+'"></span>').join('');
- $('main').innerHTML='<section class="game story-game"><div class="game-top"><button class="quiet" id="stop">Finish for now</button><div class="steps" aria-label="Turn '+(session.round+1)+' of 6">'+dots+'</div><span class="time-note" id="time-note"></span></div><p class="eyebrow">'+(selected?'YOU CHOSE THE STORY':'CHOOSE WHAT HAPPENS')+'</p><h1 class="question">'+(selected?storySentence(a.id,selected):'What shall the '+a.id+' do?')+'</h1>'+
+ $('main').innerHTML='<section class="game story-game"><div class="game-top"><button class="quiet" id="stop">Finish for now</button>'+(settings.limitsEnabled?'<div class="steps" aria-label="Turn '+(session.round+1)+' of 6">'+dots+'</div>':'')+'<span class="time-note" id="time-note"></span></div><p class="eyebrow">'+(selected?'YOU CHOSE THE STORY':'CHOOSE WHAT HAPPENS')+'</p><h1 class="question">'+(selected?storySentence(a.id,selected):'What shall the '+a.id+' do?')+'</h1>'+
  (selected?'<div class="story-stage">'+storySprite(a.id,selected)+'<span class="stage-line" aria-hidden="true"></span></div><div class="talk-invitation" id="talk-invitation"><span class="talk-symbol" aria-hidden="true">💬</span><span>What is the '+a.id+' doing?</span></div><p class="parent-prompt">Together: “'+STORY_ACTIONS[selected].verb[0].toUpperCase()+STORY_ACTIONS[selected].verb.slice(1)+'.” → “'+storySentence(a.id,selected)+'”</p>':
  '<div class="story-choices">'+storyChoices().map(action=>'<button class="action-tile" data-story-choice="'+action+'" aria-label="Let the '+a.id+' '+action+'">'+storySprite(a.id,action)+'<span class="action-label">'+STORY_ACTIONS[action].label+'</span></button>').join('')+'</div><p class="choice-note">Two choices. Your little story.</p>')+
  '<div class="sound-controls"><button class="sound" id="listen" aria-label="'+(selected?'Watch and hear the sentence again':'Hear and watch both choices')+'"><span class="speaker-icon" aria-hidden="true">🔊</span><span>'+(selected?'Again':'Listen')+'</span></button><button class="sound hindi-help" id="hint" lang="hi" aria-label="Hear Hindi meaning only"><span aria-hidden="true">🗣️</span> अर्थ</button></div><p class="audio-note" id="audio-note" role="status"></p>'+
- (selected?'<button class="primary" id="next"><span class="big-arrow" aria-hidden="true">→</span><span class="play-label">'+(session.round===5?'Say goodbye':'Next friend')+'</span></button>':'')+'</section>';
+ (selected?'<button class="primary" id="next"><span class="big-arrow" aria-hidden="true">→</span><span class="play-label">'+(settings.limitsEnabled&&session.round===5?'Say goodbye':'Next friend')+'</span></button>':'')+'</section>';
  $('stop').onclick=()=>finish();
  $('listen').onclick=()=>storyNarrate();
  $('hint').onclick=hearMeaning;
@@ -364,7 +372,7 @@ function settleCompletedTurn(){
  if(mode==='school'&&school.mission&&school.step===2&&!school.counted){school.counted=true;completed=true;}
  else if(mode==='actions'&&session.storyAction){delete session.storyAction;completed=true;}
  else if(['names','sentences','letters'].includes(mode)&&(correct||session.pendingTurn)){correct=false;delete session.pendingTurn;completed=true;}
- if(completed){session.round=Math.min(6,session.round+1);persist();}
+ if(completed){session.round=settings.limitsEnabled?Math.min(6,session.round+1):session.round+1;persist();}
 }
 function showLibrary(){
  stopStory();stopAudio();settleCompletedTurn();
