@@ -1,4 +1,5 @@
-Read docs/DECISIONS.md, docs/ISSUES.md and docs/VERIFICATION.md before changes.
+Read docs/DECISIONS.md, docs/ANIMAL_DAY_PLAN.md, docs/ISSUES.md and docs/VERIFICATION.md before changes.
+Verify the user’s three visible levels and animal-led daily routine independently of technical test results. School is one setting in Level 3; never replace the original animated action level or treat hidden availability as adequate preservation. I16 remains open until this corrected experience is actually implemented.
 User-approved direction: a calm, offline animal village for non-readers, with parent-supported practical communication. Preserve earlier activities.
 For every release, map changed behavior to decision IDs and issue IDs; run the relevant behavioral regressions plus the release gate; record actual evidence, failures, fixes and remaining limitations in docs/RELEASES.md. Do not mark a check passed because implementation merely exists.
 Verify both a fresh install and an upgrade from an older cached version. Test offline on the public GitHub Pages path. Preserve settings, session deadlines, mission checkpoints and progress across upgrades.
