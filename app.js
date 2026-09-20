@@ -159,7 +159,7 @@ function finish(speak=true){
 }
 function tick(){if(resetForNewDay()){home();return;}if(expired())finish();else updateTime();}
 setInterval(tick,500);
-document.addEventListener('visibilitychange',()=>{if(document.hidden){stopStory();stopAudio();}else tick();});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){stopStory();stopAudio();}else{tick();registration?.update().catch(()=>{});}});
 window.addEventListener('pageshow',tick);
 $('parent').onclick=parentGate;
 document.querySelector('.brand').onclick=e=>{e.preventDefault();if(session?.status==='active')return;session?.status==='ended'?finish(false):home();};
@@ -217,7 +217,7 @@ async function prepareOffline(retry=false){
  }catch{offlineStatus('Offline download not ready. Reconnect and check again in For grown-ups.');}
 }
 window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();installPrompt=event;});
-window.addEventListener('online',()=>{if(!offlineReady)prepareOffline();});
+window.addEventListener('online',()=>{if(!offlineReady)prepareOffline();else registration?.update().catch(()=>{});});
 navigator.serviceWorker?.addEventListener('message',e=>{if(e.data?.type==='OFFLINE_READY')checkOffline().then(ready=>{if(ready)offlineStatus('✓ Ready for offline play',true);});});
 resetForNewDay();
 if(session?.status==='ended')finish(false);else if(session?.status==='active'){mode=MODES[session.mode]?session.mode:mode;if(expired())finish(false);else{screen='game';phase='learn';renderGame();}}else home();

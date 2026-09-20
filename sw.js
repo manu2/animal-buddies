@@ -1,5 +1,5 @@
 
-const CACHE='animal-buddies-offline-v6';
+const CACHE='animal-buddies-offline-v7';
 const ROOT=new URL('./',self.location.href);
 const CORE=['./','./index.html','./style.css','./app.js','./manifest.webmanifest','./icon-192.png','./icon-512.png','./audio-list.json','./asset-list.json'];
 async function allPaths(){
@@ -37,8 +37,19 @@ async function verify(){
 }
 self.addEventListener('install',event=>event.waitUntil(fill().then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{
+ const upgrading=(await caches.keys()).some(key=>key.startsWith('animal-buddies-offline-')&&key!==CACHE);
  await self.clients.claim();
- for(const client of await self.clients.matchAll())client.postMessage({type:'OFFLINE_READY'});
+ for(const client of await self.clients.matchAll({type:'window'})){
+  client.postMessage({type:'OFFLINE_READY'});
+  const url=new URL(client.url);
+  // Old pages only acknowledge offline readiness and otherwise run forever.
+  // Reload the entry after the complete new cache is ready. Saved visits and
+  // their deadlines survive; do not touch other pages on this GitHub origin.
+  if(upgrading&&url.origin===ROOT.origin&&(url.pathname===ROOT.pathname||url.pathname===new URL('index.html',ROOT).pathname)){
+   // Do not await navigation here: the new page waits for activation.
+   client.navigate(client.url).catch(()=>null);
+  }
+ }
 })()));
 self.addEventListener('message',event=>{
  if(event.data?.type==='VERIFY_OFFLINE')event.waitUntil(verify().then(ready=>event.ports[0]?.postMessage({ready})));
