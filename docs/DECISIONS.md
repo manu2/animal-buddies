@@ -1,5 +1,5 @@
 # Product direction and decision record
-Status: corrected three-level, animal-led day implemented and locally verified 2026-09-21. Public release check pending. See GAME_DESIGN.md for intended scope and CURRENT_STATE.md for what is built.
+Status: corrected three-level, animal-led day implemented and locally verified 2026-09-21. Public story/audio checks and actual side-panel handoff passed. See GAME_DESIGN.md for intended scope and CURRENT_STATE.md for what is built.
 This record is the reference for future changes, not a claim of educational efficacy.
 
 | ID | Decision | Why / acceptance evidence |
@@ -20,6 +20,8 @@ This record is the reference for future changes, not a claim of educational effi
 | D14 | Finite authored offline scenes; no live AI chat, microphone, ads, streaks, purchases or compulsory rewards | Runtime network inventory and UI audit |
 | D16 | Preserve the illustrated action-game characters throughout school; outdoor classroom under a tree beside a clearly visible lake, no school building | Inspect scene without its heading; recognisable lake, picture board/books/rug, coherent characters; phone and desktop; offline artwork decode |
 | D15 | Document direction, mistakes, tests, evidence and unresolved work every release | Decision/issue/check mapping in release log |
+| D17 | New story development uses authored content, pure state transitions, versioned persistence, separate views and cancellable effects | Module boundaries and migrations documented in ARCHITECTURE.md; state/content/day/upgrade tests |
+| D18 | Keep design, shipped state, learning guidance, development rules and authoring instructions separate; read them before work | Required-reading index docs/README.md and AGENTS.md; release evidence independent of design intent |
 
 Earlier school pilot (preserved inside the new story): two selectable heroes (cow and rabbit), three short school episodes (greeting, ask for help opening a lunchbox, ask for water), illustration-based activity selection, Explore and Listen support, preserved earlier modes, parent observations, persistent checkpoints and shared visit limits.
 
@@ -29,6 +31,3 @@ Research informs design, not guarantees: ASHA 3–4 communication milestones htt
 Direction authority: the user’s stated progression and animal-led day take precedence over the previously narrowed school pilot scope. ANIMAL_DAY_PLAN.md records the correction, supporting research, limits and acceptance criteria. Do not silently defer that core again.
 
 Latest user clarification: the present lakeside school looks good and must be reused as a chapter of the chosen animal’s day. Preserve the existing simple action activities, original animations, voice recordings and assets. Correct the structure and continuity, not the approved scenery.
-
-| D17 | New story development uses authored content, pure state transitions, versioned persistence, separate views and cancellable effects | Module boundaries and migrations documented in ARCHITECTURE.md; state/content/day/upgrade tests |
-| D18 | Keep design, shipped state, learning guidance, development rules and authoring instructions separate; read them before work | Required-reading index docs/README.md and AGENTS.md; release evidence independent of design intent |
