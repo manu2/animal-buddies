@@ -1,5 +1,5 @@
 # Current implementation status
-Updated 2026-09-21. Worker v12 candidate, save schema 3; verification/publication status in RELEASES.md. Previous live release: worker v11.
+Updated 2026-09-21. Published worker v12, save schema 3, app commit fc0df1f606b8d7e855ea1aeb580dfe3067fa0aea at https://manu2.github.io/animal-buddies/ . All ten local suites and public familiar/day/language checks passed; evidence in RELEASES.md.
 
 Implemented: three equally visible levels (names/actions/day), preserved sentence/letter extras, original illustrated grass/carrot eating/walking/sleeping, per-animal day stories (wake, brush, breakfast, travel, school hello/help/water, home, sleep), and revisitable school practice. Existing approved characters/classroom and original home image remain.
 
