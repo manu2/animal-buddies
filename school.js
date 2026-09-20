@@ -14,16 +14,20 @@ export function prop(kind){
  ball:'<circle cx="50" cy="50" r="36" fill="#f4c868"/><path d="M17 35q32 8 45-20M28 80q7-36 56-36M51 15q-10 30 21 63" fill="none" stroke="#cd815f"/>',
  teacher:'<circle cx="50" cy="31" r="19" fill="#d7b28c"/><path d="M22 91V74q0-22 28-22t28 22v17" fill="#73a88f"/><path d="M39 30h5m12 0h5M43 41q7 6 14 0" fill="none"/><path d="m14 56 13 12M13 42v12m-8-6 8 6" fill="none"/>',
  ear:'<path d="M30 71q0-13-9-25C1 11 70-7 78 33q3 18-15 31-9 5-11 18-4 18-21 6" fill="#f7d5a0"/><path d="M34 45q-10-22 12-24 22 0 13 23l-13 8v14" fill="none"/>',
- school:'<path d="M9 40 50 9l41 31" fill="#dcaa86"/><path d="M15 40h70v49H15Z" fill="#fff0c4"/><path d="M41 89V60h20v29" fill="#74a99b"/><path d="M23 50h11v13H23Zm44 0h11v13H67Z" fill="#b8e0e3"/>',
+ school:'<ellipse cx="55" cy="78" rx="38" ry="12" fill="#f1c58c"/><path d="M7 31q37-12 86 0v19H7" fill="#9bd4df" stroke="none"/><path d="m16 86 7-69m33 69-6-69" fill="none"/><rect x="13" y="12" width="49" height="48" rx="5" fill="#476e60" stroke="#b98a58" stroke-width="7"/><circle cx="37" cy="34" r="8" stroke="#f9df91"/><path d="M37 20v-3m0 34v-3M23 34h-3m34 0h-3" stroke="#f9df91"/>',
  book:'<path d="M10 17q25-7 40 8 15-15 40-8v63q-25-7-40 8-15-15-40-8Z" fill="#f7d999"/><path d="M50 25v62" fill="none"/>'
  };
  return '<svg viewBox="0 0 100 100" aria-hidden="true" focusable="false" fill="none" stroke="#285b50" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">'+(paths[kind]||paths.school)+'</svg>';
 }
-export function schoolScene(hero,id,step){
+// Reuse the original illustrated action characters, not the unrelated icon set.
+export function schoolFriend(id,extra=''){
+ return '<span class="school-character '+extra+'" role="img" aria-label="'+({cow:'Cow',rabbit:'Rabbit',dog:'Dog teacher'}[id])+'" style="--friend-sheet:url(./stories/'+id+'.png)"></span>';
+}
+export function schoolScene(hero,id,step,preview=false){
  const done=step===2,water=id==='water',hello=id==='hello';
- return '<div class="school-scene" role="img" aria-label="School beside a lake. '+(hero==='cow'?'Cow':'Rabbit')+' and their dog teacher. '+(done?SCHOOL[id].done:'')+'">'+
- '<svg class="school-landscape" viewBox="0 0 600 310" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="600" height="310" fill="#e9f2ed"/><circle cx="520" cy="48" r="24" fill="#f5dda0"/><path d="M0 170Q160 75 320 175T600 152V310H0Z" fill="#c0d6ac"/><ellipse cx="493" cy="190" rx="137" ry="40" fill="#96c8cd"/><path d="M391 187h41m35 17h39m11-36h39" stroke="#d4ebdf" stroke-width="4" stroke-linecap="round"/><path d="M35 158 154 57l120 101" fill="#d0a58b" stroke="#587965" stroke-width="4"/><rect x="59" y="145" width="190" height="118" rx="7" fill="#fff0c9" stroke="#587965" stroke-width="4"/><rect x="130" y="174" width="46" height="89" rx="20" fill="#7aa994"/><rect x="80" y="169" width="32" height="34" rx="4" fill="#a9d3cf"/><rect x="193" y="169" width="32" height="34" rx="4" fill="#a9d3cf"/><path d="M153 263q-4 26-52 47h255q-120-14-160-47" fill="#e7d6ad"/><path d="M311 244V147" stroke="#967956" stroke-width="9"/><circle cx="311" cy="129" r="41" fill="#91b68e"/></svg>'+
- '<img class="school-hero '+(done?(hello?'greeting':water?'drinking':'delighted'):'')+'" src="./animals/'+hero+'.svg" alt=""><img class="school-teacher '+(done&&hello?'greeting':'')+'" src="./animals/dog.svg" alt="">'+
- '<span class="school-prop '+(done&&water?'drinking-prop':'')+'">'+prop(hello?'wave':water?(step===0?'bottle':'cup'):(done?'openbox':'box'))+'</span>'+
+ return '<div class="school-scene '+(preview?'school-preview':'')+'" role="img" aria-label="An outdoor classroom under a tree beside a blue lake, with a picture board, books and a story rug. '+(hero==='cow'?'Cow':'Rabbit')+' and their dog teacher on the dry classroom rug. '+(done?SCHOOL[id].done:'')+'">'+
+ '<img class="school-landscape" src="./scenes/lakeside-classroom-v2.png" alt="">'+
+ '<span class="school-hero">'+schoolFriend(hero)+'</span><span class="school-teacher">'+schoolFriend('dog')+'</span>'+
+ (!preview?'<span class="school-prop '+(done&&water?'drinking-prop':'')+'">'+prop(hello?'wave':water?(step===0?'bottle':'cup'):(done?'openbox':'box'))+'</span>':'')+
  (done?'<span class="school-bubble">'+SCHOOL[id].phrase+'</span>':'')+'</div>';
 }

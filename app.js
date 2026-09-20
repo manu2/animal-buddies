@@ -1,4 +1,4 @@
-import {SCHOOL,prop,schoolScene} from './school.js';
+import {SCHOOL,prop,schoolScene,schoolFriend} from './school.js';
 
 const $ = (id) => document.getElementById(id);
 const ANIMALS = [
@@ -362,7 +362,7 @@ function showLibrary(){
  if(session?.status==='ended')return finish(false);
  screen='library';
  const cards=[
- ['school',prop('school'),'Lakeside School','3 · Everyday missions'],
+ ['school','<img class="school-library-art" src="./scenes/lakeside-classroom-v2.png" alt="Outdoor classroom beside the lake">','Lakeside School','3 · Everyday missions'],
  ['names',picture(animal('dog')),'Meet our friends','1 · Names'],
  ['actions',picture(animal('rabbit')),'Animal actions','2 · Actions'],
  ['sentences',prop('book'),'Little sentences','Listen together'],
@@ -384,7 +384,7 @@ function openActivity(id){
 }
 function renderSchoolLobby(){
  stopStory();stopAudio();screen='school-lobby';
- $('main').innerHTML='<section class="school-lobby"><p class="eyebrow">A LITTLE DAY BY THE LAKE</p><h1>Lakeside School</h1><div class="hero-picker" aria-label="Choose your animal">'+['cow','rabbit'].map(id=>'<button class="hero-option" data-hero="'+id+'" aria-pressed="'+(school.hero===id)+'" aria-label="Play as '+animal(id).name+'">'+picture(animal(id))+'<span>'+animal(id).name+'</span></button>').join('')+'</div><div class="support-picker" aria-label="Choose support level"><button data-support="explore" aria-pressed="'+(school.support==='explore')+'">'+prop('wave')+'Explore</button><button data-support="listen" aria-pressed="'+(school.support==='listen')+'">'+prop('ear')+'Listen</button></div><div class="mission-list">'+Object.entries(SCHOOL).map(([id,m])=>'<button class="mission-card" data-mission="'+id+'" aria-label="'+m.title+'">'+prop(m.symbol)+'<span>'+m.title+'</span><small>'+(school.mission===id&&school.step<2?'Continue story':(Number(progress.completed[id])||0)>0?'Visit again':'Let’s try')+'</small></button>').join('')+'</div><button class="sound" id="lobby-listen" aria-label="Hear how to choose">🔊 Listen</button><p class="audio-note" id="audio-note"></p><p class="library-intro">Explore shows a helpful example.<br>Listen lets you try from the spoken instruction.</p><p class="session-note">All missions stay available. Speaking is optional.</p></section>';
+ $('main').innerHTML='<section class="school-lobby"><p class="eyebrow">A LITTLE DAY BY THE LAKE</p><h1>Lakeside School</h1>'+schoolScene(school.hero,'hello',0,true)+'<div class="hero-picker" aria-label="Choose your animal">'+['cow','rabbit'].map(id=>'<button class="hero-option" data-hero="'+id+'" aria-pressed="'+(school.hero===id)+'" aria-label="Play as '+animal(id).name+'">'+schoolFriend(id)+'<span>'+animal(id).name+'</span></button>').join('')+'</div><div class="support-picker" aria-label="Choose support level"><button data-support="explore" aria-pressed="'+(school.support==='explore')+'">'+prop('wave')+'Explore</button><button data-support="listen" aria-pressed="'+(school.support==='listen')+'">'+prop('ear')+'Listen</button></div><div class="mission-list">'+Object.entries(SCHOOL).map(([id,m])=>'<button class="mission-card" data-mission="'+id+'" aria-label="'+m.title+'">'+prop(m.symbol)+'<span>'+m.title+'</span><small>'+(school.mission===id&&school.step<2?'Continue story':(Number(progress.completed[id])||0)>0?'Visit again':'Let’s try')+'</small></button>').join('')+'</div><button class="sound" id="lobby-listen" aria-label="Hear how to choose">🔊 Listen</button><p class="audio-note" id="audio-note"></p><p class="library-intro">Explore shows a helpful example.<br>Listen lets you try from the spoken instruction.</p><p class="session-note">All missions stay available. Speaking is optional.</p></section>';
  document.querySelectorAll('[data-hero]').forEach(el=>el.onclick=()=>{
   school.hero=el.dataset.hero;persist();renderSchoolLobby();play([school.hero+'-name']);
  });
@@ -416,7 +416,7 @@ function renderSchool(){
  screen='game';const id=school.mission,m=SCHOOL[id],done=school.step===2;
  const line=done?m.phrase:school.step===1?m.next:m.prompt;
  $('main').innerHTML='<section class="game school-game"><div class="game-top"><button class="quiet" id="school-back">← Missions</button><div class="steps" aria-label="Step '+(school.step+1)+' of 3">'+[0,1,2].map(i=>'<span class="step '+(i===school.step?'current':i<school.step?'complete':'')+'"></span>').join('')+'</div><span class="time-note" id="time-note"></span><button class="quiet" id="stop">Finish</button></div><p class="eyebrow">'+(done?'WE DID IT TOGETHER':m.title.toUpperCase())+'</p><h1 class="question">'+line+'</h1>'+schoolScene(school.hero,id,school.step)+
- (done?'<p class="parent-prompt">'+m.bridge+'</p>':'<div class="school-actions">'+schoolOptions().map(o=>'<button class="school-action" data-school-choice="'+o.id+'" aria-label="'+o.label+'">'+(o.icon==='teacher'?picture(animal('dog')):prop(o.icon))+'<span>'+o.label+'</span></button>').join('')+'</div>')+
+ (done?'<p class="parent-prompt">'+m.bridge+'</p>':'<div class="school-actions">'+schoolOptions().map(o=>'<button class="school-action" data-school-choice="'+o.id+'" aria-label="'+o.label+'">'+(o.icon==='teacher'?schoolFriend('dog'):prop(o.icon))+'<span>'+o.label+'</span></button>').join('')+'</div>')+
  '<p class="mission-feedback" id="school-feedback" role="status">'+(done?'A quiet moment to talk together.':'')+'</p><div class="sound-controls"><button class="sound" id="listen" aria-label="Hear this step again">🔊 '+(done?'Again':'Listen')+'</button><button class="sound" id="hint" lang="hi" aria-label="Hear Hindi meaning only">🗣️ अर्थ</button></div><p class="audio-note" id="audio-note"></p>'+
  (done?'<button class="primary" id="school-next"><span class="big-arrow" aria-hidden="true">→</span><span class="play-label">More adventures</span></button>':'')+'</section>';
  $('school-back').onclick=leaveSchool;$('stop').onclick=()=>finish();

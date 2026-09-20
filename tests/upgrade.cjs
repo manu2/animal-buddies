@@ -7,7 +7,7 @@ let modern=false,revision=0;
 const server=http.createServer((req,res)=>{
  const path=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\//,'')||'index.html';
  const type=path.endsWith('.js')?'application/javascript':path.endsWith('.json')||path.endsWith('.webmanifest')?'application/json':path.endsWith('.css')?'text/css':path.endsWith('.html')?'text/html':path.endsWith('.m4a')?'audio/mp4':path.endsWith('.svg')?'image/svg+xml':'image/png';
- try{let body=!modern&&old[path]?old[path]:fs.readFileSync(root+'/'+path);if(modern&&path==='sw.js'&&revision)body=Buffer.from(body.toString().replace('offline-v8','offline-v8-upgrade-test'));res.writeHead(200,{'Content-Type':type,'Cache-Control':'no-store'});res.end(body);}catch{res.writeHead(404);res.end();}
+ try{let body=!modern&&old[path]?old[path]:fs.readFileSync(root+'/'+path);if(modern&&path==='sw.js'&&revision)body=Buffer.from(body.toString().replace(/offline-v[0-9]+/, '$&-upgrade-test'));res.writeHead(200,{'Content-Type':type,'Cache-Control':'no-store'});res.end(body);}catch{res.writeHead(404);res.end();}
 });
 (async()=>{await new Promise(r=>server.listen(4175,'127.0.0.1',r));const b=await chromium.launch({executablePath:process.env.CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true});try{
 for(const status of ['ended','active']){

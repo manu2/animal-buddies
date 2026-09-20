@@ -18,6 +18,7 @@ This record is the reference for future changes, not a claim of educational effi
 | D12 | Preserve data and verify old cached clients on upgrades | Automatic refresh only once assets ready; active deadline/choice preserved; no loop |
 | D13 | Adults and real-world conversation support learning; gestures and Hindi welcome | Quiet pauses, optional speech, parent follow-up; no forced repetition |
 | D14 | Finite authored offline scenes; no live AI chat, microphone, ads, streaks, purchases or compulsory rewards | Runtime network inventory and UI audit |
+| D16 | Preserve the illustrated action-game characters throughout school; outdoor classroom under a tree beside a clearly visible lake, no school building | Inspect scene without its heading; recognisable lake, picture board/books/rug, coherent characters; phone and desktop; offline artwork decode |
 | D15 | Document direction, mistakes, tests, evidence and unresolved work every release | Decision/issue/check mapping in release log |
 
 Current pilot scope: two selectable heroes (cow and rabbit), three short school episodes (greeting, ask for help opening a lunchbox, ask for water), illustration-based activity selection, Explore and Listen support, preserved earlier modes, parent observations, persistent checkpoints and shared visit limits.
