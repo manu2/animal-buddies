@@ -1,0 +1,1 @@
+PASS audit: clear start/continue; different chapter imagery; props follow choice; per-chapter resume; chooser survives reload; visual travel and bedtime states; offline new art; parent day observations; cross-level target compatibility.
