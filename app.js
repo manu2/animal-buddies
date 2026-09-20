@@ -4,7 +4,7 @@ import {createSaveStore} from './engine/save-store.js';
 import {createDayController} from './engine/day-controller.js';
 import {dayProgress} from './ui/parent-view.js';
 import {visitExpired} from './engine/journey.js';
-import {SCHOOL,prop,schoolScene,schoolFriend} from './school.js';
+import {SCHOOL,prop,schoolScene,schoolFriend,schoolIcon} from './school.js';
 
 const $ = (id) => document.getElementById(id);
 const ANIMALS = [
@@ -387,14 +387,14 @@ function openActivity(id){
 function renderSchoolLobby(){
  if(session){session.view='school-lobby';persist();}
  stopStory();stopAudio();screen='school-lobby';
- $('main').innerHTML='<section class="school-lobby"><p class="eyebrow">A LITTLE DAY BY THE LAKE</p><h1>Lakeside School</h1>'+schoolScene(school.hero,'hello',0,true)+'<div class="hero-picker" aria-label="Choose your animal">'+['cow','rabbit'].map(id=>'<button class="hero-option" data-hero="'+id+'" aria-pressed="'+(school.hero===id)+'" aria-label="Play as '+animal(id).name+'">'+schoolFriend(id)+'<span>'+animal(id).name+'</span></button>').join('')+'</div><div class="support-picker" aria-label="Choose support level"><button data-support="explore" aria-pressed="'+(school.support==='explore')+'">'+prop('wave')+'Explore</button><button data-support="listen" aria-pressed="'+(school.support==='listen')+'">'+prop('ear')+'Listen</button></div><div class="mission-list">'+Object.entries(SCHOOL).map(([id,m])=>'<button class="mission-card" data-mission="'+id+'" aria-label="'+m.title+'">'+prop(m.symbol)+'<span>'+m.title+'</span><small>'+(school.mission===id&&school.step<2?'Continue story':(Number(progress.completed[id])||0)>0?'Visit again':'Let’s try')+'</small></button>').join('')+'</div><button class="sound" id="lobby-listen" aria-label="Hear how to choose">🔊 Listen</button><p class="audio-note" id="audio-note"></p><p class="library-intro">Explore shows a helpful example.<br>Listen lets you try from the spoken instruction.</p><p class="session-note">All missions stay available. Speaking is optional.</p></section>';
- document.querySelectorAll('[data-hero]').forEach(el=>el.onclick=()=>{
+ $('main').innerHTML='<section class="school-lobby"><p class="eyebrow">A LITTLE DAY BY THE LAKE</p><h1>Lakeside School</h1>'+schoolScene(school.hero,'hello',0,true)+'<div class="hero-picker" aria-label="Choose your animal">'+['cow','rabbit'].map(id=>'<button class="hero-option" data-hero="'+id+'" aria-pressed="'+(school.hero===id)+'" aria-label="Play as '+animal(id).name+'">'+schoolFriend(id)+'<span>'+animal(id).name+'</span></button>').join('')+'</div><div class="support-picker" aria-label="Choose support level"><button data-support="explore" aria-pressed="'+(school.support==='explore')+'">'+prop('wave')+'Explore</button><button data-support="listen" aria-pressed="'+(school.support==='listen')+'">'+prop('ear')+'Listen</button></div><div class="mission-list">'+Object.entries(SCHOOL).map(([id,m])=>'<button class="mission-card" data-mission="'+id+'" aria-label="'+m.title+'">'+schoolIcon(m.symbol,school.hero)+'<span>'+m.title+'</span><small>'+(school.mission===id&&school.step<2?'Continue story':(Number(progress.completed[id])||0)>0?'Visit again':'Let’s try')+'</small></button>').join('')+'</div><button class="sound" id="lobby-listen" aria-label="Hear how to choose">🔊 Listen</button><p class="audio-note" id="audio-note"></p><p class="library-intro">Explore shows a helpful example.<br>Listen lets you try from the spoken instruction.</p><p class="session-note">All missions stay available. Speaking is optional.</p></section>';
+ document.querySelectorAll('button[data-hero]').forEach(el=>el.onclick=()=>{
   school.hero=el.dataset.hero;persist();renderSchoolLobby();play([school.hero+'-name']);
  });
  document.querySelectorAll('[data-support]').forEach(el=>el.onclick=()=>{
   school.support=el.dataset.support;persist();renderSchoolLobby();play([instruction('school-'+school.support)]);
  });
- document.querySelectorAll('[data-mission]').forEach(el=>el.onclick=()=>startSchool(el.dataset.mission));
+ document.querySelectorAll('button[data-mission]').forEach(el=>el.onclick=()=>startSchool(el.dataset.mission));
  $('lobby-listen').onclick=()=>play([instruction('school-lobby')]);
 }
 async function startSchool(id){
@@ -420,7 +420,7 @@ function renderSchool(){
  screen='game';const id=school.mission,m=SCHOOL[id],done=school.step===2;
  const line=done?m.phrase:school.step===1?m.next:m.prompt;
  $('main').innerHTML='<section class="game school-game"><div class="game-top"><button class="quiet" id="school-back">← Missions</button><div class="steps" aria-label="Step '+(school.step+1)+' of 3">'+[0,1,2].map(i=>'<span class="step '+(i===school.step?'current':i<school.step?'complete':'')+'"></span>').join('')+'</div><span class="time-note" id="time-note"></span><button class="quiet" id="stop">Finish</button></div><p class="eyebrow">'+(done?'WE DID IT TOGETHER':m.title.toUpperCase())+'</p><h1 class="question">'+line+'</h1>'+schoolScene(school.hero,id,school.step)+
- (done?'<p class="parent-prompt">'+m.bridge+'</p>':'<div class="school-actions">'+schoolOptions().map(o=>'<button class="school-action" data-school-choice="'+o.id+'" aria-label="'+o.label+'">'+(o.icon==='teacher'?schoolFriend('dog'):prop(o.icon))+'<span>'+o.label+'</span></button>').join('')+'</div>')+
+ (done?'<p class="parent-prompt">'+m.bridge+'</p>':'<div class="school-actions">'+schoolOptions().map(o=>'<button class="school-action" data-school-choice="'+o.id+'" aria-label="'+o.label+'">'+schoolIcon(o.icon,school.hero)+'<span>'+o.label+'</span></button>').join('')+'</div>')+
  '<p class="mission-feedback" id="school-feedback" role="status">'+(done?'A quiet moment to talk together.':'')+'</p><div class="sound-controls"><button class="sound" id="listen" aria-label="Hear this step again">🔊 '+(done?'Again':'Listen')+'</button><button class="sound" id="hint" lang="hi" aria-label="Hear Hindi meaning only">🗣️ अर्थ</button></div><p class="audio-note" id="audio-note"></p>'+
  (done?'<button class="primary" id="school-next"><span class="big-arrow" aria-hidden="true">→</span><span class="play-label">More adventures</span></button>':'')+'</section>';
  $('school-back').onclick=leaveSchool;$('stop').onclick=()=>finish();
@@ -454,17 +454,25 @@ function schoolMeaning(){
  if(!school.mission)return;
  return play(['school-'+school.mission+'-'+(school.step===2?'model':'step'+school.step)+'-hi']);
 }
-function schoolMotion(){
- if(matchMedia('(prefers-reduced-motion: reduce)').matches)return Promise.resolve();
- const id=school.mission;
- const el=document.querySelector(id==='hello'?'.school-prop':id==='water'?'.school-prop':'.school-hero');
- if(!el)return Promise.resolve();
- const frames=id==='hello'?[{transform:'rotate(-15deg)'},{transform:'rotate(15deg)'},{transform:'rotate(-15deg)'},{transform:'none'}]:
- id==='water'?[{transform:'translate(0,0)'},{transform:'translate(-110%,-40%) rotate(-20deg)'},{transform:'translate(-110%,-40%) rotate(-20deg)'},{transform:'none'}]:
- [{transform:'translateY(0)'},{transform:'translateY(-7px)'},{transform:'translateY(0)'}];
- const a=el.animate(frames,{duration:1900,easing:'ease-in-out'});storyAnimations.add(a);
+function sceneAnimation(element,frames,options={}){
+ if(!element)return Promise.resolve();
+ const a=element.animate(frames,{duration:2400,easing:'ease-in-out',...options});storyAnimations.add(a);
  return a.finished.catch(()=>{}).finally(()=>storyAnimations.delete(a));
 }
+function animateSchoolScene(id){
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches)return Promise.resolve();
+ if(id==='hello'){
+  const frames=[100,0,100,0,100].map(y=>({backgroundPosition:'0% '+y+'%',easing:'steps(1,end)'}));
+  return Promise.all([sceneAnimation(document.querySelector('.school-hero .routine-sprite'),frames,{easing:'linear'}),sceneAnimation(document.querySelector('.school-teacher .classroom-sprite'),frames,{easing:'linear',delay:300})]);
+ }
+ if(id==='water'){
+  const el=document.querySelector('.school-hero .drinking-sprite'),row=el?.dataset.drinkHero==='cow'?0:100;
+  return sceneAnimation(el,[0,50,50,100].map(x=>({backgroundPosition:x+'% '+row+'%',easing:'steps(1,end)'})),{duration:2800,easing:'linear'});
+ }
+ // The box opens where it sits; neither the child nor a detached hand bounces.
+ return sceneAnimation(document.querySelector('.opened-lunchbox'),[{opacity:.4,transform:'scaleY(.8)'},{opacity:1,transform:'scaleY(1)'}],{duration:800});
+}
+function schoolMotion(){return animateSchoolScene(school.mission);}
 async function narrateSchool(){
  if(screen!=='game'||mode!=='school'||!school.mission||session?.status!=='active')return;
  stopStory();stopAudio();const run=storyFlow,id=school.mission,step=school.step;
@@ -488,12 +496,9 @@ async function narrateSchool(){
 async function animateDay(node,beat){
  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
  const track=(element,frames,options)=>{if(!element)return Promise.resolve();const a=element.animate(frames,{duration:2400,easing:'ease-in-out',...options});storyAnimations.add(a);return a.finished.catch(()=>{}).finally(()=>storyAnimations.delete(a));};
- if(node.kind==='school'){
-  const mission=node.mission,el=document.querySelector(mission==='help'?'.school-hero':'.school-prop');
-  return track(el,mission==='hello'?[{transform:'rotate(-15deg)'},{transform:'rotate(15deg)'},{transform:'rotate(-15deg)'},{transform:'none'}]:mission==='water'?[{transform:'none'},{transform:'translate(-110%,-40%) rotate(-20deg)'},{transform:'translate(-110%,-40%) rotate(-20deg)'},{transform:'none'}]:[{transform:'none'},{transform:'translateY(-7px)'},{transform:'none'}]);
- }
+ if(node.kind==='school')return animateSchoolScene(node.mission);
+ if(node.action==='sleep'||node.action==='wake')return track(document.querySelector('.bedroom-after'),[{opacity:0},{opacity:1}],{duration:1600});
  const routine=document.querySelector('.day-actor .routine-sprite');
- if(routine&&node.action==='wake')return track(routine,[0,100,0,100,0].map(y=>({backgroundPosition:'0% '+y+'%',easing:'steps(1,end)'})),{duration:2400,easing:'linear'});
  if(routine&&['brush','eat'].includes(node.action)){
   const column=node.action==='brush'?1:2;
   const frames=Array.from({length:11},(_,i)=>({backgroundPosition:(column*50)+'% '+(i%2)*100+'%',offset:i/10,easing:'steps(1,end)'}));
@@ -502,5 +507,5 @@ async function animateDay(node,beat){
  const sprite=document.querySelector('.day-actor .action-sprite');
  if(node.action==='walk')return Promise.all([animateStory(sprite),track(document.querySelector('.travel-origin'),[{opacity:1,offset:0},{opacity:1,offset:.25},{opacity:0,offset:.85},{opacity:0,offset:1}],{duration:3600}),track(document.querySelector('.day-actor'),[{transform:'translateX(45%)'},{transform:'translateX(0)'}],{duration:3600})]);
  if(['eat','sleep'].includes(node.action))return animateStory(sprite);
- if(node.action==='wake')return Promise.all([track(sprite,[{backgroundPosition:'100% 100%'},{backgroundPosition:'0% 0%'}],{duration:1000,easing:'steps(1,end)'}),track(document.querySelector('.morning-wave'),[{transform:'rotate(-15deg)'},{transform:'rotate(15deg)'},{transform:'none'}])]);
+
 }

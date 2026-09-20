@@ -18,3 +18,5 @@ console.log('PASS content: stable graph, bounded choices, both languages, record
 
 assert.ok(validateStory({...DAY,brush:{...DAY.brush,room:'missing-room'}}).some(e=>e.includes('room')));
 for(const path of ['./content/rooms.js','./ui/animal-view.js','./ui/familiar-view.js','./stories/cow-routines-v1.png','./stories/rabbit-routines-v1.png','./animals/friends-toons-v1.png','./scenes/animal-bathroom-v1.png','./scenes/animal-dining-v1.png'])assert.ok(assets.has(path),'New illustration not cached: '+path);
+
+for(const path of ['./stories/classroom-cast-v1.png','./stories/school-drinking-v1.png',...HEROES.flatMap(h=>['morning','bedtime'].map(room=>'./scenes/'+h+'-'+room+'-v2.png'))])assert.ok(assets.has(path),'Scene asset missing from offline inventory: '+path);

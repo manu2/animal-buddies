@@ -1,5 +1,5 @@
 
-const CACHE='animal-buddies-offline-v12';
+const CACHE='animal-buddies-offline-v13';
 const ROOT=new URL('./',self.location.href);
 const CORE=['./','./index.html','./style.css','./app.js','./manifest.webmanifest','./icon-192.png','./icon-512.png','./audio-list.json','./asset-list.json'];
 async function allPaths(){

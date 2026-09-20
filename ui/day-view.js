@@ -2,9 +2,10 @@ import {ROOMS} from '../content/rooms.js';
 import {routineSprite} from './animal-view.js';
 import {DAY,CHAPTERS,HEROES,choicesFor} from '../content/day.js';
 import {currentBeat} from '../engine/journey.js';
-import {SCHOOL,prop,schoolScene,schoolFriend} from '../school.js';
+import {SCHOOL,prop,schoolScene,schoolFriend,schoolIcon} from '../school.js';
 const names={rabbit:'Rabbit',cow:'Cow'};
 export function routineIcon(kind,hero='rabbit'){
+ if(kind==='wave'||kind==='teacher')return schoolIcon(kind,hero);
  if(kind==='food')return routineSprite(hero,'eat','day-choice-sprite');
  if(kind==='walk')return '<span class="action-sprite day-choice-sprite" role="img" aria-label="'+(kind==='food'?'Eating':'Walking')+'" data-action="'+(kind==='food'?'eat':'walk')+'" style="--sheet:url(./stories/'+hero+'.png);--column:'+(kind==='food'?1:0)+'"></span>';
  const paths={
@@ -15,8 +16,15 @@ export function routineIcon(kind,hero='rabbit'){
  };
  return paths[kind]?'<svg viewBox="0 0 100 100" fill="none" stroke="#365e51" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+paths[kind]+'</svg>':kind==='teacher'?schoolFriend('dog'):prop(kind);
 }
+// Two authored frames integrate pillow, animal and quilt; no free-floating sleep sprite.
+export function bedroomScene(hero,action,outcome){
+ const morning=action==='wake',room=morning?'morning':'bedtime';
+ const description=outcome?(morning?'awake in bed, waving good morning with their own paw':'asleep in bed, head on the pillow and body tucked under the quilt'):(morning?'asleep in bed in the morning':'awake in bed, ready to tuck in');
+ return '<div class="day-scene bedroom-scene routine-'+action+' hero-'+hero+' '+(outcome?'is-outcome':'is-prompt')+'" data-room="'+room+'" data-bedding="'+(outcome?(morning?'greeting':'asleep'):(morning?'asleep':'awake'))+'" role="img" aria-label="'+names[hero]+' '+description+'" style="--bedroom-sheet:url(./scenes/'+hero+'-'+room+'-v2.png)"><span class="bedroom-frame bedroom-before" aria-hidden="true"></span>'+(outcome?'<span class="bedroom-frame bedroom-after" aria-hidden="true"></span>':'')+'</div>';
+}
 export function routineScene(hero,node,phase){
  const outcome=phase==='outcome',action=node.action,travel=action==='walk';
+ if(action==='sleep'||action==='wake')return bedroomScene(hero,action,outcome);
  const pose=action==='eat'&&outcome?'eat':(action==='sleep'&&outcome)||(action==='wake'&&!outcome)?'sleep':'walk';
  const col={walk:0,eat:1,sleep:2}[pose];
  const destination=ROOMS[node.room].art,source=ROOMS[node.from||node.room].art;

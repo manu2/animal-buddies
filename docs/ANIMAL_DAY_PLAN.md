@@ -47,3 +47,5 @@ Product-direction gate and technical gate are separate. A technical pass never c
 - Mark every criterion actually passed, failed, or not yet built. Parent/child understanding remains unverified until observed.
 
 2026-09-21 refinement: preserve all three levels while aligning older portrait/choice flows. Chosen animal uses paws/hooves as hands for home routines in recognisable bedroom/bathroom/dining settings; school remains a later setting. Room data is independent of persistent story checkpoints. Bathing has a reusable setting but is not yet a mission.
+
+2026-09-21 scene correction from user review: prior sleeping-on-mattress staging did not communicate being IN bed. Teacher/social cast and actual character gestures need their own direction gate. Correct these across the connected day and preserved standalone practice, retaining scene identity and existing levels. No new learning/mastery claims.

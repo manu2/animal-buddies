@@ -1,3 +1,4 @@
+import {routineSprite,classroomSprite,drinkingSprite} from './ui/animal-view.js';
 // Authored offline content. IDs remain stable for saved checkpoints.
 export const SCHOOL = {
  hello:{title:'Meet a friend',symbol:'wave',phrase:'Hello!',meaning:'नमस्ते!',prompt:'Say hello to our teacher.',next:'Wave to our teacher.',done:'You said hello.',bridge:'Wave and say hello to someone together.'},
@@ -23,11 +24,17 @@ export function prop(kind){
 export function schoolFriend(id,extra=''){
  return '<span class="school-character '+extra+'" role="img" aria-label="'+({cow:'Cow',rabbit:'Rabbit',dog:'Dog teacher'}[id])+'" style="--friend-sheet:url(./stories/'+id+'.png)"></span>';
 }
+export function schoolIcon(kind,hero='rabbit'){
+ return kind==='wave'?routineSprite(hero,'wave','greeting-choice'):kind==='teacher'?classroomSprite('teacher'):prop(kind);
+}
 export function schoolScene(hero,id,step,preview=false){
  const done=step===2,water=id==='water',hello=id==='hello';
- return '<div class="school-scene '+(preview?'school-preview':'')+'" role="img" aria-label="An outdoor classroom under a tree beside a blue lake, with a picture board, books and a story rug. '+(hero==='cow'?'Cow':'Rabbit')+' and their dog teacher on the dry classroom rug. '+(done?SCHOOL[id].done:'')+'">'+
+ const actor=water&&step>0?drinkingSprite(hero,done):routineSprite(hero,hello&&done?'wave':'idle');
+ return '<div class="school-scene '+(preview?'school-preview':'')+'" data-scene-mission="'+id+'" data-scene-step="'+step+'" role="img" aria-label="An outdoor classroom beside the lake. Dog teacher wears glasses and a cardigan and holds a book. Cat and Duck sit with their school things. '+(hero==='cow'?'Cow':'Rabbit')+(done&&hello?' waves to the teacher, who waves back.':done&&water?' holds a cup and drinks water.':' stands with the class.')+'">'+
  '<img class="school-landscape" src="./scenes/lakeside-classroom-v2.png" alt="">'+
- '<span class="school-hero">'+schoolFriend(hero)+'</span><span class="school-teacher">'+schoolFriend('dog')+'</span>'+
- (!preview?'<span class="school-prop '+(done&&water?'drinking-prop':'')+'">'+prop(hello?'wave':water?(step===0?'bottle':'cup'):(done?'openbox':'box'))+'</span>':'')+
+ '<span class="school-teacher">'+classroomSprite('teacher',hello&&done?'wave':'idle')+'</span>'+
+ '<span class="school-classmate classmate-cat">'+classroomSprite('cat')+'</span><span class="school-classmate classmate-duck">'+classroomSprite('duck')+'</span>'+
+ '<span class="school-hero" data-actor-hero="'+hero+'">'+actor+'</span>'+
+ (!preview&&!hello&&(!water||step===0)?'<span class="school-prop '+(done?'opened-lunchbox':'')+'">'+prop(water?'bottle':done?'openbox':'box')+'</span>':'')+
  (done?'<span class="school-bubble">'+SCHOOL[id].phrase+'</span>':'')+'</div>';
 }

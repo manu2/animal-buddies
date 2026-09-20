@@ -1,0 +1,36 @@
+{
+  "date": "2026-09-20T21:11:16.009Z",
+  "target": "local",
+  "results": [
+    {
+      "test": "state",
+      "passed": true,
+      "stdout": "PASS state: migration, old fields, per-hero checkpoints, legal choices, duplicate/reload receipts, sixth-turn continuation, timeout, future schema and unavailable storage.\nPASS audit state: chapter restore/replay, stale input rejection, quota-safe migration and corrupt-save recovery backup.\nPASS chapter boundary resumes unfinished later work, including story-order continuation.\n",
+      "stderr": ""
+    },
+    {
+      "test": "content",
+      "passed": true,
+      "stdout": "PASS content: stable graph, bounded choices, both languages, recording and offline inventory coverage.\n",
+      "stderr": ""
+    },
+    {
+      "test": "day",
+      "passed": true,
+      "stdout": "PASS day: visible three levels; complete animal-led day; original actions; brush motion/cancel/reduced motion; independent hero checkpoints; same hero across home/school; exact shared budget; reload, restart, next day and timeout; offline artwork.\n",
+      "stderr": ""
+    },
+    {
+      "test": "familiar",
+      "passed": true,
+      "stdout": "PASS familiar: all eight illustrated animals; direct picture/letter choices and quiet outcomes; fixed choice order across offline reload; exact turn receipts; preserved older levels; both heroes hold brushes and eat at a table in correct rooms; frame animation, cancellation, reduced motion; offline atlas/background decode.\n",
+      "stderr": ""
+    },
+    {
+      "test": "scenes",
+      "passed": false,
+      "stdout": "",
+      "stderr": "locator.click: Error: strict mode violation: locator('[data-mission=hello]') resolved to 2 elements:\n    1) <div role=\"img\" data-step=\"0\" data-mission=\"hello\" class=\"school-scene school-preview\" aria-label=\"An outdoor classroom beside the lake. Dog teacher wears glasses and a cardigan and holds a book. Cat and Duck sit with their school things. Cow stands with the class.\">…</div> aka getByRole('img', { name: 'An outdoor classroom beside' })\n    2) <button class=\"mission-card\" data-mission=\"hello\" aria-label=\"Meet a friend\">…</button> aka getByRole('button', { name: 'Meet a friend' })\n\nCall log:\n\u001b[2m  - waiting for locator('[data-mission=hello]')\u001b[22m\n\n    at /Users/manuagrawal/projects/vibe-coding/animal-buddies-public/tests/scenes.cjs:25:88 {\n  log: [ \"  - waiting for locator('[data-mission=hello]')\" ]\n}\n"
+    }
+  ]
+}

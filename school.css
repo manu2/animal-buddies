@@ -56,3 +56,13 @@
  .school-bubble{top:38%;left:36%}
 }
 @media(min-width:601px){.school-game .school-scene{max-width:560px}}
+
+/* Staging is shared by the day story and revisitable school practice. */
+.classroom-sprite{display:block;width:100%;aspect-ratio:1;background:url(./stories/classroom-cast-v1.png) no-repeat;background-size:300% 200%;background-position:calc(var(--cast-column)*50%) var(--cast-row,0%)}
+.drinking-sprite{display:block;width:100%;aspect-ratio:1;background:url(./stories/school-drinking-v1.png) no-repeat;background-size:300% 200%;background-position:var(--drink-column) var(--drink-row)}
+.school-scene .school-teacher{left:21%;right:auto;bottom:17%;width:28%}.school-scene .school-hero{left:43%;bottom:3%;width:30%}
+.school-classmate{position:absolute;width:19%}.classmate-cat{right:4%;bottom:24%}.classmate-duck{right:0%;bottom:2%}
+.school-scene .school-prop{left:42%;bottom:1%;width:13%;height:20%;transform-origin:50% 100%}
+.school-scene .school-bubble{left:47%;top:31%;font-size:15px;padding:7px 10px}
+.school-action .routine-sprite,.school-action .classroom-sprite{width:70px;height:70px;margin:auto}.mission-card .greeting-choice{width:85px;height:85px;margin:0 auto 10px}
+@media(max-width:600px){.school-scene .school-bubble{font-size:12px;padding:5px 8px}.school-action .routine-sprite,.school-action .classroom-sprite{width:56px;height:56px}.mission-card .greeting-choice{width:52px;height:52px}}

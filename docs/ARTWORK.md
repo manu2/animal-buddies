@@ -31,3 +31,5 @@ Use case: lighting-weather. Edit this bedtime bedroom into the matching GOOD MOR
 Reviewed in the rendered phone/desktop composites: sleeping animal rests on the quilt, one bed, recognisable matching window/washstand, distinct sun versus moon. These are background companions; animals remain separate original sprites.
 
 Routine poses, bathroom/dining companions and five matching portrait additions: see [ARTWORK_ROUTINES.md](ARTWORK_ROUTINES.md) for exact prompts and asset paths. Original approved sheets and classroom remain unchanged.
+
+Tucked-in bedtime/morning frames, teacher/classmates and held-cup poses: [ARTWORK_SCENES.md](ARTWORK_SCENES.md) contains exact built-in-tool prompts, provenance, actual atlas dimensions and project asset paths. Original sheets/classroom remain intact.
