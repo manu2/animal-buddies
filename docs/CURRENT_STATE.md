@@ -1,5 +1,5 @@
 # Current implementation status
-Updated 2026-09-21. Candidate worker v15 / schema 4 adds discoverable home-screen installation; all thirteen local suites passed. Publication/public verification pending below in RELEASES.md. Previous live release: v14 / app 64c0425183eb0c62a32deec5129225f27d6de93f at https://manu2.github.io/animal-buddies/.
+Updated 2026-09-21. Published worker v15 / schema 4, app commit bd37d7a257385f00314e828227b7b614d1af0b6c at https://manu2.github.io/animal-buddies/. All thirteen local suites and public installation/free-play suites passed; actual side-panel shortcut/help verified. Evidence in RELEASES.md.
 
 Installation: optional chooser card and parent entry use the native confirmation when eligible, otherwise iPhone Safari/Android browser instructions. No automatic modal; Not now hides the chooser card until reload, standalone app display hides installation UI. Game saves are unchanged. Phone OS installation remains unverified; event/capability paths were simulated in browser tests.
 

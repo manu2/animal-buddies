@@ -1,0 +1,1 @@
+PASS: offline iPhone guide, Android fallback, deferred native prompt once, dismissal/retry/error/accepted/install events, standalone hiding, all three levels, parent access and unchanged saves. Browser capabilities simulated; physical phone installation unverified.
