@@ -1,0 +1,37 @@
+## Consistent portraits and physical routines — 2026-09-21
+Generated with the built-in image tool, using existing approved artwork as visual references. Offline PNG assets; no runtime generation. Original action sheets and lake classroom preserved. All five outputs are 1536×1024. Routine sheets have three columns (upright/wave, brush, table meal) and two pose rows. Portrait sheet has fish/cat/duck above elephant/lion/empty. SVG viewport cropping is authored in ui/animal-view.js, including inner clipping to prevent adjacent-cell bleed in wide layouts.
+
+### stories/cow-routines-v1.png
+Exact generation prompt:
+
+```text
+Use case: identity-preserve. Create a companion sprite sheet for this EXACT friendly black-and-white cow: same rounded head, pink muzzle, little horns, black patch pattern, simple dark outlines, gentle eyes and cream-white body. This is a pretend childlike cow able to stand on two back hooves and use two FRONT HOOVES as mitten-like hands; no realistic human fingers, no clothes, no human face. Genuine transparent background. Output landscape 1536x1024, exact invisible 3-column by 2-row grid of 512x512 square cells, no lines or text. Each cell keeps the SAME scale and baseline, complete uncropped cow/props with generous 35px gutters. Columns are three different actions, rows are two animation frames. COLUMN 1 both rows: upright cow, two back hooves on floor and two front hooves relaxed; row 2 softly waves one hoof. COLUMN 2 both rows: upright cow front/three-quarter view brushing teeth, one FRONT HOOF visibly grips a teal toothbrush HANDLE, white bristles touch the open smiling mouth, small white toothpaste bubbles. Row 1 brush at left corner of mouth; row 2 hand and brush slightly across mouth. Keep body and head perfectly aligned across these two frames, only hoof/brush changes. COLUMN 3: cow SEATED ON A CHAIR at a small round wooden DINING TABLE, bowl of breakfast oats/greens on tabletop. One front hoof holding spoon. Row 1 spoon at bowl, row 2 spoon at mouth, same table/body/head positions. Table and chair fully inside each cell, floor baseline same, no background room. This is a shipped toddler game sprite atlas: strong clear silhouettes, no shadows outside sprite, no captions, no checkerboard painted into background. Reference image is identity/style reference only, replace its actions with the requested three humanlike routine actions.
+```
+
+### stories/rabbit-routines-v1.png
+Exact generation prompt:
+
+```text
+Use case: identity-preserve. Create a companion 1536x1024 transparent PNG sprite atlas for the EXACT grey rabbit in reference 1, matching the routine poses/grid shown by reference 2 cow sheet. Preserve grey fur, white muzzle/belly/fluffy tail, long upright ears with pink insides, pink tiny nose, friendly black eyes, bold simple dark outlines. Rabbit stands on two hind feet and uses two front PAWS as soft mitten hands, no human fingers, no clothing. EXACT invisible grid: 3 equal columns x 2 equal rows; 512x512 square cells. No cell lines, labels or extra background. Fully transparent background, no painted checkerboard. Keep all poses inside their cell with 30px margins; same body/head coordinates between paired frames. COLUMN 1: upright rabbit relaxed front paws, row 2 a small wave. COLUMN 2: rabbit holds teal toothbrush HANDLE in a front paw, bristles visibly touching smiling mouth with a few toothpaste bubbles. Row 2 paw and brush shifted a little at mouth, stationary body/head. COLUMN 3: rabbit seated on wooden chair at small round wooden DINING TABLE with plate/bowl of carrot pieces and greens. Row 1 paw holds spoon near bowl, row 2 spoon at smiling mouth. The entire table and chair are part of each sprite and fit inside each cell. Soft friendly preschool cartoon, no photorealism, no room backdrop, no captions. Reference 1 is identity/style; reference 2 is routine/grid consistency. Do not include any cow.
+```
+
+### scenes/animal-bathroom-v1.png
+Exact generation prompt:
+
+```text
+Use case: illustration-story. Create a 1536x1024 landscape BACKGROUND of the BATHROOM belonging to the same cozy animal house as the reference bedroom. Same warm painted children's storybook art, honey wood, sage and cream palette, peach accents, soft daylight. Clearly recognisable bathroom without words: low washbasin and faucet at left, rounded mirror above it, teal toothbrush cup by sink, folded towel on rail, small pale bathtub against far right wall. Central foreground from x33%-75% is OPEN clean pale tiled floor for overlaying a large upright cow or rabbit later; no furniture covering this actor space. Show a small bath mat toward left sink. Sink should be child-height and mirror visible. One room only. No bedroom/bed, no dining table, no animals or people, no writing or letters, no watermark, no UI. Quiet uncluttered composition; room supports brushing now and future bath activities. Fully opaque background, no checkerboard.
+```
+
+### scenes/animal-dining-v1.png
+Exact generation prompt:
+
+```text
+Use case: illustration-story. Create a 1536x1024 landscape BACKGROUND of the DINING AREA belonging to the same cozy animal house as the reference bedroom. Same warm painted children's storybook art, honey wood, sage cream peach palette and soft sunny window. Clearly recognisable place for meals: kitchen/dining hutch along rear-left wall with bowls, plates and water jug, little fruit bowl on sideboard, neatly hung cup, warm pendant light overhead, arched sunny window toward right. The CENTRAL FOREGROUND from x20%-85% must be OPEN honey wood floor: we will overlay our animal already seated at its own round wooden table and chair, so do NOT draw a second table or foreground chair. No sink/toilet/bathtub/bed in this room. No animals or people, no writing, letters, watermark or UI. Calm simple recognizable home continuity, not restaurant. Fully opaque room background, no checkerboard.
+```
+
+### animals/friends-toons-v1.png
+Exact generation prompt:
+
+```text
+Use case: illustration-story. Asset type: toddler game animal portrait SPRITE ATLAS, transparent PNG 1536x1024. Use the supplied cow/rabbit sheets only as references for the visual STYLE: soft simple cartoon shapes, dark warm outlines, friendly big black eyes, gentle smiles, warm flat colours with subtle shading. Draw FIVE new animal friends, not cow/rabbit. Invisible EXACT 3-column x 2-row equal grid (512x512 square cells), full animal centred inside its own cell with 50px transparent margin, no crossing cell edges. TOP LEFT cell: cute orange FISH in side view with large friendly eye, flowing tail and recognisable fins, no legs. TOP MIDDLE: friendly ginger CAT on four paws, whiskers, pointed ears and curled tail. TOP RIGHT: yellow DUCK, orange bill and two webbed feet, little wings, standing side three-quarter. BOTTOM LEFT: grey ELEPHANT on four feet, big floppy ears and curved trunk, gentle round face. BOTTOM MIDDLE: golden LION on four paws with a soft round brown mane, no scary teeth. BOTTOM RIGHT cell stays completely EMPTY and transparent. Match the friendliness and line weight of the reference. No human faces, no clothing, no background props, NO labels or text, no borders/grid lines, no floor shadows and no painted checkerboard. Genuine alpha transparency around animals, complete uncropped ears/tails/trunk/fins. Each animal is a single calm greeting pose. Same apparent scale in its cell so the five work beside our original cow/dog/rabbit.
+```

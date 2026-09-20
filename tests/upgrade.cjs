@@ -5,6 +5,8 @@ const old={};
 for(const f of ['app.js','sw.js','index.html'])old[f]=execFileSync('git',['show','31601a9:'+f],{cwd:root});
 const v10={};
 for(const f of execFileSync('git',['ls-tree','-r','--name-only','5513061'],{cwd:root,encoding:'utf8'}).trim().split('\n').filter(f=>/\.(js|json|html|css)$/.test(f)&&!f.startsWith('tests/')&&!f.startsWith('docs/')))v10[f]=execFileSync('git',['show','5513061:'+f],{cwd:root});
+const v11={};
+for(const f of Object.keys(v10))try{v11[f]=execFileSync('git',['show','680f297:'+f],{cwd:root,stdio:['pipe','pipe','ignore']});}catch{}
 let modern=false,revision=0,baseline=old;
 const server=http.createServer((req,res)=>{
  const path=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\//,'')||'index.html';
@@ -39,6 +41,19 @@ else{assert.deepEqual(after.session,{...before.session,view:'game'});await p.loc
 await c.setOffline(true);await p.reload();
 await p.locator(status==='ended'?'#start':'#next').waitFor();assert.deepEqual(errors,[]);await c.close();
 }
+// Previous names outcome must upgrade without replaying or losing its turn.
+baseline=v11;modern=false;
+const familiarContext=await b.newContext(),familiarPage=await familiarContext.newPage();
+await familiarPage.goto('http://127.0.0.1:4175/');await familiarPage.getByText('Ready for offline play',{exact:false}).waitFor({timeout:60000});
+await familiarPage.locator('[data-activity=names]').click();await familiarPage.locator('#choose').click();
+const target=await familiarPage.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1')).session.targets[0]);await familiarPage.locator('[data-choice="'+target+'"]').click();
+const familiarBefore=await familiarPage.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1')));modern=true;
+const familiarMoved=familiarPage.waitForEvent('framenavigated',{predicate:f=>f===familiarPage.mainFrame(),timeout:60000});await familiarPage.evaluate(()=>navigator.serviceWorker.getRegistration().then(r=>r.update()));await familiarMoved;
+await familiarPage.locator('.familiar-outcome').waitFor();const familiarAfter=await familiarPage.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1')));
+assert.deepEqual(familiarAfter.settings,familiarBefore.settings);assert.equal(familiarAfter.session.deadline,familiarBefore.session.deadline);assert.equal(familiarAfter.session.round,familiarBefore.session.round);assert.equal(familiarAfter.session.pendingTurn,true);
+await familiarContext.setOffline(true);await familiarPage.reload();await familiarPage.locator('#next').click();assert.equal(await familiarPage.locator('[data-choice]').count(),2);assert.equal(await familiarPage.locator('#choose').count(),0);assert.equal(await familiarPage.evaluate(()=>JSON.parse(localStorage.getItem('animal-buddies-v1')).session.round),1);await familiarContext.close();
+console.log('PASS: actual v11 names outcome upgrades to direct illustrated choices offline, preserving settings, deadline and exact turn receipt');
+
 // Upgrade the actual previous story engine/schema, not only a synthetic worker.
 baseline=v10;modern=false;
 const previous=await b.newContext(),previousPage=await previous.newPage();

@@ -1,3 +1,5 @@
+import {animalPortrait} from './ui/animal-view.js';
+import {familiarView} from './ui/familiar-view.js';
 import {createSaveStore} from './engine/save-store.js';
 import {createDayController} from './engine/day-controller.js';
 import {dayProgress} from './ui/parent-view.js';
@@ -48,7 +50,7 @@ function dispatchDay(event){persist();const state=store.dispatch(event);session=
 
 function animal(id){return ANIMALS.find(a=>a.id===id);}
 function target(){return animal(session.targets[Math.min(session.round,5)]);}
-function picture(a,klass=''){return '<img class="animal '+klass+'" src="./animals/'+a.id+'.svg" alt="'+a.name+'" draggable="false">';}
+function picture(a,klass=''){return animalPortrait(a.id,a.name,klass);}
 function stopAudio(){audioGeneration++;if(audioSource){try{audioSource.stop()}catch{}audioSource=null;}audioBusy=false;}
 async function unlockAudio(){try{audioContext ||= new (window.AudioContext||window.webkitAudioContext)();if(audioContext.state!=='running')await audioContext.resume();}catch{showAudioError();}}
 function showAudioError(){const el=$('audio-note');if(el)el.textContent='Sound unavailable. Tap Listen to retry, or read together.';}
@@ -70,12 +72,13 @@ async function play(clips){
 function instruction(clip){return clip+'-'+settings.instructionLanguage;}
 function modeAudio(a){
  if(mode==='letters')return [a.id+'-letter-pick-'+settings.instructionLanguage];
- return [a.id+(settings.instructionLanguage==='hi'?'-hint':'-find')];
+ const cue=a.id+(settings.instructionLanguage==='hi'?'-hint':'-find');
+ return mode==='sentences'?[a.id+'-model',cue]:[cue];
 }
 function lessonAudio(a){
  return [a.id+(mode==='letters'?'-letter-model':mode==='sentences'?'-model':'-name')];
 }
-function rewardAudio(a){return [instruction('yes'),a.id+'-name',instruction('forward')];}
+function rewardAudio(a){return lessonAudio(a);}
 function hearMeaning(){
  if(mode==='day')return dayRuntime.meaning();
  if(mode==='school')return schoolMeaning();
@@ -91,7 +94,6 @@ function listen(){
  if(screen==='game'&&mode==='actions')return storyNarrate();
  if(screen!=='game')return play([instruction('welcome')]);
  const a=target();
- if(phase==='learn')return play([...lessonAudio(a),instruction('forward')]);
  if(correct)return play(rewardAudio(a));
  return play(modeAudio(a));
 }
@@ -115,21 +117,23 @@ async function start(){
  if(!session){const ids=visibleFriends();session={day:localDay(),storyPairs:STORY_PAIRS.map(shuffle),status:'active',round:0,targets:[...ids,...ids],deadline:Date.now()+settings.minutes*60000,mode};persist();}
  mode=MODES[session.mode]?session.mode:mode;
  if(expired())return finish();
- screen='game';phase='learn';hint=false;correct=false;renderGame();listen();
+ screen='game';phase='pick';hint=false;correct=false;wrong='';if(['names','sentences','letters'].includes(mode))prepareChoices();renderGame();listen();
 }
 function expired(){return visitExpired(session,Date.now());}
 function prepareChoices(){
- const a=target();
+ const a=target(),key=mode+':'+session.round+':'+a.id;
+ const stored=session.pictureChoice,valid=mode==='letters'?['C','D','F','R','E','L']:ANIMALS.map(a=>a.id),answer=mode==='letters'?a.letter:a.id;
+ if(stored?.key===key&&Array.isArray(stored.values)&&stored.values.length===2&&new Set(stored.values).size===2&&stored.values.includes(answer)&&stored.values.every(x=>valid.includes(x))){choiceOrder=[...stored.values];return;}
  if(mode==='letters'){const alternatives=['C','D','F','R','E','L'].filter(x=>x!==a.letter);choiceOrder=shuffle([a.letter,alternatives[Math.floor(Math.random()*alternatives.length)]]);}
  else{const candidates=GROUPS[settings.group].filter(id=>id!==a.id);choiceOrder=shuffle([a.id,candidates[Math.floor(Math.random()*candidates.length)]]);}
+ session.pictureChoice={key,values:[...choiceOrder]};
 }
-function check(){if(expired())return finish();phase='pick';hint=false;wrong='';correct=false;prepareChoices();renderGame();listen();}
 function choose(value){
  if(expired())return finish();
- if(correct)return;
+ if(correct||screen!=='game'||session?.status!=='active'||!choiceOrder.includes(value))return;
  const a=target(),answer=mode==='letters'?a.letter:a.id;
  if(value===answer){correct=true;session.pendingTurn=true;persist();wrong='';renderGame();play(rewardAudio(a));}
- else{wrong=value;hint=true;renderGame();play([instruction('try'),...modeAudio(a)]);}
+ else{wrong=value;hint=true;renderGame();play(modeAudio(a));}
 }
 function next(){
  if(mode==='actions')return nextStory();
@@ -137,27 +141,19 @@ function next(){
  if(!correct)return;
  stopAudio();delete session.pendingTurn;session.round++;persist();
  if(session.round>=6)return finish();
- phase='learn';hint=false;wrong='';correct=false;renderGame();listen();
+ phase='pick';hint=false;wrong='';correct=false;prepareChoices();renderGame();listen();
 }
 function renderGame(){
  if(session){session.view='game';persist();}
  if(mode==='day')return dayRuntime.render();
  if(mode==='school')return school.mission?renderSchool():renderSchoolLobby();
  if(mode==='actions')return renderStory();
- screen='game';const a=target();
- const prompt=mode==='letters'?'Find '+a.letter:mode==='sentences'?a.sentence:'Where is the '+a.name.toLowerCase()+'?';
- const dots=Array.from({length:6},(_,i)=>'<span class="step '+(i<session.round?'complete':i===session.round?'current':'')+'"></span>').join('');
- $('main').innerHTML='<section class="game"><div class="game-top"><button class="quiet" id="stop">Finish for now</button><div class="steps" aria-label="Turn '+(session.round+1)+' of 6">'+dots+'</div><span class="time-note" id="time-note"></span></div><p class="eyebrow">'+(phase==='learn'?'MEET A FRIEND':correct?'HELLO, FRIEND!':'LISTEN & CHOOSE')+'</p><h1 class="question">'+(phase==='learn'?(mode==='letters'?a.letter+' is for '+a.name:a.name):correct?'You found '+(a.id==='elephant'?'an ':'a ')+a.name.toLowerCase()+'!':prompt)+'</h1>'+
- (phase==='learn'?'<div class="learn-card">'+(mode==='letters'?'<span class="big-letter">'+a.letter+'<small>'+a.letter.toLowerCase()+'</small></span>':'')+picture(a)+'<p class="animal-name">'+(mode==='letters'?a.name:'<b>'+a.name[0]+'</b>'+a.name.slice(1))+'</p><p class="hindi" lang="hi">'+a.hi+'</p>'+(mode==='sentences'?'<p class="sentence">'+a.sentence+'</p>':'')+'</div>':
- '<div class="choices '+(mode==='letters'?'letter-choices':'')+'">'+choiceOrder.map(value=>'<button class="choice '+(correct&&(mode==='letters'?value===a.letter:value===a.id)?'found':'')+' '+(wrong===value?'try-again':'')+'" data-choice="'+value+'" aria-label="'+(mode==='letters'?'Letter '+value:animal(value).name)+'" '+(correct?'disabled':'')+'>'+(mode==='letters'?'<span class="letter">'+value+'</span>':picture(animal(value)))+(correct&&(mode==='letters'?value===a.letter:value===a.id)?'<span class="found-label">✓ '+a.name+'</span>':'')+'</button>').join('')+'</div>')+
- '<div class="feedback" aria-live="polite">'+(correct?'<p>'+a.sentence+'</p><p class="hindi" lang="hi">'+a.hi+'</p>':wrong?'<p>Let’s look again. You can try another.</p>':phase==='pick'?'<p>'+(mode==='sentences'?'Find the '+a.name.toLowerCase()+'.':'Tap a picture'+(mode==='letters'?' of the letter.':'.'))+'</p>':'')+'</div>'+
- '<div class="sound-controls"><button class="sound" id="listen"><span class="speaker-icon" aria-hidden="true">🔊</span><span>Listen</span></button><button class="sound hindi-help" id="hint" lang="hi" aria-label="Hear Hindi meaning only"><span aria-hidden="true">🗣️</span> अर्थ</button></div><p class="audio-note" id="audio-note" role="status"></p>'+
- (phase==='learn'?'<button class="primary" id="choose"><span class="big-arrow" aria-hidden="true">→</span><span class="play-label">Find our friend</span></button>':correct?'<button class="primary" id="next"><span class="big-arrow" aria-hidden="true">→</span><span class="play-label">'+(session.round===5?'Say goodbye':'Next friend')+'</span></button>':'')+'</section>';
- $('stop').onclick=()=>finish();$('listen').onclick=listen;
- if($('hint'))$('hint').onclick=hearMeaning;
- if($('choose'))$('choose').onclick=check;
+ screen='game';phase='pick';prepareChoices();persist();
+ $('main').innerHTML=familiarView({mode,animal:target(),choices:choiceOrder,animals:ANIMALS,correct,wrong,round:session.round});
+ $('stop').onclick=()=>finish();$('listen').onclick=listen;$('hint').onclick=hearMeaning;
+ $('familiar-back').onclick=showLibrary;
  if($('next'))$('next').onclick=next;
- document.querySelectorAll('[data-choice]').forEach(b=>b.onclick=()=>choose(b.dataset.choice));
+ document.querySelectorAll('[data-choice]').forEach(button=>button.onclick=()=>choose(button.dataset.choice));
  updateTime();
 }
 function updateTime(){
@@ -249,7 +245,7 @@ const dayRuntime=createDayController({
 });
 
 resetForNewDay();
-if(session?.status==='ended')finish(false);else if(session?.status==='active'){mode=MODES[session.mode]?session.mode:mode;if(expired())finish(false);else if(session.view==='levels')renderLevels();else if(session.view==='day-lobby'&&mode==='day')dayRuntime.lobby();else if(session.view==='school-lobby'&&mode==='school')renderSchoolLobby();else{screen='game';phase='learn';if(session.pendingTurn&&['names','sentences','letters'].includes(mode)){phase='pick';correct=true;prepareChoices();}renderGame();}}else home();
+if(session?.status==='ended')finish(false);else if(session?.status==='active'){mode=MODES[session.mode]?session.mode:mode;if(expired())finish(false);else if(session.view==='levels')renderLevels();else if(session.view==='day-lobby'&&mode==='day')dayRuntime.lobby();else if(session.view==='school-lobby'&&mode==='school')renderSchoolLobby();else{screen='game';phase='pick';if(session.pendingTurn&&['names','sentences','letters'].includes(mode)){phase='pick';correct=true;prepareChoices();}renderGame();}}else home();
 prepareOffline();
 if(document.modelContext?.registerTool){
  try{Promise.resolve(document.modelContext.registerTool({name:'get_animal_game_status',description:'Read the current activity, session and offline readiness. Does not start play or change parental controls.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true},execute(input){if(!input||typeof input!=='object'||Object.keys(input).length)throw Error('No inputs expected');return {activity:mode,screen,sessionStatus:session?.status||'not-started',turn:session?Math.min(session.round+1,6):null,offlineReady};}})).catch(()=>{});}catch{}
@@ -275,7 +271,7 @@ function animateStory(sprite){
  const action=sprite.dataset.action,x=STORY_ACTIONS[action].column*50;
  const duration=action==='sleep'?4200:3600;
  // Alternate poses while moving the body. Every action ends at rest.
- const poses=Array.from({length:13},(_,i)=>({backgroundPosition:x+'% '+(i%2)*100+'%',offset:i/12}));
+ const poses=Array.from({length:13},(_,i)=>({backgroundPosition:x+'% '+(i%2)*100+'%',offset:i/12,easing:'steps(1,end)'}));
  let motion;
  if(action==='walk'){
   motion=Array.from({length:13},(_,i)=>({transform:'translate('+ (12-i*2)+'%, '+(i%2?-1.8:0)+'%) scale(.78)',offset:i/12}));
@@ -295,7 +291,7 @@ function animateStory(sprite){
    animation.cancel();
   }).catch(()=>{}).finally(()=>storyAnimations.delete(animation));
  }
- return Promise.all([track(poses,'steps(1,end)'),track(motion,'ease-in-out')]);
+ return Promise.all([track(poses,'linear'),track(motion,'ease-in-out')]);
 }
 async function storyNarrate(){
  if(screen!=='game'||mode!=='actions'||session?.status!=='active')return;
@@ -496,9 +492,15 @@ async function animateDay(node,beat){
   const mission=node.mission,el=document.querySelector(mission==='help'?'.school-hero':'.school-prop');
   return track(el,mission==='hello'?[{transform:'rotate(-15deg)'},{transform:'rotate(15deg)'},{transform:'rotate(-15deg)'},{transform:'none'}]:mission==='water'?[{transform:'none'},{transform:'translate(-110%,-40%) rotate(-20deg)'},{transform:'translate(-110%,-40%) rotate(-20deg)'},{transform:'none'}]:[{transform:'none'},{transform:'translateY(-7px)'},{transform:'none'}]);
  }
+ const routine=document.querySelector('.day-actor .routine-sprite');
+ if(routine&&node.action==='wake')return track(routine,[0,100,0,100,0].map(y=>({backgroundPosition:'0% '+y+'%',easing:'steps(1,end)'})),{duration:2400,easing:'linear'});
+ if(routine&&['brush','eat'].includes(node.action)){
+  const column=node.action==='brush'?1:2;
+  const frames=Array.from({length:11},(_,i)=>({backgroundPosition:(column*50)+'% '+(i%2)*100+'%',offset:i/10,easing:'steps(1,end)'}));
+  return track(routine,frames,{duration:node.action==='brush'?3400:4000,easing:'linear'});
+ }
  const sprite=document.querySelector('.day-actor .action-sprite');
  if(node.action==='walk')return Promise.all([animateStory(sprite),track(document.querySelector('.travel-origin'),[{opacity:1,offset:0},{opacity:1,offset:.25},{opacity:0,offset:.85},{opacity:0,offset:1}],{duration:3600}),track(document.querySelector('.day-actor'),[{transform:'translateX(45%)'},{transform:'translateX(0)'}],{duration:3600})]);
  if(['eat','sleep'].includes(node.action))return animateStory(sprite);
- if(node.action==='brush')return track(document.querySelector('.toothbrush'),Array.from({length:13},(_,i)=>({transform:'translateX('+(i%2?5:0)+'px) rotate(-12deg)',offset:i/12})),{duration:3200});
  if(node.action==='wake')return Promise.all([track(sprite,[{backgroundPosition:'100% 100%'},{backgroundPosition:'0% 0%'}],{duration:1000,easing:'steps(1,end)'}),track(document.querySelector('.morning-wave'),[{transform:'rotate(-15deg)'},{transform:'rotate(15deg)'},{transform:'none'}])]);
 }

@@ -45,3 +45,5 @@ Product-direction gate and technical gate are separate. A technical pass never c
 - Every episode has recognisable routine context and a parent link to the child's real day, while speech remains optional.
 - Existing offline/audio/language/timer/reset/upgrade/progress regressions still pass.
 - Mark every criterion actually passed, failed, or not yet built. Parent/child understanding remains unverified until observed.
+
+2026-09-21 refinement: preserve all three levels while aligning older portrait/choice flows. Chosen animal uses paws/hooves as hands for home routines in recognisable bedroom/bathroom/dining settings; school remains a later setting. Room data is independent of persistent story checkpoints. Bathing has a reusable setting but is not yet a mission.

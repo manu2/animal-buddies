@@ -8,6 +8,7 @@ for(const action of ['walk','eat','sleep']){
 await p.evaluate(action=>{const d=JSON.parse(localStorage.getItem('animal-buddies-v1'));d.session.storyAction=action;localStorage.setItem('animal-buddies-v1',JSON.stringify(d));},action);
 await p.reload();await p.locator('#listen').click();
 const sprite=p.locator('.story-stage .action-sprite');
+const initial=await sprite.evaluate(el=>getComputedStyle(el).backgroundPosition);await p.waitForFunction(initial=>getComputedStyle(document.querySelector('.story-stage .action-sprite')).backgroundPosition!==initial,initial); // Body motion alone does not prove the sprite frames advance.
 await p.waitForTimeout(500);const a=await sprite.evaluate(el=>({t:getComputedStyle(el).transform,p:getComputedStyle(el).backgroundPosition}));
 await p.waitForTimeout(1100);const z=await sprite.evaluate(el=>({t:getComputedStyle(el).transform,p:getComputedStyle(el).backgroundPosition}));
 assert.notEqual(a.t,z.t,action+' visibly moves');await p.screenshot({path:'/tmp/action-'+action+'.png',fullPage:true});

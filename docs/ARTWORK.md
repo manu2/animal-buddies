@@ -29,3 +29,5 @@ Morning exact prompt:
 Use case: lighting-weather. Edit this bedtime bedroom into the matching GOOD MORNING view for a toddler story. Keep exactly the same room composition, large foreground bed, peach floral quilt, pillow, headboard, window, washstand, plants and painted storybook style. Change only time-of-day lighting: blue sunny morning outdoors, green leaves, warm daylight; replace crescent moon with soft morning sun, remove stars. Bedside lamp off. Leave bed empty for a separate animal sprite, no animals or people, no text or UI. Same landscape 1536x1024.
 
 Reviewed in the rendered phone/desktop composites: sleeping animal rests on the quilt, one bed, recognisable matching window/washstand, distinct sun versus moon. These are background companions; animals remain separate original sprites.
+
+Routine poses, bathroom/dining companions and five matching portrait additions: see [ARTWORK_ROUTINES.md](ARTWORK_ROUTINES.md) for exact prompts and asset paths. Original approved sheets and classroom remain unchanged.

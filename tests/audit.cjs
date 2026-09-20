@@ -7,7 +7,7 @@ const {chromium}=require('./runtime.cjs'),assert=require('assert/strict');
  await p.locator('[data-activity=day]').click();assert.match(await p.locator('#day-resume').textContent(),/Start our morning/);
  assert.notEqual(await p.locator('[data-chapter=morning] img').getAttribute('src'),await p.locator('[data-chapter=home] img').getAttribute('src'));
  await p.locator('#day-resume').click();await p.locator('[data-day-choice=wake]').click();await p.locator('#day-next').click();
- assert.equal(await p.locator('.toothbrush').count(),0,'Brush does not appear in mouth before selection');await p.locator('[data-day-choice=brush]').click();const deadline=(await state()).session.deadline;
+ assert.equal(await p.locator('.day-actor [data-pose=brush]').count(),0,'Brush does not appear in mouth before selection');await p.locator('[data-day-choice=brush]').click();const deadline=(await state()).session.deadline;
  await p.locator('#day-back').click();await p.reload();await p.locator('#day-resume').waitFor();assert.match(await p.locator('#day-resume').textContent(),/Brush/,'Reload stays in chapter chooser');
  await p.locator('[data-chapter=school]').click();await p.locator('#day-back').click();await p.locator('[data-chapter=morning]').click();assert.equal((await state()).journey.bookmarks.rabbit.node,'brush');await p.locator('#day-next').waitFor();assert.equal((await state()).session.deadline,deadline);
  await p.locator('#day-back').click();await p.locator('[data-chapter=home]').click();assert.match(await p.locator('.day-background').getAttribute('src'),/lakeside/,'Walk home starts at school');await p.locator('[data-day-choice=walk]').click();assert.match(await p.locator('.day-background').first().getAttribute('src'),/animal-home/,'Arrival is visibly home');

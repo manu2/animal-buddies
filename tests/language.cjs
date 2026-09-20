@@ -23,7 +23,7 @@ window.realPlay=play;window.calls=[];play=async clips=>{calls.push(clips)};
 const result={};
 for(const lang of ['en','hi']){settings.instructionLanguage=lang;for(const m of ['names','sentences','letters']){
 mode=m;screen='game';phase='learn';correct=false;calls=[];await listen();result[m+'-'+lang]=calls.flat();
-phase='pick';calls=[];await listen();result[m+'-pick-'+lang]=calls.flat();
+phase='pick';calls=[];await listen();result[m+'-pick-'+lang]=calls.flat();correct=true;calls=[];await listen();result[m+'-outcome-'+lang]=calls.flat();correct=false;
 calls=[];hearMeaning();result[m+'-meaning-'+lang]=calls.flat();
 }}
 mode='actions';session.storyAction='eat';settings.instructionLanguage='hi';calls=[];await storyNarrate();result.story=calls.flat();calls=[];hearMeaning();result.meaning=calls.flat();
@@ -39,9 +39,9 @@ for(const lang of ['en','hi']){
  dispatchDay({type:'ACT',choice:'brush'});dayRuntime.render();calls=[];await dayRuntime.narrate();result['day-model-'+lang]=calls.flat();calls=[];dayRuntime.meaning();result['day-meaning-'+lang]=calls.flat();
 }
 return result;});
-assert.deepEqual(queues['names-en'],['cow-name','forward-en']);assert.deepEqual(queues['names-hi'],['cow-name','forward-hi']);
-for(const m of ['names','sentences','letters']){assert.equal(queues[m+'-en'].length,2);assert.equal(queues[m+'-meaning-en'].length,1);}
-assert.deepEqual(queues['letters-pick-hi'],['cow-letter-pick-hi']);
+assert.deepEqual(queues['names-en'],['cow-find']);assert.deepEqual(queues['names-hi'],['cow-hint']);
+for(const m of ['names','sentences','letters']){assert.equal(queues[m+'-en'].length,m==='sentences'?2:1);assert.equal(queues[m+'-meaning-en'].length,1);}
+assert.deepEqual(queues['letters-pick-hi'],['cow-letter-pick-hi']);for(const lang of ['en','hi']){assert.deepEqual(queues['names-outcome-'+lang],['cow-name']);assert.deepEqual(queues['sentences-outcome-'+lang],['cow-model']);assert.deepEqual(queues['letters-outcome-'+lang],['cow-letter-model']);}
 for(const lang of ['en','hi']){
  assert.deepEqual(queues['school-step1-'+lang],['school-help-model-en','school-help-step1-'+lang]);
  assert.deepEqual(queues['school-meaning-'+lang],['school-help-model-hi']);

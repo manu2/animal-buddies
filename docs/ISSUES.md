@@ -31,3 +31,9 @@ Keep resolved issues here; removal loses the reason for the regression.
 | I23 | Backup write failure reset otherwise valid loaded data | Backup failures no longer enter load-error recovery; versioned and corrupt-input backups | Quota failure, corrupt input and future-schema write protection |
 | I24 | Actions→names retained animals outside selected group | Reconcile targets for each selected activity without resetting budget | Cross-level target tests in both directions |
 | T04 | Upgrade test compared old session to new session without its intentionally added navigation field | Assert every original field unchanged plus view=game for historical active clients; add actual v10/schema-2 migration | First-run evidence retained; rerun complete gate |
+
+| I25 | Meet the animals still showed older icon art despite the newer story's illustrations | Shared illustrated portraits for all eight animals, including choices/outcomes/goodbye | Familiar suite covers all groups; inspect every animal, not just latest story |
+| I26 | Older learn→Next→question flow and verbose reward queues interrupted play | Direct cue/choice/outcome with short model, saved picture locations, replay and explicit Hindi | Familiar/language and actual v11 pending-outcome upgrade |
+| I27 | Brushing used an overlaid floating prop; meals lacked table/context | Separate held-prop routine sprites and authored bathroom/dining rooms | Both heroes at prompt/outcome, phone/desktop, offline decode |
+| I28 | Global steps(1,end) animation timing skipped intermediate atlas poses; older tests only proved body motion | Per-keyframe step easing with linear overall timing | First familiar run failed; frame-change assertions now cover old and new animations |
+| I29 | Wide outcome SVG letterboxing revealed adjacent animals despite outer overflow:hidden | Inner atlas-cell SVG clips its own rectangle | Found in elephant screenshot; rerender all eight outcomes and assert inner clipping |

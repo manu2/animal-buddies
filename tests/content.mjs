@@ -15,3 +15,6 @@ assert.ok(validateStory({...DAY,wake:{...DAY.wake,action:'fly'}}).some(e=>e.incl
 assert.ok(validateStory({...DAY,wake:{...DAY.wake,next:'deleted'}}).some(e=>e.includes('missing next')));
 assert.ok(validateStory({...DAY,wake:{...DAY.wake,next:'wake'}}).some(e=>e.includes('cycle')));
 console.log('PASS content: stable graph, bounded choices, both languages, recording and offline inventory coverage.');
+
+assert.ok(validateStory({...DAY,brush:{...DAY.brush,room:'missing-room'}}).some(e=>e.includes('room')));
+for(const path of ['./content/rooms.js','./ui/animal-view.js','./ui/familiar-view.js','./stories/cow-routines-v1.png','./stories/rabbit-routines-v1.png','./animals/friends-toons-v1.png','./scenes/animal-bathroom-v1.png','./scenes/animal-dining-v1.png'])assert.ok(assets.has(path),'New illustration not cached: '+path);

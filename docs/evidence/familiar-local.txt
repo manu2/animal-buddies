@@ -1,0 +1,1 @@
+PASS familiar: all eight illustrated animals; direct picture/letter choices and quiet outcomes; fixed choice order across offline reload; exact turn receipts; preserved older levels; both heroes hold brushes and eat at a table in correct rooms; frame animation, cancellation, reduced motion; offline atlas/background decode.

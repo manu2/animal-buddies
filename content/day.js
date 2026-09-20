@@ -1,3 +1,4 @@
+import {ROOMS} from './rooms.js';
 // Stable story IDs are saved on devices. Never rename them without a migration.
 export const HEROES = ['rabbit','cow'];
 export const CHAPTERS = [
@@ -6,15 +7,15 @@ export const CHAPTERS = [
  {id:'home',title:'Home and bedtime',start:'walk-home',art:'./scenes/animal-bedtime-v1.png',symbol:'moon'}
 ];
 export const DAY = {
- wake:{chapter:'morning',kind:'routine',action:'wake',next:'brush',title:'Good morning!',prompt:'Wake up our friend.',model:'Good morning!',icon:'sun',choice:'wake',label:'Wake up',bridge:'Wave and say good morning to each other.'},
- brush:{chapter:'morning',kind:'routine',action:'brush',next:'breakfast',title:'Brush together',prompt:'Help our friend brush.',model:'Brush your teeth.',icon:'brush',choice:'brush',label:'Brush teeth',bridge:'Point to your own toothbrush. A grown-up helps you brush.'},
- breakfast:{chapter:'morning',kind:'routine',action:'eat',next:'walk-school',title:'Breakfast time',prompt:'Our friend is hungry. Choose breakfast.',model:'I am eating.',icon:'food',choice:'eat',label:'Eat breakfast',bridge:'At your next meal, try “I am eating.”'},
- 'walk-school':{chapter:'school',kind:'routine',action:'walk',next:'school-hello',title:'Off to school',prompt:'Let’s walk to meet our friends.',model:'Let’s go to school.',icon:'walk',choice:'walk',label:'Walk to school',bridge:'Talk about who you will meet at your school.'},
+ wake:{chapter:'morning',room:'morning',kind:'routine',action:'wake',next:'brush',title:'Good morning!',prompt:'Wake up our friend.',model:'Good morning!',icon:'sun',choice:'wake',label:'Wake up',bridge:'Wave and say good morning to each other.'},
+ brush:{chapter:'morning',room:'bathroom',kind:'routine',action:'brush',next:'breakfast',title:'Brush together',prompt:'Help our friend brush.',model:'Brush your teeth.',icon:'brush',choice:'brush',label:'Brush teeth',bridge:'Point to your own toothbrush. A grown-up helps you brush.'},
+ breakfast:{chapter:'morning',room:'dining',kind:'routine',action:'eat',next:'walk-school',title:'Breakfast time',prompt:'Our friend is hungry. Choose breakfast.',model:'I am eating.',icon:'food',choice:'eat',label:'Eat breakfast',bridge:'At your next meal, try “I am eating.”'},
+ 'walk-school':{chapter:'school',room:'school',from:'dining',kind:'routine',action:'walk',next:'school-hello',title:'Off to school',prompt:'Let’s walk to meet our friends.',model:'Let’s go to school.',icon:'walk',choice:'walk',label:'Walk to school',bridge:'Talk about who you will meet at your school.'},
  'school-hello':{chapter:'school',kind:'school',mission:'hello',next:'school-help',title:'Meet our teacher'},
  'school-help':{chapter:'school',kind:'school',mission:'help',next:'school-water',title:'Snack with friends'},
  'school-water':{chapter:'school',kind:'school',mission:'water',next:'walk-home',title:'A drink of water'},
- 'walk-home':{chapter:'home',kind:'routine',action:'walk',next:'sleep',title:'Time to go home',prompt:'Let’s walk home together.',model:'Let’s go home.',icon:'walk',choice:'walk',label:'Walk home',bridge:'Tell each other one thing you did today.'},
- sleep:{chapter:'home',kind:'routine',action:'sleep',next:null,title:'Good night',prompt:'Our friend is sleepy. Choose the bed.',model:'Good night!',icon:'bed',choice:'sleep',label:'Go to sleep',bridge:'At bedtime, say good night to each other.'}
+ 'walk-home':{chapter:'home',room:'home',from:'school',kind:'routine',action:'walk',next:'sleep',title:'Time to go home',prompt:'Let’s walk home together.',model:'Let’s go home.',icon:'walk',choice:'walk',label:'Walk home',bridge:'Tell each other one thing you did today.'},
+ sleep:{chapter:'home',room:'bedtime',kind:'routine',action:'sleep',next:null,title:'Good night',prompt:'Our friend is sleepy. Choose the bed.',model:'Good night!',icon:'bed',choice:'sleep',label:'Go to sleep',bridge:'At bedtime, say good night to each other.'}
 };
 export function choicesFor(node,phase){
  if(node.kind!=='school'){
@@ -36,6 +37,7 @@ export function validateStory(nodes=DAY){
   if(!CHAPTERS.some(c=>c.id===n.chapter))errors.push(id+': unknown chapter');
   if(n.next!==null&&!nodes[n.next])errors.push(id+': missing next node');
   if(!['routine','school'].includes(n.kind))errors.push(id+': unknown kind');
+  if(n.kind==='routine'&&(!ROOMS[n.room]||(n.action==='walk'&&!ROOMS[n.from])))errors.push(id+': missing room');
   if(n.kind==='routine'&&(!['wake','brush','eat','walk','sleep'].includes(n.action)||!n.prompt||!n.model||!n.bridge||!n.choice||!n.icon))errors.push(id+': incomplete or unsupported routine');
   if(n.kind==='school'&&!['hello','help','water'].includes(n.mission))errors.push(id+': unknown school mission');
  }
