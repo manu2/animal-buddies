@@ -5,6 +5,9 @@ Status: user direction recorded 2026-09-20; implementation plan, NOT delivered. 
 ## What went wrong
 The earlier names/actions/sentences/letters code and the original eating/walking/sleeping sprite animations remain. However, the library prioritised school and the release handoff repeatedly opened school. An inventory check passed even though the intended progression and animal-led routine experience were missing. Technical success was incorrectly treated as sufficient direction verification. Home routines were deferred without adequately protecting the user's central idea. Keep this failure open until the actual navigation and story experience are corrected.
 
+## Explicit reuse instruction — latest user clarification
+Keep the current lakeside classroom artwork and setup: the user approves its appearance. Reuse it unchanged as the school chapter reached by the selected animal. Preserve the current school greeting/help/water interactions wherever they fit the story. Keep and reuse the existing simple action activities, original sprite sheets, audio and eating/walking/sleeping animations. Connect and reorganise these working pieces; do not restart the visual design or replace them with new assets merely to implement progression. The user’s latest mention of “first level” refers to the earlier simple-action experience; retain the previously specified names → actions → daily-story structure, with freely accessible familiar action play.
+
 ## Stable progression
 1. Meet the animals: preserve animal recognition, spoken names and picture choices. Already familiar material is freely skippable/revisitable.
 2. Play with actions: preserve the actual illustrated cow eating grass, rabbit eating carrot, walking and sleeping animations, including replay and calm stopping. Model short action words and sentences. Existing standalone sentence and optional alphabet activities remain accessible.

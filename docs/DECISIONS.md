@@ -27,3 +27,5 @@ Missing core direction: coherent animal-led home/day routines and explicit three
 Research informs design, not guarantees: ASHA 3–4 communication milestones https://www.asha.org/public/developmental-milestones/communication-milestones-3-to-4-years/ ; educational-app learning principles https://pubmed.ncbi.nlm.nih.gov/25985468/ ; AAP co-playing https://www.healthychildren.org/English/family-life/Media/Pages/watch-together.aspx ; NAEYC preschool technology https://www.naeyc.org/resources/topics/technology-and-media/preschoolers-and-kindergartners .
 
 Direction authority: the user’s stated progression and animal-led day take precedence over the previously narrowed school pilot scope. ANIMAL_DAY_PLAN.md records the correction, supporting research, limits and acceptance criteria. Do not silently defer that core again.
+
+Latest user clarification: the present lakeside school looks good and must be reused as a chapter of the chosen animal’s day. Preserve the existing simple action activities, original animations, voice recordings and assets. Correct the structure and continuity, not the approved scenery.
