@@ -17,3 +17,5 @@ Keep resolved issues here; removal loses the reason for the regression.
 | I12 | Initial pilot help button used a human icon while teacher was a dog | Replace it with the same dog illustration as the scene | Visual correspondence audit |
 | T01 | First pilot run stopped at parent arithmetic helper | Test regex lost an escape during file creation; fixed to explicit digits | Rerun full pilot; this was a test-harness failure, not a game failure |
 | I13 | Desktop scene placed the teacher visually in the lake | Moved the decorative water behind the grass foreground | Re-rendered scene: teacher and hero remain on land |
+
+| I14 | After the pilot update, the user still saw All done in the actual side-panel tab | Current UI was loaded; a completed visit was retained. Used existing parent Restart visit now, then opened Lakeside School. Immediate blockage resolved; restart discoverability remains a UX follow-up. | Release handoff must inspect the user-visible starting screen; distinguish preserved same-day limit from stale code, and leave parent-requested testing at the lobby without starting its timer. |

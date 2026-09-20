@@ -28,3 +28,6 @@ Additional passing checks after the consolidated report: school English/Hindi in
 
 Deferred by design: home/garden/playground worlds, puppy hero, turn-taking episode, two-step/retelling levels.
 Not established by these checks: pronunciation quality, installed physical iPhone/Android behavior, child's comprehension or real-world transfer. These are explicit human follow-ups, not technical passes.
+
+## Actual side-panel recovery — 2026-09-20
+User reported All done after pilot delivery. Inspected the existing public tab using browser accessibility: current Activities button and Lakeside School parent option were present, so the new UI was loaded. The completed visit remained. Used For grown-ups → Restart visit now → Visit Lakeside School. Verified the actual tab now displays cow/rabbit, Explore/Listen and all three missions, plus Ready for offline play. No mission was started. This resolves the immediate testing blockage; parent restart discoverability remains open (I14). This is desktop in-app browser evidence, not installed-phone testing. No game code or daily-limit policy changed.
