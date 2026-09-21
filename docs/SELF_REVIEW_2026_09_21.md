@@ -2,7 +2,7 @@
 
 Scope: review the current game before a parent-supported child trial. Preserve all three levels, the approved animals/classroom, original action animations, Kokoro recordings, chosen instruction language, free-play default and saved story. No new activities or learning claims. This is an assistant visual/code/browser review, not a child usability study.
 
-Local result: all fourteen release suites passed, including the 180-state usability walkthrough and actual v15 cache upgrade. Public verification is recorded in RELEASES.md after publication. Assistant verdict: ready for a parent-supported trial following the actual-phone checks below; no child-comprehension claim.
+Final result: all fourteen local release suites passed, including the 180-state usability walkthrough and actual v15 cache upgrade. Public usability/free-play/language suites passed offline; existing user-tab update/back navigation verified. Worker v16 is live. Details in RELEASES.md. Assistant verdict: ready for a parent-supported trial following the actual-phone checks below; no child-comprehension claim.
 
 ## Findings and corrections
 
