@@ -1,0 +1,10 @@
+AssertionError [ERR_ASSERTION]: 320x568-rabbit-breakfast-retry: control off-screen {"label":"listen","width":104.3125,"height":45,"top":537.390625,"bottom":582.390625,"viewport":568}
+    at inspect (/Users/manuagrawal/projects/vibe-coding/animal-buddies-public/tests/usability.cjs:9:108)
+    at async /Users/manuagrawal/projects/vibe-coding/animal-buddies-public/tests/usability.cjs:39:197 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

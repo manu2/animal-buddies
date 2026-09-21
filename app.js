@@ -1,3 +1,4 @@
+import {renderMain,onTap} from './ui/screen.js';
 import {createInstallUI} from './ui/install-view.js';
 import {animalPortrait} from './ui/animal-view.js';
 import {familiarView} from './ui/familiar-view.js';
@@ -105,7 +106,7 @@ function home(){stopStory();stopAudio();renderLevels();}
 function renderLevels(){
  screen='home';if(session){session.view='levels';persist();}
  const cards=[['names','Meet the animals','Names & picture choices',schoolFriend('cow')],['actions','Animal actions','Eat · walk · sleep',storySprite('rabbit','eat')],['day','A day with my animal','Home · school · bedtime',schoolFriend('rabbit')]];
- $('main').innerHTML='<section class="levels"><p class="eyebrow">THREE LITTLE WAYS TO PLAY</p><h1>Choose our adventure</h1><div class="level-grid">'+cards.map(([id,title,note,art],i)=>'<button class="level-card" '+(id==='actions'?'id="start"':'')+' data-activity="'+id+'" aria-label="Level '+(i+1)+': '+title+'"><span class="level-number" aria-hidden="true">'+(i+1)+'</span>'+art+'<strong>'+title+'</strong><small>'+note+'</small></button>').join('')+'</div><div class="level-extras"><button class="sound" data-activity="sentences">Little sentences</button><button class="sound" data-activity="letters">Aa · Letter play</button></div><button class="sound level-listen" id="library-listen">🔊 Hear the choices</button><p class="session-note">'+(settings.limitsEnabled&&session?'One shared visit. Choose any level.':'Choose freely. Earlier favourites stay here.')+'</p><p class="audio-note" id="audio-note"></p><aside class="install-card" id="install-home" aria-label="Save the app"></aside></section>';
+ renderMain('<section class="levels"><p class="eyebrow">THREE LITTLE WAYS TO PLAY</p><h1>Choose our adventure</h1><div class="level-grid">'+cards.map(([id,title,note,art],i)=>'<button class="level-card" '+(id==='actions'?'id="start"':'')+' data-activity="'+id+'" aria-label="Level '+(i+1)+': '+title+'"><span class="level-number" aria-hidden="true">'+(i+1)+'</span>'+art+'<strong>'+title+'</strong><small>'+note+'</small></button>').join('')+'</div><div class="level-extras"><button class="sound" data-activity="sentences">Little sentences</button><button class="sound" data-activity="letters">Aa · Letter play</button></div><button class="sound level-listen" id="library-listen">🔊 Hear the choices</button><p class="session-note">'+(settings.limitsEnabled&&session?'One shared visit. Choose any level.':'Choose freely. Earlier favourites stay here.')+'</p><p class="audio-note" id="audio-note"></p><aside class="install-card" id="install-home" aria-label="Save the app"></aside></section>');
  installUI.render();
  document.querySelectorAll('[data-activity]').forEach(el=>el.onclick=()=>openActivity(el.dataset.activity));
  $('library-listen').onclick=()=>play([instruction('day-levels')]);
@@ -153,11 +154,11 @@ function renderGame(){
  if(mode==='school')return school.mission?renderSchool():renderSchoolLobby();
  if(mode==='actions')return renderStory();
  screen='game';phase='pick';prepareChoices();persist();
- $('main').innerHTML=familiarView({mode,animal:target(),choices:choiceOrder,animals:ANIMALS,correct,wrong,round:session.round,limited:settings.limitsEnabled});
+ renderMain(familiarView({mode,animal:target(),choices:choiceOrder,animals:ANIMALS,correct,wrong,round:session.round,limited:settings.limitsEnabled}));
  $('stop').onclick=()=>finish();$('listen').onclick=listen;$('hint').onclick=hearMeaning;
  $('familiar-back').onclick=showLibrary;
- if($('next'))$('next').onclick=next;
- document.querySelectorAll('[data-choice]').forEach(button=>button.onclick=()=>choose(button.dataset.choice));
+ onTap($('next'),next);
+ document.querySelectorAll('[data-choice]').forEach(button=>onTap(button,()=>choose(button.dataset.choice)));
  updateTime();
 }
 function updateTime(){
@@ -167,7 +168,7 @@ function updateTime(){
 function finish(speak=true){
  stopStory();stopAudio();settleCompletedTurn();if(!settings.limitsEnabled){session=null;persist();home();return;}if(session){session.status='ended';persist();}
  screen='done';
- $('main').innerHTML='<section class="welcome goodbye"><p class="eyebrow">ALL DONE FOR TODAY</p><h1>See you, animal friends.</h1><div class="friends">'+visibleFriends().map(id=>'<div class="friend">'+(mode==='actions'?storySprite(id,'walk'):picture(animal(id)))+'</div>').join('')+'</div><p class="hindi" lang="hi">अब फोन रखकर साथ खेलें।</p><p class="offline-activity">Can you pretend to walk,<br>eat, or sleep?</p><button class="sound" id="listen"><span aria-hidden="true">🔊</span> Listen</button><p id="audio-note" class="audio-note" role="status"></p><p class="session-note">A fresh visit unlocks tomorrow.</p><button class="sound" id="restart-parent">Grown-up: restart for testing</button></section>';
+ renderMain('<section class="welcome goodbye"><p class="eyebrow">ALL DONE FOR TODAY</p><h1>See you, animal friends.</h1><div class="friends">'+visibleFriends().map(id=>'<div class="friend">'+(mode==='actions'?storySprite(id,'walk'):picture(animal(id)))+'</div>').join('')+'</div><p class="hindi" lang="hi">अब फोन रखकर साथ खेलें।</p><p class="offline-activity">Can you pretend to walk,<br>eat, or sleep?</p><button class="sound" id="listen"><span aria-hidden="true">🔊</span> Listen</button><p id="audio-note" class="audio-note" role="status"></p><p class="session-note">A fresh visit unlocks tomorrow.</p><button class="sound" id="restart-parent">Grown-up: restart for testing</button></section>');
  $('listen').onclick=listen;$('restart-parent').onclick=parentGate;if(speak)listen();
 }
 function tick(){if(resetForNewDay()){home();return;}if(expired())finish();else updateTime();}
@@ -338,7 +339,7 @@ async function storyNarrate(){
 }
 function chooseStory(action){
  if(expired())return finish();
- if(session?.status!=='active'||session.storyAction||!storyChoices().includes(action))return;
+ if(screen!=='game'||mode!=='actions'||session?.status!=='active'||session.storyAction||!storyChoices().includes(action))return;
  stopStory();stopAudio();
  session.storyAction=action;persist();renderStory();storyNarrate();
 }
@@ -353,16 +354,17 @@ function nextStory(){
 function renderStory(){
  screen='game';const a=target(),selected=session.storyAction;
  const dots=Array.from({length:6},(_,i)=>'<span class="step '+(i<session.round?'complete':i===session.round?'current':'')+'"></span>').join('');
- $('main').innerHTML='<section class="game story-game"><div class="game-top"><button class="quiet" id="stop">Finish for now</button>'+(settings.limitsEnabled?'<div class="steps" aria-label="Turn '+(session.round+1)+' of 6">'+dots+'</div>':'')+'<span class="time-note" id="time-note"></span></div><p class="eyebrow">'+(selected?'YOU CHOSE THE STORY':'CHOOSE WHAT HAPPENS')+'</p><h1 class="question">'+(selected?storySentence(a.id,selected):'What shall the '+a.id+' do?')+'</h1>'+
+ renderMain('<section class="game story-game"><div class="game-top"><button class="quiet" id="story-back">← Levels</button><button class="quiet" id="stop">Finish</button>'+(settings.limitsEnabled?'<div class="steps" aria-label="Turn '+(session.round+1)+' of 6">'+dots+'</div>':'')+'<span class="time-note" id="time-note"></span></div><p class="eyebrow">'+(selected?'YOU CHOSE THE STORY':'CHOOSE WHAT HAPPENS')+'</p><h1 class="question">'+(selected?storySentence(a.id,selected):'What shall the '+a.id+' do?')+'</h1>'+
  (selected?'<div class="story-stage">'+storySprite(a.id,selected)+'<span class="stage-line" aria-hidden="true"></span></div><div class="talk-invitation" id="talk-invitation"><span class="talk-symbol" aria-hidden="true">💬</span><span>What is the '+a.id+' doing?</span></div><p class="parent-prompt">Together: “'+STORY_ACTIONS[selected].verb[0].toUpperCase()+STORY_ACTIONS[selected].verb.slice(1)+'.” → “'+storySentence(a.id,selected)+'”</p>':
  '<div class="story-choices">'+storyChoices().map(action=>'<button class="action-tile" data-story-choice="'+action+'" aria-label="Let the '+a.id+' '+action+'">'+storySprite(a.id,action)+'<span class="action-label">'+STORY_ACTIONS[action].label+'</span></button>').join('')+'</div><p class="choice-note">Two choices. Your little story.</p>')+
  '<div class="sound-controls"><button class="sound" id="listen" aria-label="'+(selected?'Watch and hear the sentence again':'Hear and watch both choices')+'"><span class="speaker-icon" aria-hidden="true">🔊</span><span>'+(selected?'Again':'Listen')+'</span></button><button class="sound hindi-help" id="hint" lang="hi" aria-label="Hear Hindi meaning only"><span aria-hidden="true">🗣️</span> अर्थ</button></div><p class="audio-note" id="audio-note" role="status"></p>'+
- (selected?'<button class="primary" id="next"><span class="big-arrow" aria-hidden="true">→</span><span class="play-label">'+(settings.limitsEnabled&&session.round===5?'Say goodbye':'Next friend')+'</span></button>':'')+'</section>';
+ (selected?'<button class="primary" id="next"><span class="big-arrow" aria-hidden="true">→</span><span class="play-label">'+(settings.limitsEnabled&&session.round===5?'Say goodbye':'Next friend')+'</span></button>':'')+'</section>');
  $('stop').onclick=()=>finish();
+ $('story-back').onclick=showLibrary;
  $('listen').onclick=()=>storyNarrate();
  $('hint').onclick=hearMeaning;
- document.querySelectorAll('[data-story-choice]').forEach(button=>button.onclick=()=>chooseStory(button.dataset.storyChoice));
- if($('next'))$('next').onclick=nextStory;
+ document.querySelectorAll('[data-story-choice]').forEach(button=>onTap(button,()=>chooseStory(button.dataset.storyChoice)));
+ onTap($('next'),nextStory);
  updateTime();
 }
 
@@ -397,7 +399,7 @@ function openActivity(id){
 function renderSchoolLobby(){
  if(session){session.view='school-lobby';persist();}
  stopStory();stopAudio();screen='school-lobby';
- $('main').innerHTML='<section class="school-lobby"><p class="eyebrow">A LITTLE DAY BY THE LAKE</p><h1>Lakeside School</h1>'+schoolScene(school.hero,'hello',0,true)+'<div class="hero-picker" aria-label="Choose your animal">'+['cow','rabbit'].map(id=>'<button class="hero-option" data-hero="'+id+'" aria-pressed="'+(school.hero===id)+'" aria-label="Play as '+animal(id).name+'">'+schoolFriend(id)+'<span>'+animal(id).name+'</span></button>').join('')+'</div><div class="support-picker" aria-label="Choose support level"><button data-support="explore" aria-pressed="'+(school.support==='explore')+'">'+prop('wave')+'Explore</button><button data-support="listen" aria-pressed="'+(school.support==='listen')+'">'+prop('ear')+'Listen</button></div><div class="mission-list">'+Object.entries(SCHOOL).map(([id,m])=>'<button class="mission-card" data-mission="'+id+'" aria-label="'+m.title+'">'+schoolIcon(m.symbol,school.hero)+'<span>'+m.title+'</span><small>'+(school.mission===id&&school.step<2?'Continue story':(Number(progress.completed[id])||0)>0?'Visit again':'Let’s try')+'</small></button>').join('')+'</div><button class="sound" id="lobby-listen" aria-label="Hear how to choose">🔊 Listen</button><p class="audio-note" id="audio-note"></p><p class="library-intro">Explore shows a helpful example.<br>Listen lets you try from the spoken instruction.</p><p class="session-note">All missions stay available. Speaking is optional.</p></section>';
+ renderMain('<section class="school-lobby"><p class="eyebrow">A LITTLE DAY BY THE LAKE</p><h1>Lakeside School</h1>'+schoolScene(school.hero,'hello',0,true)+'<div class="hero-picker" aria-label="Choose your animal">'+['cow','rabbit'].map(id=>'<button class="hero-option" data-hero="'+id+'" aria-pressed="'+(school.hero===id)+'" aria-label="Play as '+animal(id).name+'">'+schoolFriend(id)+'<span>'+animal(id).name+'</span></button>').join('')+'</div><div class="support-picker" aria-label="Choose support level"><button data-support="explore" aria-pressed="'+(school.support==='explore')+'">'+prop('wave')+'Explore</button><button data-support="listen" aria-pressed="'+(school.support==='listen')+'">'+prop('ear')+'Listen</button></div><div class="mission-list">'+Object.entries(SCHOOL).map(([id,m])=>'<button class="mission-card" data-mission="'+id+'" aria-label="'+m.title+'">'+schoolIcon(m.symbol,school.hero)+'<span>'+m.title+'</span><small>'+(school.mission===id&&school.step<2?'Continue story':(Number(progress.completed[id])||0)>0?'Visit again':'Let’s try')+'</small></button>').join('')+'</div><button class="sound" id="lobby-listen" aria-label="Hear how to choose">🔊 Listen</button><p class="audio-note" id="audio-note"></p><p class="library-intro">Explore shows a helpful example.<br>Listen lets you try from the spoken instruction.</p><p class="session-note">All missions stay available. Speaking is optional.</p></section>');
  document.querySelectorAll('button[data-hero]').forEach(el=>el.onclick=()=>{
   school.hero=el.dataset.hero;persist();renderSchoolLobby();play([school.hero+'-name']);
  });
@@ -429,14 +431,14 @@ function renderSchool(){
  if(!school.mission)return renderSchoolLobby();
  screen='game';const id=school.mission,m=SCHOOL[id],done=school.step===2;
  const line=done?m.phrase:school.step===1?m.next:m.prompt;
- $('main').innerHTML='<section class="game school-game"><div class="game-top"><button class="quiet" id="school-back">← Missions</button><div class="steps" aria-label="Step '+(school.step+1)+' of 3">'+[0,1,2].map(i=>'<span class="step '+(i===school.step?'current':i<school.step?'complete':'')+'"></span>').join('')+'</div><span class="time-note" id="time-note"></span><button class="quiet" id="stop">Finish</button></div><p class="eyebrow">'+(done?'WE DID IT TOGETHER':m.title.toUpperCase())+'</p><h1 class="question">'+line+'</h1>'+schoolScene(school.hero,id,school.step)+
+ renderMain('<section class="game school-game"><div class="game-top"><button class="quiet" id="school-back">← Missions</button><div class="steps" aria-label="Step '+(school.step+1)+' of 3">'+[0,1,2].map(i=>'<span class="step '+(i===school.step?'current':i<school.step?'complete':'')+'"></span>').join('')+'</div><span class="time-note" id="time-note"></span><button class="quiet" id="stop">Finish</button></div><p class="eyebrow">'+(done?'WE DID IT TOGETHER':m.title.toUpperCase())+'</p><h1 class="question">'+line+'</h1>'+schoolScene(school.hero,id,school.step)+
  (done?'<p class="parent-prompt">'+m.bridge+'</p>':'<div class="school-actions">'+schoolOptions().map(o=>'<button class="school-action" data-school-choice="'+o.id+'" aria-label="'+o.label+'">'+schoolIcon(o.icon,school.hero)+'<span>'+o.label+'</span></button>').join('')+'</div>')+
  '<p class="mission-feedback" id="school-feedback" role="status">'+(done?'A quiet moment to talk together.':'')+'</p><div class="sound-controls"><button class="sound" id="listen" aria-label="Hear this step again">🔊 '+(done?'Again':'Listen')+'</button><button class="sound" id="hint" lang="hi" aria-label="Hear Hindi meaning only">🗣️ अर्थ</button></div><p class="audio-note" id="audio-note"></p>'+
- (done?'<button class="primary" id="school-next"><span class="big-arrow" aria-hidden="true">→</span><span class="play-label">More adventures</span></button>':'')+'</section>';
+ (done?'<button class="primary" id="school-next"><span class="big-arrow" aria-hidden="true">→</span><span class="play-label">More adventures</span></button>':'')+'</section>');
  $('school-back').onclick=leaveSchool;$('stop').onclick=()=>finish();
  $('listen').onclick=narrateSchool;$('hint').onclick=schoolMeaning;
- document.querySelectorAll('[data-school-choice]').forEach(el=>el.onclick=()=>chooseSchool(el.dataset.schoolChoice));
- if($('school-next'))$('school-next').onclick=leaveSchool;
+ document.querySelectorAll('[data-school-choice]').forEach(el=>onTap(el,()=>chooseSchool(el.dataset.schoolChoice)));
+ onTap($('school-next'),leaveSchool);
  updateTime();
 }
 function leaveSchool(){
@@ -446,7 +448,7 @@ function leaveSchool(){
 }
 function chooseSchool(choice){
  if(expired()||session?.status!=='active')return finish();
- if(screen!=='game'||mode!=='school'||school.step===2)return;
+ if(screen!=='game'||mode!=='school'||school.step===2||!schoolOptions().some(o=>o.id===choice))return;
  stopStory();stopAudio();
  if(choice==='try'){
   $('school-feedback').textContent=school.mission==='help'?'It is stuck. Our teacher can help.':'That is a ball. Our friend needs water.';

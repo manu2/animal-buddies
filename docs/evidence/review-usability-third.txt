@@ -1,0 +1,10 @@
+AssertionError [ERR_ASSERTION]: 1200x900-actions-outcome: control off-screen {"label":"next","width":260,"height":118,"top":802.4375,"bottom":920.4375,"viewport":900}
+    at inspect (/Users/manuagrawal/projects/vibe-coding/animal-buddies-public/tests/usability.cjs:9:108)
+    at async /Users/manuagrawal/projects/vibe-coding/animal-buddies-public/tests/usability.cjs:29:37 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

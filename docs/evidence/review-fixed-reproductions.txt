@@ -1,0 +1,4 @@
+school lobby scroll 0
+mission scroll 0
+duplicate go phase 1
+stale choice reopens action 0

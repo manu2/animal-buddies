@@ -1,0 +1,9094 @@
+[
+  {
+    "name": "small-school-help",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "school-back",
+        "width": 77.453125,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Ask our teacher",
+        "width": 134,
+        "height": 113,
+        "top": 368.59375,
+        "bottom": 481.59375,
+        "viewport": 568
+      },
+      {
+        "label": "Try the lunchbox",
+        "width": 134,
+        "height": 113,
+        "top": 368.59375,
+        "bottom": 481.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 489.59375,
+        "bottom": 534.59375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 489.59375,
+        "bottom": 534.59375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-names-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "familiar-back",
+        "width": 72.40625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 55.53125,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Fish",
+        "width": 135,
+        "height": 160,
+        "top": 175.296875,
+        "bottom": 335.296875,
+        "viewport": 568
+      },
+      {
+        "label": "Dog",
+        "width": 135,
+        "height": 160,
+        "top": 175.296875,
+        "bottom": 335.296875,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 343.296875,
+        "bottom": 388.296875,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 343.296875,
+        "bottom": 388.296875,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-names-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "familiar-back",
+        "width": 72.40625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 55.53125,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 400.09375,
+        "bottom": 445.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 400.09375,
+        "bottom": 445.09375,
+        "viewport": 568
+      },
+      {
+        "label": "next",
+        "width": 260,
+        "height": 60,
+        "top": 453.09375,
+        "bottom": 513.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-letters-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "familiar-back",
+        "width": 72.40625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 55.53125,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Letter D",
+        "width": 135,
+        "height": 155,
+        "top": 175.296875,
+        "bottom": 330.296875,
+        "viewport": 568
+      },
+      {
+        "label": "Letter C",
+        "width": 135,
+        "height": 155,
+        "top": 175.296875,
+        "bottom": 330.296875,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 338.296875,
+        "bottom": 383.296875,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 338.296875,
+        "bottom": 383.296875,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-letters-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "familiar-back",
+        "width": 72.40625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 55.53125,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 400.09375,
+        "bottom": 445.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 400.09375,
+        "bottom": 445.09375,
+        "viewport": 568
+      },
+      {
+        "label": "next",
+        "width": 260,
+        "height": 60,
+        "top": 453.09375,
+        "bottom": 513.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-sentences-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "familiar-back",
+        "width": 72.40625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 55.53125,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Dog",
+        "width": 135,
+        "height": 160,
+        "top": 175.296875,
+        "bottom": 335.296875,
+        "viewport": 568
+      },
+      {
+        "label": "Cow",
+        "width": 135,
+        "height": 160,
+        "top": 175.296875,
+        "bottom": 335.296875,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 343.296875,
+        "bottom": 388.296875,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 343.296875,
+        "bottom": 388.296875,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-sentences-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "familiar-back",
+        "width": 72.40625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 55.53125,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 400.09375,
+        "bottom": 445.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 400.09375,
+        "bottom": 445.09375,
+        "viewport": 568
+      },
+      {
+        "label": "next",
+        "width": 260,
+        "height": 60,
+        "top": 453.09375,
+        "bottom": 513.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-actions-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "story-back",
+        "width": 72.40625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 55.53125,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Let the rabbit sleep",
+        "width": 136,
+        "height": 175,
+        "top": 189.296875,
+        "bottom": 364.296875,
+        "viewport": 568
+      },
+      {
+        "label": "Let the rabbit walk",
+        "width": 136,
+        "height": 175,
+        "top": 189.296875,
+        "bottom": 364.296875,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 119.5,
+        "height": 55,
+        "top": 420.296875,
+        "bottom": 475.296875,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 89.546875,
+        "height": 55,
+        "top": 420.296875,
+        "bottom": 475.296875,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-actions-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "story-back",
+        "width": 72.40625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 55.53125,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 114.90625,
+        "height": 55,
+        "top": 423.09375,
+        "bottom": 478.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 89.546875,
+        "height": 55,
+        "top": 423.09375,
+        "bottom": 478.09375,
+        "viewport": 568
+      },
+      {
+        "label": "next",
+        "width": 210,
+        "height": 60,
+        "top": 486.09375,
+        "bottom": 546.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-wake-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 418.09375,
+        "bottom": 478.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-brush-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Ball",
+        "width": 134,
+        "height": 94,
+        "top": 343.296875,
+        "bottom": 437.296875,
+        "viewport": 568
+      },
+      {
+        "label": "Brush teeth",
+        "width": 134,
+        "height": 94,
+        "top": 343.296875,
+        "bottom": 437.296875,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 445.296875,
+        "bottom": 490.296875,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 445.296875,
+        "bottom": 490.296875,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-brush-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Ball",
+        "width": 134,
+        "height": 94,
+        "top": 343.296875,
+        "bottom": 437.296875,
+        "viewport": 568
+      },
+      {
+        "label": "Brush teeth",
+        "width": 134,
+        "height": 94,
+        "top": 343.296875,
+        "bottom": 437.296875,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 470.09375,
+        "bottom": 515.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 470.09375,
+        "bottom": 515.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-brush-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 381.890625,
+        "bottom": 426.890625,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 381.890625,
+        "bottom": 426.890625,
+        "viewport": 568
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 434.890625,
+        "bottom": 494.890625,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-breakfast-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Eat breakfast",
+        "width": 134,
+        "height": 102,
+        "top": 368.59375,
+        "bottom": 470.59375,
+        "viewport": 568
+      },
+      {
+        "label": "Toothbrush",
+        "width": 134,
+        "height": 102,
+        "top": 368.59375,
+        "bottom": 470.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 478.59375,
+        "bottom": 523.59375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 478.59375,
+        "bottom": 523.59375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-breakfast-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Eat breakfast",
+        "width": 134,
+        "height": 102,
+        "top": 368.59375,
+        "bottom": 470.59375,
+        "viewport": 568
+      },
+      {
+        "label": "Toothbrush",
+        "width": 134,
+        "height": 102,
+        "top": 368.59375,
+        "bottom": 470.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 503.390625,
+        "bottom": 548.390625,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 503.390625,
+        "bottom": 548.390625,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-breakfast-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 418.09375,
+        "bottom": 478.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-walk-school-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Walk to school",
+        "width": 160,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-walk-school-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 418.09375,
+        "bottom": 478.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-school-hello-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Wave hello",
+        "width": 134,
+        "height": 113,
+        "top": 343.296875,
+        "bottom": 456.296875,
+        "viewport": 568
+      },
+      {
+        "label": "Greet our teacher",
+        "width": 134,
+        "height": 113,
+        "top": 343.296875,
+        "bottom": 456.296875,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 464.296875,
+        "bottom": 509.296875,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 464.296875,
+        "bottom": 509.296875,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-school-hello-help",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Wave hello",
+        "width": 160,
+        "height": 94,
+        "top": 343.296875,
+        "bottom": 437.296875,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 445.296875,
+        "bottom": 490.296875,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 445.296875,
+        "bottom": 490.296875,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-school-hello-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 418.09375,
+        "bottom": 478.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-school-help-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Ask our teacher",
+        "width": 134,
+        "height": 113,
+        "top": 368.59375,
+        "bottom": 481.59375,
+        "viewport": 568
+      },
+      {
+        "label": "Try the lunchbox",
+        "width": 134,
+        "height": 113,
+        "top": 368.59375,
+        "bottom": 481.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 489.59375,
+        "bottom": 534.59375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 489.59375,
+        "bottom": 534.59375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-school-help-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Ask our teacher",
+        "width": 134,
+        "height": 113,
+        "top": 368.59375,
+        "bottom": 481.59375,
+        "viewport": 568
+      },
+      {
+        "label": "Try the lunchbox",
+        "width": 134,
+        "height": 113,
+        "top": 368.59375,
+        "bottom": 481.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 514.390625,
+        "bottom": 559.390625,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 514.390625,
+        "bottom": 559.390625,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-school-help-help",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Open the lunchbox",
+        "width": 160,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-school-help-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 418.09375,
+        "bottom": 478.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-school-water-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Water",
+        "width": 134,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "Ball",
+        "width": 134,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-school-water-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Water",
+        "width": 134,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "Ball",
+        "width": 134,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 495.390625,
+        "bottom": 540.390625,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 495.390625,
+        "bottom": 540.390625,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-school-water-help",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Drink water",
+        "width": 160,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-school-water-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 418.09375,
+        "bottom": 478.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-walk-home-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Walk home",
+        "width": 160,
+        "height": 94,
+        "top": 343.296875,
+        "bottom": 437.296875,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 445.296875,
+        "bottom": 490.296875,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 445.296875,
+        "bottom": 490.296875,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-walk-home-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 418.09375,
+        "bottom": 478.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-sleep-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Ball",
+        "width": 134,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "Go to sleep",
+        "width": 134,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-sleep-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Ball",
+        "width": 134,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "Go to sleep",
+        "width": 134,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 495.390625,
+        "bottom": 540.390625,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 495.390625,
+        "bottom": 540.390625,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-rabbit-sleep-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 418.09375,
+        "bottom": 478.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-wake-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Wake up",
+        "width": 160,
+        "height": 94,
+        "top": 343.296875,
+        "bottom": 437.296875,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 445.296875,
+        "bottom": 490.296875,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 445.296875,
+        "bottom": 490.296875,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-wake-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 418.09375,
+        "bottom": 478.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-brush-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Ball",
+        "width": 134,
+        "height": 94,
+        "top": 343.296875,
+        "bottom": 437.296875,
+        "viewport": 568
+      },
+      {
+        "label": "Brush teeth",
+        "width": 134,
+        "height": 94,
+        "top": 343.296875,
+        "bottom": 437.296875,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 445.296875,
+        "bottom": 490.296875,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 445.296875,
+        "bottom": 490.296875,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-brush-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Ball",
+        "width": 134,
+        "height": 94,
+        "top": 343.296875,
+        "bottom": 437.296875,
+        "viewport": 568
+      },
+      {
+        "label": "Brush teeth",
+        "width": 134,
+        "height": 94,
+        "top": 343.296875,
+        "bottom": 437.296875,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 470.09375,
+        "bottom": 515.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 470.09375,
+        "bottom": 515.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-brush-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 381.890625,
+        "bottom": 426.890625,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 381.890625,
+        "bottom": 426.890625,
+        "viewport": 568
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 434.890625,
+        "bottom": 494.890625,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-breakfast-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Eat breakfast",
+        "width": 134,
+        "height": 102,
+        "top": 368.59375,
+        "bottom": 470.59375,
+        "viewport": 568
+      },
+      {
+        "label": "Toothbrush",
+        "width": 134,
+        "height": 102,
+        "top": 368.59375,
+        "bottom": 470.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 478.59375,
+        "bottom": 523.59375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 478.59375,
+        "bottom": 523.59375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-breakfast-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Eat breakfast",
+        "width": 134,
+        "height": 102,
+        "top": 368.59375,
+        "bottom": 470.59375,
+        "viewport": 568
+      },
+      {
+        "label": "Toothbrush",
+        "width": 134,
+        "height": 102,
+        "top": 368.59375,
+        "bottom": 470.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 503.390625,
+        "bottom": 548.390625,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 503.390625,
+        "bottom": 548.390625,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-breakfast-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 418.09375,
+        "bottom": 478.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-walk-school-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Walk to school",
+        "width": 160,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-walk-school-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 418.09375,
+        "bottom": 478.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-school-hello-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Wave hello",
+        "width": 134,
+        "height": 113,
+        "top": 343.296875,
+        "bottom": 456.296875,
+        "viewport": 568
+      },
+      {
+        "label": "Greet our teacher",
+        "width": 134,
+        "height": 113,
+        "top": 343.296875,
+        "bottom": 456.296875,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 464.296875,
+        "bottom": 509.296875,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 464.296875,
+        "bottom": 509.296875,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-school-hello-help",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Wave hello",
+        "width": 160,
+        "height": 94,
+        "top": 343.296875,
+        "bottom": 437.296875,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 445.296875,
+        "bottom": 490.296875,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 445.296875,
+        "bottom": 490.296875,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-school-hello-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 418.09375,
+        "bottom": 478.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-school-help-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Ask our teacher",
+        "width": 134,
+        "height": 113,
+        "top": 368.59375,
+        "bottom": 481.59375,
+        "viewport": 568
+      },
+      {
+        "label": "Try the lunchbox",
+        "width": 134,
+        "height": 113,
+        "top": 368.59375,
+        "bottom": 481.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 489.59375,
+        "bottom": 534.59375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 489.59375,
+        "bottom": 534.59375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-school-help-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Ask our teacher",
+        "width": 134,
+        "height": 113,
+        "top": 368.59375,
+        "bottom": 481.59375,
+        "viewport": 568
+      },
+      {
+        "label": "Try the lunchbox",
+        "width": 134,
+        "height": 113,
+        "top": 368.59375,
+        "bottom": 481.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 514.390625,
+        "bottom": 559.390625,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 514.390625,
+        "bottom": 559.390625,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-school-help-help",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Open the lunchbox",
+        "width": 160,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-school-help-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 418.09375,
+        "bottom": 478.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-school-water-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Water",
+        "width": 134,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "Ball",
+        "width": 134,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-school-water-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Water",
+        "width": 134,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "Ball",
+        "width": 134,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 495.390625,
+        "bottom": 540.390625,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 495.390625,
+        "bottom": 540.390625,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-school-water-help",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Drink water",
+        "width": 160,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-school-water-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 418.09375,
+        "bottom": 478.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-walk-home-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Walk home",
+        "width": 160,
+        "height": 94,
+        "top": 343.296875,
+        "bottom": 437.296875,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 445.296875,
+        "bottom": 490.296875,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 445.296875,
+        "bottom": 490.296875,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-walk-home-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 418.09375,
+        "bottom": 478.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-sleep-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Ball",
+        "width": 134,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "Go to sleep",
+        "width": 134,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 470.59375,
+        "bottom": 515.59375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-sleep-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "Ball",
+        "width": 134,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "Go to sleep",
+        "width": 134,
+        "height": 94,
+        "top": 368.59375,
+        "bottom": 462.59375,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 495.390625,
+        "bottom": 540.390625,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 495.390625,
+        "bottom": 540.390625,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "320x568-cow-sleep-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 568
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 365.09375,
+        "bottom": 410.09375,
+        "viewport": 568
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 418.09375,
+        "bottom": 478.09375,
+        "viewport": 568
+      }
+    ]
+  },
+  {
+    "name": "360x640-names-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "familiar-back",
+        "width": 72.40625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 55.53125,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Dog",
+        "width": 155,
+        "height": 160,
+        "top": 175.296875,
+        "bottom": 335.296875,
+        "viewport": 640
+      },
+      {
+        "label": "Fish",
+        "width": 155,
+        "height": 160,
+        "top": 175.296875,
+        "bottom": 335.296875,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 343.296875,
+        "bottom": 388.296875,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 343.296875,
+        "bottom": 388.296875,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-names-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "familiar-back",
+        "width": 72.40625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 55.53125,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 400.09375,
+        "bottom": 445.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 400.09375,
+        "bottom": 445.09375,
+        "viewport": 640
+      },
+      {
+        "label": "next",
+        "width": 260,
+        "height": 60,
+        "top": 453.09375,
+        "bottom": 513.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-letters-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "familiar-back",
+        "width": 72.40625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 55.53125,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Letter C",
+        "width": 155,
+        "height": 155,
+        "top": 175.296875,
+        "bottom": 330.296875,
+        "viewport": 640
+      },
+      {
+        "label": "Letter E",
+        "width": 155,
+        "height": 155,
+        "top": 175.296875,
+        "bottom": 330.296875,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 338.296875,
+        "bottom": 383.296875,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 338.296875,
+        "bottom": 383.296875,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-letters-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "familiar-back",
+        "width": 72.40625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 55.53125,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 400.09375,
+        "bottom": 445.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 400.09375,
+        "bottom": 445.09375,
+        "viewport": 640
+      },
+      {
+        "label": "next",
+        "width": 260,
+        "height": 60,
+        "top": 453.09375,
+        "bottom": 513.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-sentences-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "familiar-back",
+        "width": 72.40625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 55.53125,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Fish",
+        "width": 155,
+        "height": 160,
+        "top": 175.296875,
+        "bottom": 335.296875,
+        "viewport": 640
+      },
+      {
+        "label": "Dog",
+        "width": 155,
+        "height": 160,
+        "top": 175.296875,
+        "bottom": 335.296875,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 343.296875,
+        "bottom": 388.296875,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 343.296875,
+        "bottom": 388.296875,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-sentences-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "familiar-back",
+        "width": 72.40625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 55.53125,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 400.09375,
+        "bottom": 445.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 400.09375,
+        "bottom": 445.09375,
+        "viewport": 640
+      },
+      {
+        "label": "next",
+        "width": 260,
+        "height": 60,
+        "top": 453.09375,
+        "bottom": 513.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-actions-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "story-back",
+        "width": 72.40625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 55.53125,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Let the rabbit eat",
+        "width": 156,
+        "height": 195,
+        "top": 189.296875,
+        "bottom": 384.296875,
+        "viewport": 640
+      },
+      {
+        "label": "Let the rabbit sleep",
+        "width": 156,
+        "height": 195,
+        "top": 189.296875,
+        "bottom": 384.296875,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 119.5,
+        "height": 55,
+        "top": 440.296875,
+        "bottom": 495.296875,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 89.546875,
+        "height": 55,
+        "top": 440.296875,
+        "bottom": 495.296875,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-actions-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "story-back",
+        "width": 72.40625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 55.53125,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 114.90625,
+        "height": 55,
+        "top": 423.09375,
+        "bottom": 478.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 89.546875,
+        "height": 55,
+        "top": 423.09375,
+        "bottom": 478.09375,
+        "viewport": 640
+      },
+      {
+        "label": "next",
+        "width": 210,
+        "height": 60,
+        "top": 486.09375,
+        "bottom": 546.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-wake-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Wake up",
+        "width": 160,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-wake-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 438.09375,
+        "bottom": 498.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-brush-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Ball",
+        "width": 154,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "Brush teeth",
+        "width": 154,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-brush-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Ball",
+        "width": 154,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "Brush teeth",
+        "width": 154,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 490.09375,
+        "bottom": 535.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 490.09375,
+        "bottom": 535.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-brush-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 438.09375,
+        "bottom": 498.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-breakfast-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Eat breakfast",
+        "width": 154,
+        "height": 116,
+        "top": 388.59375,
+        "bottom": 504.59375,
+        "viewport": 640
+      },
+      {
+        "label": "Toothbrush",
+        "width": 154,
+        "height": 116,
+        "top": 388.59375,
+        "bottom": 504.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 512.59375,
+        "bottom": 557.59375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 512.59375,
+        "bottom": 557.59375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-breakfast-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Eat breakfast",
+        "width": 154,
+        "height": 116,
+        "top": 388.59375,
+        "bottom": 504.59375,
+        "viewport": 640
+      },
+      {
+        "label": "Toothbrush",
+        "width": 154,
+        "height": 116,
+        "top": 388.59375,
+        "bottom": 504.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 537.390625,
+        "bottom": 582.390625,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 537.390625,
+        "bottom": 582.390625,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-breakfast-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 438.09375,
+        "bottom": 498.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-walk-school-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Walk to school",
+        "width": 160,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-walk-school-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 438.09375,
+        "bottom": 498.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-school-hello-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Wave hello",
+        "width": 154,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "Greet our teacher",
+        "width": 154,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-school-hello-help",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Wave hello",
+        "width": 160,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-school-hello-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 438.09375,
+        "bottom": 498.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-school-help-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Ask our teacher",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "Try the lunchbox",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-school-help-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Ask our teacher",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "Try the lunchbox",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 515.390625,
+        "bottom": 560.390625,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 515.390625,
+        "bottom": 560.390625,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-school-help-help",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Open the lunchbox",
+        "width": 160,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-school-help-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 438.09375,
+        "bottom": 498.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-school-water-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Water",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "Ball",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-school-water-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Water",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "Ball",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 515.390625,
+        "bottom": 560.390625,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 515.390625,
+        "bottom": 560.390625,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-school-water-help",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Drink water",
+        "width": 160,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-school-water-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 438.09375,
+        "bottom": 498.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-walk-home-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Walk home",
+        "width": 160,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-walk-home-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 438.09375,
+        "bottom": 498.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-sleep-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Ball",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "Go to sleep",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-sleep-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Ball",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "Go to sleep",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 515.390625,
+        "bottom": 560.390625,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 515.390625,
+        "bottom": 560.390625,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-rabbit-sleep-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 438.09375,
+        "bottom": 498.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-wake-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Wake up",
+        "width": 160,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-wake-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 438.09375,
+        "bottom": 498.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-brush-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Ball",
+        "width": 154,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "Brush teeth",
+        "width": 154,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-brush-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Ball",
+        "width": 154,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "Brush teeth",
+        "width": 154,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 490.09375,
+        "bottom": 535.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 490.09375,
+        "bottom": 535.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-brush-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 438.09375,
+        "bottom": 498.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-breakfast-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Eat breakfast",
+        "width": 154,
+        "height": 116,
+        "top": 388.59375,
+        "bottom": 504.59375,
+        "viewport": 640
+      },
+      {
+        "label": "Toothbrush",
+        "width": 154,
+        "height": 116,
+        "top": 388.59375,
+        "bottom": 504.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 512.59375,
+        "bottom": 557.59375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 512.59375,
+        "bottom": 557.59375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-breakfast-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Eat breakfast",
+        "width": 154,
+        "height": 116,
+        "top": 388.59375,
+        "bottom": 504.59375,
+        "viewport": 640
+      },
+      {
+        "label": "Toothbrush",
+        "width": 154,
+        "height": 116,
+        "top": 388.59375,
+        "bottom": 504.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 537.390625,
+        "bottom": 582.390625,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 537.390625,
+        "bottom": 582.390625,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-breakfast-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 438.09375,
+        "bottom": 498.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-walk-school-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Walk to school",
+        "width": 160,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-walk-school-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 438.09375,
+        "bottom": 498.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-school-hello-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Wave hello",
+        "width": 154,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "Greet our teacher",
+        "width": 154,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-school-hello-help",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Wave hello",
+        "width": 160,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-school-hello-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 438.09375,
+        "bottom": 498.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-school-help-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Ask our teacher",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "Try the lunchbox",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-school-help-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Ask our teacher",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "Try the lunchbox",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 515.390625,
+        "bottom": 560.390625,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 515.390625,
+        "bottom": 560.390625,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-school-help-help",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Open the lunchbox",
+        "width": 160,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-school-help-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 438.09375,
+        "bottom": 498.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-school-water-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Water",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "Ball",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-school-water-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Water",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "Ball",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 515.390625,
+        "bottom": 560.390625,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 515.390625,
+        "bottom": 560.390625,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-school-water-help",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Drink water",
+        "width": 160,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-school-water-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 438.09375,
+        "bottom": 498.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-walk-home-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Walk home",
+        "width": 160,
+        "height": 94,
+        "top": 363.296875,
+        "bottom": 457.296875,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 465.296875,
+        "bottom": 510.296875,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-walk-home-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 438.09375,
+        "bottom": 498.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-sleep-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Ball",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "Go to sleep",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 490.59375,
+        "bottom": 535.59375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-sleep-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "Ball",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "Go to sleep",
+        "width": 154,
+        "height": 94,
+        "top": 388.59375,
+        "bottom": 482.59375,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 104.3125,
+        "height": 45,
+        "top": 515.390625,
+        "bottom": 560.390625,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 515.390625,
+        "bottom": 560.390625,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "360x640-cow-sleep-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 71.265625,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "stop",
+        "width": 52.734375,
+        "height": 44,
+        "top": 68,
+        "bottom": 112,
+        "viewport": 640
+      },
+      {
+        "label": "listen",
+        "width": 98.84375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "hint",
+        "width": 82.359375,
+        "height": 45,
+        "top": 385.09375,
+        "bottom": 430.09375,
+        "viewport": 640
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 60,
+        "top": 438.09375,
+        "bottom": 498.09375,
+        "viewport": 640
+      }
+    ]
+  },
+  {
+    "name": "1200x900-names-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "familiar-back",
+        "width": 96.65625,
+        "height": 44,
+        "top": 101,
+        "bottom": 145,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 101,
+        "bottom": 145,
+        "viewport": 900
+      },
+      {
+        "label": "Cow",
+        "width": 283,
+        "height": 220,
+        "top": 237.1875,
+        "bottom": 457.1875,
+        "viewport": 900
+      },
+      {
+        "label": "Fish",
+        "width": 283,
+        "height": 220,
+        "top": 237.1875,
+        "bottom": 457.1875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 129.609375,
+        "height": 62,
+        "top": 469.1875,
+        "bottom": 531.1875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 104.90625,
+        "height": 62,
+        "top": 469.1875,
+        "bottom": 531.1875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-names-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "familiar-back",
+        "width": 96.65625,
+        "height": 44,
+        "top": 101,
+        "bottom": 145,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 101,
+        "bottom": 145,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 123.453125,
+        "height": 62,
+        "top": 542.1875,
+        "bottom": 604.1875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 104.90625,
+        "height": 62,
+        "top": 542.1875,
+        "bottom": 604.1875,
+        "viewport": 900
+      },
+      {
+        "label": "next",
+        "width": 260,
+        "height": 118,
+        "top": 616.1875,
+        "bottom": 734.1875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-letters-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "familiar-back",
+        "width": 96.65625,
+        "height": 44,
+        "top": 101,
+        "bottom": 145,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 101,
+        "bottom": 145,
+        "viewport": 900
+      },
+      {
+        "label": "Letter D",
+        "width": 283,
+        "height": 210,
+        "top": 237.1875,
+        "bottom": 447.1875,
+        "viewport": 900
+      },
+      {
+        "label": "Letter F",
+        "width": 283,
+        "height": 210,
+        "top": 237.1875,
+        "bottom": 447.1875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 129.609375,
+        "height": 62,
+        "top": 459.1875,
+        "bottom": 521.1875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 104.90625,
+        "height": 62,
+        "top": 459.1875,
+        "bottom": 521.1875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-letters-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "familiar-back",
+        "width": 96.65625,
+        "height": 44,
+        "top": 101,
+        "bottom": 145,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 101,
+        "bottom": 145,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 123.453125,
+        "height": 62,
+        "top": 542.1875,
+        "bottom": 604.1875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 104.90625,
+        "height": 62,
+        "top": 542.1875,
+        "bottom": 604.1875,
+        "viewport": 900
+      },
+      {
+        "label": "next",
+        "width": 260,
+        "height": 118,
+        "top": 616.1875,
+        "bottom": 734.1875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-sentences-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "familiar-back",
+        "width": 96.65625,
+        "height": 44,
+        "top": 101,
+        "bottom": 145,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 101,
+        "bottom": 145,
+        "viewport": 900
+      },
+      {
+        "label": "Dog",
+        "width": 283,
+        "height": 220,
+        "top": 237.1875,
+        "bottom": 457.1875,
+        "viewport": 900
+      },
+      {
+        "label": "Fish",
+        "width": 283,
+        "height": 220,
+        "top": 237.1875,
+        "bottom": 457.1875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 129.609375,
+        "height": 62,
+        "top": 469.1875,
+        "bottom": 531.1875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 104.90625,
+        "height": 62,
+        "top": 469.1875,
+        "bottom": 531.1875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-sentences-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "familiar-back",
+        "width": 96.65625,
+        "height": 44,
+        "top": 101,
+        "bottom": 145,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 101,
+        "bottom": 145,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 123.453125,
+        "height": 62,
+        "top": 542.1875,
+        "bottom": 604.1875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 104.90625,
+        "height": 62,
+        "top": 542.1875,
+        "bottom": 604.1875,
+        "viewport": 900
+      },
+      {
+        "label": "next",
+        "width": 260,
+        "height": 118,
+        "top": 616.1875,
+        "bottom": 734.1875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-actions-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "story-back",
+        "width": 96.65625,
+        "height": 44,
+        "top": 101,
+        "bottom": 145,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 101,
+        "bottom": 145,
+        "viewport": 900
+      },
+      {
+        "label": "Let the cow walk",
+        "width": 316,
+        "height": 357,
+        "top": 278.4375,
+        "bottom": 635.4375,
+        "viewport": 900
+      },
+      {
+        "label": "Let the cow eat",
+        "width": 316,
+        "height": 357,
+        "top": 278.4375,
+        "bottom": 635.4375,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 143.1875,
+        "height": 65,
+        "top": 698.4375,
+        "bottom": 763.4375,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 110.015625,
+        "height": 65,
+        "top": 698.4375,
+        "bottom": 763.4375,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-actions-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "story-back",
+        "width": 96.65625,
+        "height": 44,
+        "top": 101,
+        "bottom": 145,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 101,
+        "bottom": 145,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 138.03125,
+        "height": 65,
+        "top": 716.4375,
+        "bottom": 781.4375,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 110.015625,
+        "height": 65,
+        "top": 716.4375,
+        "bottom": 781.4375,
+        "viewport": 900
+      },
+      {
+        "label": "next",
+        "width": 260,
+        "height": 80,
+        "top": 802.4375,
+        "bottom": 882.4375,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-wake-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Wake up",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-wake-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 111.453125,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 82,
+        "top": 702.21875,
+        "bottom": 784.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-brush-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Ball",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Brush teeth",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-brush-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Ball",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Brush teeth",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 774.21875,
+        "bottom": 822.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 774.21875,
+        "bottom": 822.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-brush-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 111.453125,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 82,
+        "top": 702.21875,
+        "bottom": 784.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-breakfast-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Eat breakfast",
+        "width": 160,
+        "height": 120,
+        "top": 615.21875,
+        "bottom": 735.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Toothbrush",
+        "width": 160,
+        "height": 120,
+        "top": 615.21875,
+        "bottom": 735.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 752.21875,
+        "bottom": 800.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 752.21875,
+        "bottom": 800.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-breakfast-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Eat breakfast",
+        "width": 160,
+        "height": 120,
+        "top": 615.21875,
+        "bottom": 735.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Toothbrush",
+        "width": 160,
+        "height": 120,
+        "top": 615.21875,
+        "bottom": 735.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 788.21875,
+        "bottom": 836.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 788.21875,
+        "bottom": 836.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-breakfast-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 111.453125,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 82,
+        "top": 702.21875,
+        "bottom": 784.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-walk-school-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Walk to school",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-walk-school-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 111.453125,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 82,
+        "top": 702.21875,
+        "bottom": 784.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-school-hello-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Wave hello",
+        "width": 160,
+        "height": 112,
+        "top": 615.21875,
+        "bottom": 727.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Greet our teacher",
+        "width": 160,
+        "height": 112,
+        "top": 615.21875,
+        "bottom": 727.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 744.21875,
+        "bottom": 792.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 744.21875,
+        "bottom": 792.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-school-hello-help",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Wave hello",
+        "width": 160,
+        "height": 112,
+        "top": 615.21875,
+        "bottom": 727.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 744.21875,
+        "bottom": 792.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 744.21875,
+        "bottom": 792.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-school-hello-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 111.453125,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 82,
+        "top": 702.21875,
+        "bottom": 784.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-school-help-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Ask our teacher",
+        "width": 160,
+        "height": 112,
+        "top": 615.21875,
+        "bottom": 727.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Try the lunchbox",
+        "width": 160,
+        "height": 112,
+        "top": 615.21875,
+        "bottom": 727.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 744.21875,
+        "bottom": 792.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 744.21875,
+        "bottom": 792.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-school-help-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Ask our teacher",
+        "width": 160,
+        "height": 112,
+        "top": 615.21875,
+        "bottom": 727.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Try the lunchbox",
+        "width": 160,
+        "height": 112,
+        "top": 615.21875,
+        "bottom": 727.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 780.21875,
+        "bottom": 828.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 780.21875,
+        "bottom": 828.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-school-help-help",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Open the lunchbox",
+        "width": 160,
+        "height": 125,
+        "top": 615.21875,
+        "bottom": 740.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 757.21875,
+        "bottom": 805.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 757.21875,
+        "bottom": 805.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-school-help-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 111.453125,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 82,
+        "top": 702.21875,
+        "bottom": 784.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-school-water-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Water",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Ball",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-school-water-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Water",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Ball",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 774.21875,
+        "bottom": 822.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 774.21875,
+        "bottom": 822.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-school-water-help",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Drink water",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-school-water-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 111.453125,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 82,
+        "top": 702.21875,
+        "bottom": 784.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-walk-home-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Walk home",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-walk-home-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 111.453125,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 82,
+        "top": 702.21875,
+        "bottom": 784.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-sleep-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Ball",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Go to sleep",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-sleep-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Ball",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Go to sleep",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 774.21875,
+        "bottom": 822.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 774.21875,
+        "bottom": 822.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-rabbit-sleep-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 111.453125,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 82,
+        "top": 702.21875,
+        "bottom": 784.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-wake-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Wake up",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-wake-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 111.453125,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 82,
+        "top": 702.21875,
+        "bottom": 784.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-brush-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Ball",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Brush teeth",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-brush-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Ball",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Brush teeth",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 774.21875,
+        "bottom": 822.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 774.21875,
+        "bottom": 822.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-brush-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 111.453125,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 82,
+        "top": 702.21875,
+        "bottom": 784.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-breakfast-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Eat breakfast",
+        "width": 160,
+        "height": 120,
+        "top": 615.21875,
+        "bottom": 735.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Toothbrush",
+        "width": 160,
+        "height": 120,
+        "top": 615.21875,
+        "bottom": 735.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 752.21875,
+        "bottom": 800.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 752.21875,
+        "bottom": 800.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-breakfast-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Eat breakfast",
+        "width": 160,
+        "height": 120,
+        "top": 615.21875,
+        "bottom": 735.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Toothbrush",
+        "width": 160,
+        "height": 120,
+        "top": 615.21875,
+        "bottom": 735.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 788.21875,
+        "bottom": 836.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 788.21875,
+        "bottom": 836.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-breakfast-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 111.453125,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 82,
+        "top": 702.21875,
+        "bottom": 784.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-walk-school-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Walk to school",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-walk-school-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 111.453125,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 82,
+        "top": 702.21875,
+        "bottom": 784.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-school-hello-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Wave hello",
+        "width": 160,
+        "height": 112,
+        "top": 615.21875,
+        "bottom": 727.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Greet our teacher",
+        "width": 160,
+        "height": 112,
+        "top": 615.21875,
+        "bottom": 727.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 744.21875,
+        "bottom": 792.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 744.21875,
+        "bottom": 792.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-school-hello-help",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Wave hello",
+        "width": 160,
+        "height": 112,
+        "top": 615.21875,
+        "bottom": 727.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 744.21875,
+        "bottom": 792.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 744.21875,
+        "bottom": 792.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-school-hello-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 111.453125,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 82,
+        "top": 702.21875,
+        "bottom": 784.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-school-help-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Ask our teacher",
+        "width": 160,
+        "height": 112,
+        "top": 615.21875,
+        "bottom": 727.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Try the lunchbox",
+        "width": 160,
+        "height": 112,
+        "top": 615.21875,
+        "bottom": 727.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 744.21875,
+        "bottom": 792.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 744.21875,
+        "bottom": 792.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-school-help-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Ask our teacher",
+        "width": 160,
+        "height": 112,
+        "top": 615.21875,
+        "bottom": 727.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Try the lunchbox",
+        "width": 160,
+        "height": 112,
+        "top": 615.21875,
+        "bottom": 727.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 780.21875,
+        "bottom": 828.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 780.21875,
+        "bottom": 828.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-school-help-help",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Open the lunchbox",
+        "width": 160,
+        "height": 125,
+        "top": 615.21875,
+        "bottom": 740.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 757.21875,
+        "bottom": 805.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 757.21875,
+        "bottom": 805.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-school-help-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 111.453125,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 82,
+        "top": 702.21875,
+        "bottom": 784.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-school-water-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Water",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Ball",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-school-water-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Water",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Ball",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 774.21875,
+        "bottom": 822.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 774.21875,
+        "bottom": 822.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-school-water-help",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Drink water",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-school-water-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 111.453125,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 82,
+        "top": 702.21875,
+        "bottom": 784.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-walk-home-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Walk home",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-walk-home-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 111.453125,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 82,
+        "top": 702.21875,
+        "bottom": 784.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-sleep-prompt",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Ball",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Go to sleep",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 738.21875,
+        "bottom": 786.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-sleep-retry",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "Ball",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "Go to sleep",
+        "width": 160,
+        "height": 106,
+        "top": 615.21875,
+        "bottom": 721.21875,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 117.609375,
+        "height": 48,
+        "top": 774.21875,
+        "bottom": 822.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 774.21875,
+        "bottom": 822.21875,
+        "viewport": 900
+      }
+    ]
+  },
+  {
+    "name": "1200x900-cow-sleep-outcome",
+    "scroll": 0,
+    "overflow": false,
+    "controls": [
+      {
+        "label": "day-back",
+        "width": 100.453125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "stop",
+        "width": 77.125,
+        "height": 44,
+        "top": 96,
+        "bottom": 140,
+        "viewport": 900
+      },
+      {
+        "label": "listen",
+        "width": 111.453125,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "hint",
+        "width": 92.90625,
+        "height": 48,
+        "top": 642.21875,
+        "bottom": 690.21875,
+        "viewport": 900
+      },
+      {
+        "label": "day-next",
+        "width": 190,
+        "height": 82,
+        "top": 702.21875,
+        "bottom": 784.21875,
+        "viewport": 900
+      }
+    ]
+  }
+]

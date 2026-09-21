@@ -38,3 +38,6 @@ settings.limitsEnabled defaults to false and accepts only true as explicit opt-i
 
 ## Installation UI (worker v15)
 `ui/install-view.js` owns optional browser installation UI for chooser and parent settings. It consumes each deferred beforeinstallprompt event once, handles appinstalled/standalone display changes, and uses platform-specific manual help when no native prompt exists. Expanded help, prompt lifecycle and Not now are transient page state; no game save/schema change. The host cancels narration/motion when help is opened. Eligibility updates only the install containers, never the game view.
+
+## View transitions and stale input (worker v16)
+`ui/screen.js` owns renderMain (markup replacement and scroll-to-heading) and onTap (reject detached elements, hidden documents and input behind an open parent dialog). Old activities and day-controller share these helpers; reducer validation remains authoritative for story transitions. School also validates the currently offered option, and actions require the active action screen. No save schema/content/audio changes. CSS bounds short-screen scene sizes to leave space for picture choices, feedback and controls.

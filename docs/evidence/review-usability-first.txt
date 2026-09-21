@@ -1,0 +1,10 @@
+AssertionError [ERR_ASSERTION]: small-school-help: control off-screen {"label":"listen","width":104.3125,"height":45,"top":545.59375,"bottom":590.59375,"viewport":568}
+    at inspect (/Users/manuagrawal/projects/vibe-coding/animal-buddies-public/tests/usability.cjs:9:108)
+    at async /Users/manuagrawal/projects/vibe-coding/animal-buddies-public/tests/usability.cjs:18:49 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

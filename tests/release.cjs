@@ -1,6 +1,6 @@
 const {spawnSync}=require('child_process'),path=require('path'),fs=require('fs');
 const results=[];
-const suites=['state','content','install','free-play','day','familiar','scenes','audit','pilot','daily','language','motion','upgrade'];
+const suites=['state','content','usability','install','free-play','day','familiar','scenes','audit','pilot','daily','language','motion','upgrade'];
 for(const test of suites){
  const r=spawnSync(process.execPath,[path.join(__dirname,test+(['state','content'].includes(test)?'.mjs':'.cjs'))],{env:process.env,encoding:'utf8',timeout:180000});
  const row={test,passed:r.status===0,stdout:r.stdout,stderr:r.stderr,error:r.error?.message};

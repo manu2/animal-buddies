@@ -1,0 +1,1 @@
+PASS usability: 180 screen states, 320x568/360x640/desktop; all gameplay targets at least 44px and visible; scroll resets; all legacy modes; both complete animal days; retries, offline outcome reload, duplicate and detached taps, unchanged saved progress.

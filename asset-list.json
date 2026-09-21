@@ -278,5 +278,6 @@
   "./ui/day-view.js",
   "./ui/familiar-view.js",
   "./ui/install-view.js",
-  "./ui/parent-view.js"
+  "./ui/parent-view.js",
+  "./ui/screen.js"
 ]

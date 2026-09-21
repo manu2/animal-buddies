@@ -13,6 +13,8 @@ const v13={};
 for(const f of Object.keys(v12))try{v13[f]=execFileSync('git',['show','7476872:'+f],{cwd:root,stdio:['pipe','pipe','ignore']});}catch{}
 const v14={};
 for(const f of Object.keys(v13))try{v14[f]=execFileSync('git',['show','64c0425:'+f],{cwd:root,stdio:['pipe','pipe','ignore']});}catch{}
+const v15={};
+for(const f of execFileSync('git',['ls-tree','-r','--name-only','bd37d7a'],{cwd:root,encoding:'utf8'}).trim().split('\n').filter(f=>/\.(js|json|html|css)$/.test(f)&&!f.startsWith('tests/')&&!f.startsWith('docs/')))v15[f]=execFileSync('git',['show','bd37d7a:'+f],{cwd:root});
 let modern=false,revision=0,baseline=old;
 const server=http.createServer((req,res)=>{
  const path=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\//,'')||'index.html';
@@ -87,6 +89,12 @@ const priorInstall=await b.newContext(),installPage=await priorInstall.newPage()
 await installPage.locator('[data-activity=day]').click();await installPage.locator('[data-chapter=morning]').click();await installPage.locator('[data-day-choice=wake]').click();await installPage.locator('#library').click();
 const installBefore=await installPage.evaluate(()=>localStorage.getItem('animal-buddies-v1'));modern=true;const installMoved=installPage.waitForEvent('framenavigated',{predicate:f=>f===installPage.mainFrame(),timeout:60000});await installPage.evaluate(()=>navigator.serviceWorker.getRegistration().then(r=>r.update()));await installMoved;await installPage.locator('#install-home [data-install]').waitFor();
 assert.equal(await installPage.evaluate(()=>localStorage.getItem('animal-buddies-v1')),installBefore);await priorInstall.setOffline(true);await installPage.reload();await installPage.locator('#install-home [data-install]').click();await installPage.locator('#install-home .install-help').waitFor();assert.equal(await installPage.evaluate(()=>localStorage.getItem('animal-buddies-v1')),installBefore);await priorInstall.close();console.log('PASS: actual v14 client upgrades to install help offline, entire game save unchanged');
+
+// Actual v15 pending school step upgrades without a skipped step or changed save.
+baseline=v15;modern=false;
+const priorReview=await b.newContext(),reviewPage=await priorReview.newPage();await reviewPage.goto('http://127.0.0.1:4175/');await reviewPage.locator('#offline-status').filter({hasText:'Ready for offline play'}).waitFor({timeout:60000});
+await reviewPage.locator('[data-activity=day]').click();await reviewPage.locator('.day-practice summary').click();await reviewPage.locator('#school-entry').click();await reviewPage.locator('[data-mission=help]').click();await reviewPage.locator('[data-school-choice=go]').click();const reviewBefore=await reviewPage.evaluate(()=>localStorage.getItem('animal-buddies-v1'));
+modern=true;const reviewMoved=reviewPage.waitForEvent('framenavigated',{predicate:f=>f===reviewPage.mainFrame(),timeout:60000});await reviewPage.evaluate(()=>navigator.serviceWorker.getRegistration().then(r=>r.update()));await reviewMoved;await reviewPage.locator('[data-school-choice=finish]').waitFor();assert.equal(await reviewPage.evaluate(()=>localStorage.getItem('animal-buddies-v1')),reviewBefore);await priorReview.setOffline(true);await reviewPage.reload();await reviewPage.locator('[data-school-choice=finish]').click();await reviewPage.locator('#school-next').waitFor();await priorReview.close();console.log('PASS: actual v15 pending school step preserves the entire save and completes offline after usability update');
 
 // Upgrade the actual previous story engine/schema, not only a synthetic worker.
 baseline=v10;modern=false;

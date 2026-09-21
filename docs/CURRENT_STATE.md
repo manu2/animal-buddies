@@ -1,5 +1,7 @@
 # Current implementation status
-Updated 2026-09-21. Published worker v15 / schema 4, app commit bd37d7a257385f00314e828227b7b614d1af0b6c at https://manu2.github.io/animal-buddies/. All thirteen local suites and public installation/free-play suites passed; actual side-panel shortcut/help verified. Evidence in RELEASES.md.
+Updated 2026-09-21. Candidate worker v16 / schema 4 passed all fourteen local suites, including a 180-state usability walkthrough. Publication/public verification follows in RELEASES.md. Prior public application: v15 / bd37d7a257385f00314e828227b7b614d1af0b6c at https://manu2.github.io/animal-buddies/.
+
+Self-review fixes: main screens open at their heading after scrolled navigation; stale/duplicate choice events cannot affect a replaced screen; short-phone gameplay controls remain visible; original action play has explicit Levels navigation. No new activity, recording, artwork or saved-state migration. Scope, evidence and remaining checks: SELF_REVIEW_2026_09_21.md.
 
 Installation: optional chooser card and parent entry use the native confirmation when eligible, otherwise iPhone Safari/Android browser instructions. No automatic modal; Not now hides the chooser card until reload, standalone app display hides installation UI. Game saves are unchanged. Phone OS installation remains unverified; event/capability paths were simulated in browser tests.
 

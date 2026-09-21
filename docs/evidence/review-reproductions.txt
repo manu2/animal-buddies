@@ -1,0 +1,4 @@
+school lobby scroll 272
+mission scroll 151
+duplicate go phase 2
+stale choice reopens action 1

@@ -1,3 +1,4 @@
+import {renderMain,onTap} from '../ui/screen.js';
 import {DAY,CHAPTERS,storyClips,retryFor} from '../content/day.js';
 import {currentBeat} from './journey.js';
 import {dayLobby,dayScreen} from '../ui/day-view.js';
@@ -7,7 +8,7 @@ export function createDayController(host){
  let screen='lobby',generation=0;
  const cancel=()=>{generation++;host.cancel();};
  const journey=()=>host.read().journey;
- function lobby(){cancel();screen='lobby';host.setScreen('day-lobby');$('main').innerHTML=dayLobby(journey());
+ function lobby(){cancel();screen='lobby';host.setScreen('day-lobby');renderMain(dayLobby(journey()));
   document.querySelectorAll('[data-day-hero]').forEach(el=>el.onclick=()=>{host.send({type:'HERO',hero:el.dataset.dayHero});lobby();host.play([el.dataset.dayHero+'-name']);});
   document.querySelectorAll('[data-day-support]').forEach(el=>el.onclick=()=>{host.send({type:'SUPPORT',support:el.dataset.daySupport});lobby();});
   document.querySelectorAll('[data-chapter]').forEach(el=>el.onclick=()=>{host.send({type:'CHAPTER',node:CHAPTERS.find(c=>c.id===el.dataset.chapter).start,resume:true});begin();});
@@ -16,12 +17,12 @@ export function createDayController(host){
   $('school-entry').onclick=()=>host.schoolPractice(journey().hero);
  }
  async function begin(){cancel();const run=generation,token=host.token();const valid=()=>run===generation&&token===host.token();if(!await host.ensureVisit(valid)||!valid())return;render();narrate();}
- function render(){cancel();screen='beat';host.setScreen('game');$('main').innerHTML=dayScreen(journey());
+ function render(){cancel();screen='beat';host.setScreen('game');renderMain(dayScreen(journey()));
   $('day-back').onclick=()=>{host.send({type:'SETTLE'});if(!host.stopIfExpired())lobby();};
   $('stop').onclick=host.finish;$('listen').onclick=narrate;$('hint').onclick=meaning;
   const b=currentBeat(journey()),at={hero:journey().hero,node:b.node,phase:b.phase};
-  document.querySelectorAll('[data-day-choice]').forEach(el=>el.onclick=()=>choose(el.dataset.dayChoice,at));
-  if($('day-next'))$('day-next').onclick=()=>{cancel();host.send({type:'NEXT',at});if(host.stopIfExpired())return;if(currentBeat(journey()).finished)lobby();else{render();narrate();}};
+  document.querySelectorAll('[data-day-choice]').forEach(el=>onTap(el,()=>choose(el.dataset.dayChoice,at)));
+  onTap($('day-next'),()=>{cancel();host.send({type:'NEXT',at});if(host.stopIfExpired())return;if(currentBeat(journey()).finished)lobby();else{render();narrate();}});
   host.updateTime();
  }
  function choose(choice,at){
